@@ -1,0 +1,110 @@
+/* Fonte */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 376px;
+  background-color: #0c2340;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+  font-family: Montserrat, sans-serif;
+}
+
+.logo {
+  font-size: 96px;
+  font-weight: 900;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  font-weight: 600;
+  align-items: center;
+}
+
+.menu li {
+  font-size: 36px;
+  margin: 12px 0;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.menu li:hover {
+  color: #1e90ff;
+  transform: scale(1.1);
+}
+
+/* Submenu */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submenu-title {
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px
+}
+
+/*seta do submenu*/
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid white;
+  transition: transform 0.3s ease;
+}
+
+/* seta para cima */
+.arrow.up {
+  transform: rotate(180deg);
+}
+
+/* seta para baixo (default) */
+.arrow.down {
+  transform: rotate(0deg);
+}
+
+.submenu-list {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* animação */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+.submenu-list.open {
+  max-height: 200px; /* ajusta conforme nº de itens */
+  opacity: 1;
+}
+
+.submenu-list li {
+  font-size: 24px;
+  color: #ccc;
+  font-weight: 400;
+  margin: 5px 0;
+  transition: color 0.2s;
+}
+
+.submenu-list li:hover {
+  color: white;
+}
