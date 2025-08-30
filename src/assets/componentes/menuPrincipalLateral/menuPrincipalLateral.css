@@ -1,4 +1,4 @@
-/* Fonte */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
 
 .sidebar {
@@ -41,7 +41,7 @@
   transform: scale(1.1);
 }
 
-/* Submenu */
+
 .submenu {
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@
   gap: 8px
 }
 
-/*seta do submenu*/
+
 .arrow {
   display: inline-block;
   width: 0;
@@ -67,12 +67,12 @@
   transition: transform 0.3s ease;
 }
 
-/* seta para cima */
+
 .arrow.up {
   transform: rotate(180deg);
 }
 
-/* seta para baixo (default) */
+
 .arrow.down {
   transform: rotate(0deg);
 }
@@ -85,7 +85,7 @@
   flex-direction: column;
   align-items: center;
 
-  /* animação */
+  
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -93,7 +93,7 @@
 }
 
 .submenu-list.open {
-  max-height: 200px; /* ajusta conforme nº de itens */
+  max-height: 200px;
   opacity: 1;
 }
 
