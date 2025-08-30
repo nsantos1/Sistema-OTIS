@@ -6,7 +6,7 @@ import DashboardPage from './assets/componentes/dashboardPage/dashboardPage';
 import MenuPrincipalLateral from './assets/componentes/menuPrincipalLateral/menuPrincipalLateral';
 import imagemElevador from './assets/images/image 3.png';
 
-// O mockData continua o mesmo, não precisa alterar
+
 const mockData = {
   aprovacao: [
     { id: '#CT-0921', company: 'Construtora Maston', location: 'São Paulo/SP - BR', lastUpdate: '27/08/2025', status: 'Dentro do prazo', statusType: 'ontime', elevatorModel: 'Gen2® Comfort Panorâmico', salesRep: 'João Ricardo', imageUrl: imagemElevador },
@@ -110,7 +110,6 @@ function App() {
   return (
     <div className="app-container">
       <MenuPrincipalLateral />
-      {/* A barra de filtros agora vem ANTES do conteúdo principal */}
       <BarraDeFiltros filters={filters} onFilterChange={setFilters} />
       <div className="main-content">
         <DashboardPage filteredData={filteredData} />
