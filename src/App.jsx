@@ -3,14 +3,13 @@ import MenuPrincipalLateral from './assets/componentes/menuPrincipalLateral/menu
 import BarraDeFiltros from './assets/componentes/barraDeFiltros/barraDeFiltros.jsx';
 import DashboardPage from './assets/componentes/dashboardPage/dashboardPage.jsx';
 
-
 import './App.css'; 
 
 function App() {
   return (
     <div className="app-container">
       
-      
+    
       <MenuPrincipalLateral />
 
       
