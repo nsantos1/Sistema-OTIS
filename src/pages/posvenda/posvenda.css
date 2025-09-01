@@ -1,0 +1,48 @@
+main div {
+    width: 100%;
+}
+
+.legenda {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 60px;
+    color: #485D78;
+
+    padding: 0 23px;
+
+
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 25%);
+    border-radius: 25px;
+}
+
+.legenda .estado-do-chamado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.legenda .estado-do-chamado .bolinha {
+    width: 12px;
+    height: 12px;
+
+    background-color: green;
+    border-radius: 50%;
+}
+
+.legenda .estado-do-chamado .tipo {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.legenda .estado-do-chamado strong {
+    font-weight: bold;
+}
+
+.legenda .estado-do-chamado span {
+    font-weight: 400;
+}
