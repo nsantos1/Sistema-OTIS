@@ -14,8 +14,10 @@ main div {
 
 
     background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 25%);
+    border: 2px solid rgba(0, 0, 0, 25%);
     border-radius: 25px;
+
+    margin-bottom: 34px;
 }
 
 .legenda .estado-do-chamado {
@@ -29,7 +31,6 @@ main div {
     width: 12px;
     height: 12px;
 
-    background-color: green;
     border-radius: 50%;
 }
 
@@ -45,4 +46,20 @@ main div {
 
 .legenda .estado-do-chamado span {
     font-weight: 400;
+}
+
+.em-aberto {
+    background-color: #E9B700;
+}
+
+.em-aberto-mais {
+    background-color: #C70000;
+}
+
+.em-atendimento {
+    background-color: #0003B5;
+}
+
+.resolvido {
+    background-color: #00A100;
 }

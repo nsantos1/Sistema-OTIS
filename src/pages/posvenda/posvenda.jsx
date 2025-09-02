@@ -1,4 +1,3 @@
-import Carrossel from '../../componentes/carrossel/carrossel.jsx'
 import Slider from '../../componentes/slider/slider.jsx'
 import './posvenda.css'
 
@@ -7,7 +6,7 @@ function PosVenda() {
         <main>
             <div className='legenda'>
                 <div className='estado-do-chamado'>
-                    <div className='bolinha'></div>
+                    <div className='bolinha em-aberto'></div>
                     <div className='tipo'>
                         <strong>Em aberto</strong>
                         <span>Menos de 1 dia</span>
@@ -15,7 +14,7 @@ function PosVenda() {
                 </div>
 
                 <div className='estado-do-chamado'>
-                    <div className='bolinha'></div>
+                    <div className='bolinha em-aberto-mais'></div>
                     <div className='tipo'>
                         <strong>Em aberto</strong>
                         <span>Mais de 1 dia</span>
@@ -23,22 +22,23 @@ function PosVenda() {
                 </div>
 
                 <div className='estado-do-chamado'>
-                    <div className='bolinha'></div>
+                    <div className='bolinha em-atendimento'></div>
                     <div className='tipo'>
                         <strong>Em atendimento</strong>
                     </div>
                 </div>
 
                 <div className='estado-do-chamado'>
-                    <div className='bolinha'></div>
+                    <div className='bolinha resolvido'></div>
                     <div className='tipo'>
                         <strong>Resolvido</strong>
                     </div>
                 </div>
             </div>
             <div>
-                <Carrossel />
-                <Slider />
+                <Slider tipoDeChamado={ "Manutencão" } />
+                <Slider tipoDeChamado={ "Suporte" } />
+                <Slider tipoDeChamado={ "Avaliação" } />
             </div>
         </main>
     )
