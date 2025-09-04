@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap");
+
+:root {
+  /* FONTE */
+  --fonte-principal: "Montserrat";
+
+  /* CORES */
+  --cor-principal: #0a2344;
+  --cor-branca: #ffffff;
+  --cor-secundaria: #2a476c;
+  --cor-terciaria: #485d78;
+  --cor-principal-meio-transparente: rgba(10, 35, 68, 0.5);
+  --preto-transparente: rgba(0, 0, 0, 0.25);
+  --cinza-transparente: rgba(162, 168, 175, 0.5);
+  --cinza: #717171;
+  --cinza-claro: #cdcdcd;
+  --cor-background: #f0f0f0;
+  --cinza-branco: #fef7ff;
+}
+
+* {
+  font-family: "Montserrat";
+}

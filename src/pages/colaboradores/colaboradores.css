@@ -1,0 +1,258 @@
+main {
+  display: flex;
+}
+
+/* CABECALHO DO CONTEUDO PRINCIPAL */
+
+.conteudo-principal {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 100vh;
+  margin: 0 0 0 92px;
+  padding-right: 87px;
+  align-items: center;
+}
+
+.cabecalho-colaboradores {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 50px 0 33px 0;
+}
+
+.cabecalho-colaboradores-linha-1 {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.cabecalho-colaboradores-linha-1 hr {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--cinza);
+  border: 0;
+}
+
+.cabecalho-colaboradores-linha-1 h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+.cabecalho-colaboradores-linha-1 button {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--cor-branca);
+  padding: 6px 14px;
+  background-color: var(--cor-principal);
+  border: 0;
+  border-radius: 4px;
+}
+
+.cabecalho-colaboradores-linha-1 button:hover {
+  transition: 0.1s ease;
+  background-color: var(--cor-secundaria);
+}
+
+.cabecalho-colaboradores-linha-2 ul {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+}
+
+.cabecalho-colaboradores-linha-2 li {
+  color: var(--cor-secundaria);
+  font-weight: 600;
+}
+
+.cabecalho-colaboradores-linha-2 ul hr {
+  margin: 0;
+  border: 0;
+  background-color: var(--cinza);
+  width: 1px;
+}
+
+/* SECAO DO CONTEUDO PRINCIPAL */
+
+.secao-colaboradores {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: 50px;
+  row-gap: 25px;
+}
+
+.carregar-mais {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto;
+}
+
+.carregar-mais span {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cor-principal);
+}
+
+/* ===================== */
+/* NOVO: ESTILO DO MODAL */
+/* ===================== */
+
+/* Fundo escurecido */
+.fundo-escuro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+/* Modal principal */
+.modal-conteudo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 600px;
+  max-width: 90%;
+  z-index: 999;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: scaleFadeIn 0.3s forwards;
+}
+
+.modal-conteudo h2 {
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--cor-principal);
+  text-align: center;
+}
+
+/* Botão fechar */
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Foto */
+.foto-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+.foto-placeholder img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto-container span {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--cor-principal);
+}
+
+/* Formulário dividido */
+.modal-form {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.dados-gerais,
+.contato {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dados-gerais h3,
+.contato h3 {
+  font-size: 24px;
+  color: var(--cor-principal);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Inputs e selects */
+input,
+select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-form label {
+  color: var(--cor-principal);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Horário de trabalho */
+.horario-trabalho {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.horario-trabalho input {
+  flex: 1;
+}
+
+/* Botões criar/cancelar */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.criar {
+  background-color: #0d2d56;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancelar {
+  background-color: #ccc;
+  color: #1a1a1a;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ===================== */
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scaleFadeIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

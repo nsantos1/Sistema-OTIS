@@ -1,0 +1,116 @@
+.card-colaborador {
+  width: 252px;
+  height: 363px;
+  background-color: var(--cor-branca);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--preto-transparente);
+  overflow: hidden;
+  font-family: var(--fonte-principal), sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-colaborador:hover {
+  transition: 0.1s ease;
+  transform: scale(1.025);
+}
+
+.colaborador-id {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  color: var(--cinza-transparente);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  z-index: 2;
+}
+
+.card-capa img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+}
+
+.card-perfil {
+  position: absolute;
+  top: 123px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border: 2px solid var(--cor-branca);
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--cinza-claro);
+}
+
+.card-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-conteudo {
+  margin-top: 20px;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.nome-colaborador {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cor-principal);
+  margin-bottom: 3px;
+}
+
+.status {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--cor-branca);
+  padding: 4px 38px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  background-color: var(--cor-principal);
+}
+
+.info-colaborador {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 5px 0;
+  text-align: left;
+}
+
+.info-colaborador li {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--cor-terciaria);
+}
+
+.info-colaborador li strong {
+  color: var(--cor-secundaria);
+  font-weight: 700;
+}
+
+.btn-detalhes {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  font-weight: 900;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-radius: 4px;
+  transition: background-color 0.1s;
+}
+
+.btn-detalhes:hover {
+  background-color: var(--cor-secundaria);
+  cursor: pointer;
+}
