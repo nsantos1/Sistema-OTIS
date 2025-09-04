@@ -1,0 +1,5 @@
+.chat-page-container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}

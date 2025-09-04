@@ -1,0 +1,13 @@
+
+.dashboard-container {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.dashboard-page {
+  width: 100%;
+  overflow-y: auto;
+  padding: 40px;
+  background-color: #ffffff;
+}

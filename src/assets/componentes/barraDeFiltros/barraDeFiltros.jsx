@@ -64,15 +64,15 @@ function BarraDeFiltros({ filters, onFilterChange }) {
       <div className="filter-group">
         <label>Status do contrato</label>
         <div className="checkbox-item">
-          <input type="checkbox" name="ontime" id="dentro-prazo" onChange={handleCheckboxChange} checked={(filters.status || []).includes('ontime')}/>
+          <input type="checkbox" name="ontime" id="dentro-prazo" onChange={handleCheckboxChange} checked={filters.status.includes('ontime')}/>
           <label htmlFor="dentro-prazo">Dentro do prazo</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" name="alert" id="alerta-prazo" onChange={handleCheckboxChange} checked={(filters.status || []).includes('alert')}/>
+          <input type="checkbox" name="alert" id="alerta-prazo" onChange={handleCheckboxChange} checked={filters.status.includes('alert')}/>
           <label htmlFor="alerta-prazo">Alerta de prazo</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" name="late" id="fora-prazo" onChange={handleCheckboxChange} checked={(filters.status || []).includes('late')}/>
+          <input type="checkbox" name="late" id="fora-prazo" onChange={handleCheckboxChange} checked={filters.status.includes('late')}/>
           <label htmlFor="fora-prazo">Fora do prazo</label>
         </div>
       </div>
@@ -81,31 +81,31 @@ function BarraDeFiltros({ filters, onFilterChange }) {
       <div className="filter-group">
         <label>Etapa de instalação</label>
         <div className="checkbox-item">
-          <input type="checkbox" id="aprovacao" name="aprovacao" defaultChecked onChange={handleEtapaCheckboxChange} checked={(filters.etapas || ['aprovacao']).includes('aprovacao')}/>
+          <input type="checkbox" id="aprovacao" name="aprovacao" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('aprovacao')}/>
           <label htmlFor="aprovacao">Aguardando aprovação do contrato</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" id="obra-civil" name="obraCivil" onChange={handleEtapaCheckboxChange} checked={(filters.etapas || []).includes('obraCivil')}/>
+          <input type="checkbox" id="obra-civil" name="obraCivil" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('obraCivil')}/>
           <label htmlFor="obra-civil">Aguardando conclusão da obra civil</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" id="fabricacao" name="fabricacao" onChange={handleEtapaCheckboxChange} checked={(filters.etapas || []).includes('fabricacao')}/>
+          <input type="checkbox" id="fabricacao" name="fabricacao" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('fabricacao')}/>
           <label htmlFor="fabricacao">Em fabricação</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" id="a-caminho" name="aCaminho" onChange={handleEtapaCheckboxChange} checked={(filters.etapas || []).includes('aCaminho')}/>
+          <input type="checkbox" id="a-caminho" name="aCaminho" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('aCaminho')}/>
           <label htmlFor="a-caminho">A caminho</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" id="em-instalacao" name="emInstalacao" onChange={handleEtapaCheckboxChange} checked={(filters.etapas || []).includes('emInstalacao')}/>
+          <input type="checkbox" id="em-instalacao" name="emInstalacao" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('emInstalacao')}/>
           <label htmlFor="em-instalacao">Em instalação</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" id="testes-finais" name="testesFinais" onChange={handleEtapaCheckboxChange} checked={(filters.etapas || []).includes('testesFinais')}/>
+          <input type="checkbox" id="testes-finais" name="testesFinais" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('testesFinais')}/>
           <label htmlFor="testes-finais">Em testes finais</label>
         </div>
         <div className="checkbox-item">
-          <input type="checkbox" id="concluidos" name="concluidos" onChange={handleEtapaCheckboxChange} checked={(filters.etapas || []).includes('concluidos')}/>
+          <input type="checkbox" id="concluidos" name="concluidos" onChange={handleEtapaCheckboxChange} checked={filters.etapas.includes('concluidos')}/>
           <label htmlFor="concluidos">Concluídos</label>
         </div>
       </div>

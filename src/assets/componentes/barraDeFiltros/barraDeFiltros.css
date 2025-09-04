@@ -1,12 +1,11 @@
-
-
 .barra-de-filtros {
   width: 320px;
   background-color: #fff;
-  height: 100vh;
+  /* REMOVIDO: height: 100vh; */
+  /* A altura agora será controlada pelo contêiner flex pai */
   border-right: 1px solid #e2e8f0;
   padding: 30px;
-  overflow-y: auto;
+  overflow-y: auto; /* Permite que a própria barra de filtros role se o conteúdo for longo */
   flex-shrink: 0;
 }
 
@@ -16,9 +15,9 @@
 
 .filter-group > label {
   display: block;
-  font-size: 16px; 
-  font-weight: 700; 
-  color: #2d3748; 
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d3748;
   margin-bottom: 12px;
 }
 
@@ -26,12 +25,12 @@
   width: 100%;
   box-sizing: border-box;
   padding: 10px 15px;
-  border: 1px solid #cbd5e0; 
+  border: 1px solid #cbd5e0;
   background-color: #ffffff;
   color: #2d3748;
-  border-radius: 20px; 
+  border-radius: 20px;
   font-size: 14px;
-  padding-right: 40px; 
+  padding-right: 40px;
 }
 
 .filter-group input[type="text"]:focus {
@@ -70,16 +69,13 @@
   opacity: 1;
 }
 
-
-
 .checkbox-item {
   display: flex;
   align-items: center;
   margin-bottom: 16px;
   cursor: pointer;
-  position: relative; 
+  position: relative;
 }
-
 
 .checkbox-item input[type="checkbox"] {
   opacity: 0;
@@ -88,15 +84,13 @@
   height: 20px;
 }
 
-
 .checkbox-item label {
   font-weight: 500;
   font-size: 14px;
   color: #4a5568;
-  padding-left: 30px; 
+  padding-left: 30px;
   position: relative;
 }
-
 
 .checkbox-item label::before {
   content: '';
@@ -112,7 +106,6 @@
   transition: all 0.2s;
 }
 
-
 .checkbox-item label::after {
   content: '';
   position: absolute;
@@ -123,10 +116,9 @@
   height: 12px;
   border: solid #fff;
   border-width: 0 2px 2px 0;
-  opacity: 0; 
+  opacity: 0;
   transition: opacity 0.2s;
 }
-
 
 .checkbox-item input:checked + label::before {
   background-color: #3182CE;
@@ -134,7 +126,7 @@
 }
 
 .checkbox-item input:checked + label::after {
-  opacity: 1; 
+  opacity: 1;
 }
 
 .checkbox-item:hover label::before {
