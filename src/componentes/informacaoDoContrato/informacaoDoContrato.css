@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
+
+.info-contrato {
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #e1e6ef;
+  padding: 20px;
+  margin: 20px 24px;
+  font-family: Montserrat, sans-serif;
+}
+
+.info-contrato h3 {
+  margin: 0 0 16px;
+  color: #0c2340;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #e6ebf2;
+  padding-bottom: 6px;
+}
+
+/* grid com 3 colunas */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.info-texto p {
+  margin: 6px 0;
+  color: #0A2344BF;
+  line-height: 1.4;
+  font-size: 24px;
+  font-family: Montserrat, sans-serif;;
+}
+
+.info-texto strong {
+  color: #0a2344;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: Montserrat, sans-serif;
+}
+
+/* caixas */
+.info-box {
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  margin-bottom: 10px;
+}
+
+.info-box.verde {
+  background: #2da872;
+}
+
+.info-box.cinza {
+  background: #f3f6fb;
+  border: 1px solid #d6dde6;
+}
+
+/* infos extras */
+.info-extra {
+  font-size: 14px;
+}
+
+.info-extra p {
+  margin: 6px 0;
+  color: #0A2344BF;
+  line-height: 1.4;
+  font-size: 18px;
+  font-family: Montserrat, sans-serif;
+}
+
+.info-extra strong {
+  color: #0a2344;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: Montserrat, sans-serif;
+  display: block;
+}
+
+/* etapas */
+.etapas {
+  margin-top: 24px;
+}
+
+.etapas h4 {
+  margin-bottom: 16px;
+  font-size: 28px;
+  color: #0a2344;
+  font-weight: bold;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #d6dde6;
+  z-index: 0;
+}
+
+.step {
+  position: relative;
+  text-align: center;
+  font-size: 22px;
+  flex: 1;
+  color: #0A2344BF;
+}
+
+.step::before {
+  content: "";
+  display: block;
+  margin: 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #d6dde6;
+  border: 2px solid #d6dde6;
+  z-index: 1;
+  position: relative;
+}
+
+.step.completed {
+  color: #0c2340;
+  font-weight: 700;
+}
+
+.step.completed::before {
+  background: #0c2340;
+  border-color: #0c2340;
+}
