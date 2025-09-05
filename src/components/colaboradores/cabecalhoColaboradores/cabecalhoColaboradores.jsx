@@ -1,6 +1,12 @@
 import "./cabecalhoColaboradores.css";
 
-export default function CabecalhoColaboradores({ btFunc }) {
+export default function CabecalhoColaboradores({
+  btFunc,
+  totalColaboradores,
+  colaboradoresAtivos,
+  colaboradoresTreinamento,
+  colaboradoresInativos,
+}) {
   return (
     <div className="cabecalho-colaboradores">
       <div className="cabecalho-colaboradores-linha-1">
@@ -9,14 +15,14 @@ export default function CabecalhoColaboradores({ btFunc }) {
         <button onClick={btFunc}>NOVO COLABORADOR</button>
       </div>
       <div className="cabecalho-colaboradores-linha-2">
-        <ul>
-          <li>Total: 128</li>
+        <ul className="status-colaboradores">
+          <li>Total: {totalColaboradores}</li>
           <hr />
-          <li>Ativos: 98</li>
+          <li>Ativos: {colaboradoresAtivos}</li>
           <hr />
-          <li>Em treinamento: 30</li>
+          <li>Em treinamento: {colaboradoresTreinamento}</li>
           <hr />
-          <li>Inativos: 20</li>
+          <li>Inativos: {colaboradoresInativos}</li>
         </ul>
       </div>
     </div>

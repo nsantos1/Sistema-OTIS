@@ -17,16 +17,32 @@ export default function Colaboradores() {
       <Sidebar />
       <BarraDeFiltros />
       <div className="conteudo-principal">
-        <CabecalhoColaboradores btFunc={abrirModal} />
+        <CabecalhoColaboradores
+          btFunc={abrirModal}
+          totalColaboradores={"128"}
+          colaboradoresAtivos={"98"}
+          colaboradoresTreinamento={"30"}
+          colaboradoresInativos={"20"}
+        />
 
         <div className="secao-colaboradores">
           <CardColaborador
             id={"#FO-303030"}
             nome={"João Ricardo"}
-            status={"ativo"}
+            status={"em treinamento"}
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
+          />
+          <CardColaborador
+            id={"#FO-303030"}
+            nome={"João Ricardo"}
+            status={"inativo"}
+            cargo={"Operário"}
+            setor={"Fábrica"}
+            supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -35,6 +51,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -43,6 +60,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -51,6 +69,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -59,6 +78,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -67,6 +87,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -75,6 +96,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -83,6 +105,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -91,6 +114,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -99,6 +123,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
           <CardColaborador
             id={"#FO-303030"}
@@ -107,14 +132,7 @@ export default function Colaboradores() {
             cargo={"Operário"}
             setor={"Fábrica"}
             supervisor={"Nicolas Santos"}
-          />
-          <CardColaborador
-            id={"#FO-303030"}
-            nome={"João Ricardo"}
-            status={"ativo"}
-            cargo={"Operário"}
-            setor={"Fábrica"}
-            supervisor={"Nicolas Santos"}
+            linkto={"/detalhesColaborador"}
           />
         </div>
 
@@ -130,7 +148,7 @@ export default function Colaboradores() {
 
             <div className="foto-container">
               <div className="foto-placeholder">
-                <img src="src\assets\img\person.svg" alt="" />
+                <img src="../src/assets/img/person.svg" alt="" />
               </div>
               <span>Adicionar foto</span>
             </div>
