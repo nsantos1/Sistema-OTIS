@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import BarraDeFiltros from "../../components/barraDeFiltros/barraDeFiltros";
-import CardColaborador from "../../components/cardColaborador/cardColaborador";
+import CardColaborador from "../../components/colaboradores/cardColaborador/cardColaborador";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 import "./colaboradores.css";
+import CarregarMais from "../../components/carregarMais/carregarMais";
+import CabecalhoColaboradores from "../../components/colaboradores/cabecalhoColaboradores/cabecalhoColaboradores";
 
 export default function Colaboradores() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,24 +17,7 @@ export default function Colaboradores() {
       <Sidebar />
       <BarraDeFiltros />
       <div className="conteudo-principal">
-        <div className="cabecalho-colaboradores">
-          <div className="cabecalho-colaboradores-linha-1">
-            <h1>Gestão de colaboradores</h1>
-            <hr />
-            <button onClick={abrirModal}>NOVO COLABORADOR</button>
-          </div>
-          <div className="cabecalho-colaboradores-linha-2">
-            <ul>
-              <li>Total: 128</li>
-              <hr />
-              <li>Ativos: 98</li>
-              <hr />
-              <li>Em treinamento: 30</li>
-              <hr />
-              <li>Inativos: 20</li>
-            </ul>
-          </div>
-        </div>
+        <CabecalhoColaboradores btFunc={abrirModal} />
 
         <div className="secao-colaboradores">
           <CardColaborador
@@ -133,10 +118,7 @@ export default function Colaboradores() {
           />
         </div>
 
-        <div className="carregar-mais">
-          <span>Carregar mais colaboradores</span>
-          <img src="src/assets/img/arrow_drop_down.svg" alt="" />
-        </div>
+        <CarregarMais item={"colaboradores"} />
       </div>
 
       {isModalOpen && (
