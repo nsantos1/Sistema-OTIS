@@ -13,7 +13,7 @@ export default function Colaboradores() {
   const fecharModal = () => setIsModalOpen(false);
 
   return (
-    <main>
+    <main className="main-colaboradores">
       <Sidebar />
       <BarraDeFiltros />
       <div className="conteudo-principal">

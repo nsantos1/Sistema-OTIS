@@ -1,4 +1,4 @@
-main {
+.main-colaboradores {
   display: flex;
   background-color: var(--cor-background);
 }
@@ -124,8 +124,8 @@ main {
 }
 
 /* Inputs e selects */
-input,
-select {
+.modal-form input,
+.modal-form select {
   padding: 6px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
