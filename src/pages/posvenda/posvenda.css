@@ -63,3 +63,12 @@ main div {
 .resolvido {
     background-color: #00A100;
 }
+
+.container {
+    display: flex;
+    gap: 42px;
+}
+
+.conteudo-posvenda {
+    width: fit-content;
+}

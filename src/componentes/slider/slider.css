@@ -72,7 +72,8 @@
 .card-item {
     display: flex;
     flex-direction: column;
-    width: 298px;
+    box-sizing: border-box;
+    width: 314px;
     height: fit-content;
 
     color: #0A2344;

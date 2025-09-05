@@ -1,6 +1,6 @@
 import './App.css'
 import Sidebar from './componentes/menuPrincipalLateral/menuPrincipalLateral'
-import PosVenda from './pages/posvenda/posvenda'
+import Rotas from './rotas'
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
     <div className='app-container'>
       <Sidebar />
       <div className='main-container'>
-        <PosVenda />
+        <Rotas />
       </div>
     </div>
     </>

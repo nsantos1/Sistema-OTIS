@@ -1,96 +1,33 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import './slider.css'
 
-export default function Slider({ tipoDeChamado }) {
+export default function Slider({ tituloTipoDeChamado, slides }) {
     const [index, setIndex] = useState(0)
 
+    // arredonda para multiplos de 3 já que exibe 3 slides por vez
+    const lengthArredondada = Math.ceil(slides.length / 3) * 3;
+
     const prev = () => {
-        setIndex((prev) => (prev - 1  + slides.length) % (slides.length / 3))
+        setIndex((prev) => (prev - 1  + lengthArredondada) % (lengthArredondada / 3))
     }
 
     const next = () => {
-        setIndex((prev) => (prev + 1) % (slides.length / 3))
+        setIndex((prev) => (prev + 1) % (lengthArredondada / 3))
     }
 
-    const slides = [
-        {
-            codigo: "#CT-0921",
-            tipo: "Manutenção",
-            titulo: "Elevador Travando no 2º andar",
-            descricao: "Cliente relatava travamento intermitente após horário de pico.",
-            estado: "Em aberto",
-            estadoClasse: "em-aberto-mais",
-            autor: "João Ricardo",
-            empresa: "Contrutora Maston",
-            data: "27/08/2025",
-            local: "São Paulo/SP",
-        },
-        {
-            codigo: "#CT-0922",
-            tipo: "Manutenção",
-            titulo: "Elevador Travando no 2º andar",
-            descricao: "Cliente relatava travamento intermitente após horário de pico.",
-            estado: "Em aberto",
-            estadoClasse: "em-aberto",
-            autor: "Eduardo Bielecky",
-            empresa: "Contrutora Maston",
-            data: "27/08/2025",
-            local: "São Paulo/SP",
-        },
-        {
-            codigo: "#CT-0923",
-            tipo: "Manutenção",
-            titulo: "Elevador Travando no 2º andar",
-            descricao: "Cliente relatava travamento intermitente após horário de pico.",
-            estado: "Em atendimento",
-            estadoClasse: "em-atendimento",
-            autor: "João Ricardo",
-            empresa: "Contrutora Maston",
-            data: "27/08/2025",
-            local: "São Paulo/SP",
-        },
-        {
-            codigo: "#CT-0924",
-            tipo: "Manutenção",
-            titulo: "Elevador Travando no 2º andar",
-            descricao: "Cliente relatava travamento intermitente após horário de pico.",
-            estado: "Resolvido",
-            estadoClasse: "resolvido",
-            autor: "João Ricardo",
-            empresa: "Contrutora Maston",
-            data: "27/08/2025",
-            local: "São Paulo/SP",
-        },
-        {
-            codigo: "#CT-0925",
-            tipo: "Manutenção",
-            titulo: "Elevador Travando no 2º andar",
-            descricao: "Cliente relatava travamento intermitente após horário de pico.",
-            estado: "Resolvido",
-            estadoClasse: "resolvido",
-            autor: "João Ricardo",
-            empresa: "Contrutora Maston",
-            data: "20/08/2025",
-            local: "São Paulo/SP",
-        },
-        {
-            codigo: "#CT-0926",
-            tipo: "Manutenção",
-            titulo: "Elevador Travando no 2º andar",
-            descricao: "Cliente relatava travamento intermitente após horário de pico.",
-            estado: "Em Atendimento",
-            estadoClasse: "em-atendimento",
-            autor: "João Ricardo",
-            empresa: "Contrutora Maston",
-            data: "22/08/2025",
-            local: "São Paulo/SP",
-        },
-    ]
+    const tituloEstado = {
+        "em-aberto": "Em aberto",
+        "em-aberto-mais": "Em aberto",
+        "em-atendimento": "Em atendimento", 
+        "resolvido": "Resolvido",
+    }
 
     return (
         <>
             <div className="superior">
-                <div className='tipo-de-chamado'>{tipoDeChamado}</div>
+                <div className='tipo-de-chamado'>{tituloTipoDeChamado}</div>
                 <div className='linha'></div>
                 <button className="ver-todos">Ver Todos</button>
             </div>
@@ -109,13 +46,13 @@ export default function Slider({ tipoDeChamado }) {
                                 <li key={i} className="card-item">
                                     <div className="badges">
                                         <div className="codigo">
-                                            {slide.codigo}
+                                            #{slide.id}
                                         </div>
                                         <div className="tipo-badge">
-                                            {slide.tipo}
+                                            {tituloTipoDeChamado}
                                         </div>
-                                        <div className={`estado-badge ${slide.estadoClasse}`}>
-                                            {slide.estado}
+                                        <div className={`estado-badge ${slide.estado}`}>
+                                            {tituloEstado[slide.estado]}
                                         </div>
                                     </div>
 
@@ -123,7 +60,7 @@ export default function Slider({ tipoDeChamado }) {
                                         {slide.titulo}
                                     </span>
                                     <span className="descricao">
-                                        {slide.descricao}
+                                        {slide.relato}
                                     </span>
 
                                     <div className="linha-divisao"></div>
@@ -131,14 +68,14 @@ export default function Slider({ tipoDeChamado }) {
                                     <div className="informacoes">
                                         <div className="autor">
                                             <div className="inicial">
-                                                {slide.autor.charAt(0)}
+                                                {slide.salesRep.charAt(0)}
                                             </div>
                                             <div className="dados-cliente">
                                                 <div className="nome">
-                                                    {slide.autor}
+                                                    {slide.salesRep}
                                                 </div>
                                                 <div className="empresa">
-                                                    {slide.empresa}
+                                                    {slide.company}
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +97,9 @@ export default function Slider({ tipoDeChamado }) {
                                         </div>
                                     </div>
 
-                                    <button className="ver-detalhes">VER DETALHES DO CHAMADO</button>
+                                    <Link to={`/pos-venda/detalhes/${slide.id}`}>
+                                        <button className="ver-detalhes">VER DETALHES DO CHAMADO</button>
+                                    </Link>
                                 </li>
                             ))}                                           
                         </ul>
