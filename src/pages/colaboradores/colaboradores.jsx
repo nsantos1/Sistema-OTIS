@@ -1,10 +1,10 @@
 import { useState } from "react";
-import BarraDeFiltros from "../../components/barraDeFiltros/barraDeFiltros";
 import CardColaborador from "../../components/colaboradores/cardColaborador/cardColaborador";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 import "./colaboradores.css";
 import CarregarMais from "../../components/carregarMais/carregarMais";
 import CabecalhoColaboradores from "../../components/colaboradores/cabecalhoColaboradores/cabecalhoColaboradores";
+import BarraDeFiltros from "../../components/barraDeFiltros/barraDeFiltros";
 
 export default function Colaboradores() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,7 +15,6 @@ export default function Colaboradores() {
   return (
     <main className="main-colaboradores">
       <Sidebar />
-      <BarraDeFiltros />
       <div className="conteudo-principal">
         <CabecalhoColaboradores
           btFunc={abrirModal}

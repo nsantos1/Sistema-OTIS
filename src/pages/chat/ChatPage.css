@@ -1,14 +1,10 @@
-.app-container {
+.main-chatpage {
   display: flex;
   height: 100vh;
-  background-color: #f7fafc;
-  
-  overflow: hidden;
 }
 
-.main-content {
+.chat-page-container {
   display: flex;
   flex-grow: 1;
-  
   overflow: hidden;
 }
