@@ -1,221 +1,203 @@
-:root {
-  --primary-color: #0A2344;
-  --secondary-color: #1a426f;
-  --text-dark: #212529;
-  --text-medium: #343a40;
-  --text-light: #6c757d;
-  --bg-light: #f8f9fa;
-  --border-color: #e9ecef;
-  --input-bg: #ffffff;
-  --input-border: #ced4da;
-  --font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --required-color: #dc3545;
-}
-
-* {
+/* Estilos globais para o corpo da página e centralização */
+.page-body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-family);
-  background: var(--primary-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f3f4f6; /* Cor de fundo cinza claro */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 0;
+  min-height: 100vh; /* Garante que o corpo ocupe a altura total da tela */
 }
 
+/* Container do formulário para o fundo branco e sombra */
 .login-container {
-  background-color: white;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  animation: fadeIn 0.8s ease-in-out;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff; /* Fundo branco para o container */
+  border-radius: 12px; /* Borda arredondada */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra suave */
+  padding: 2.5rem;
+  box-sizing: border-box; /* Garante que o padding seja incluído no tamanho total */
 }
 
+/* Estilos para o cabeçalho "Bem vindo(a) a OTIS" */
 .login-header {
-  background: var(--bg-light);
-  padding: 40px 30px;
   text-align: center;
-  border-bottom: 1px solid var(--border-color);
-  flex-shrink: 0;
+  margin-bottom: 2rem;
 }
 
-.logo {
-  color: var(--primary-color);
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 0;
-  text-transform: uppercase;
-}
-
-.welcome-text {
-  color: var(--text-dark);
+.login-header-title {
   font-size: 1.6rem;
-  font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 5px;
-  line-height: 1.2;
-}
-
-.subtitle {
-  color: var(--text-medium);
-  font-size: 1rem;
-}
-
-.login-form {
-  padding: 40px 30px;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.form-group label .required {
-  color: var(--required-color);
   font-weight: 700;
-  margin-left: 2px;
+  color: #1f2937;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 16px;
-  border: 2px solid var(--input-border);
-  border-radius: 8px;
-  font-size: 1rem;
-  color: var(--text-dark);
-  background-color: var(--input-bg);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.login-header-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Estilos dos campos de entrada */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
   font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
 }
 
-.form-group input::placeholder {
-  color: #495057;
-  opacity: 1;
-  font-weight: 400;
+.input-wrapper {
+  position: relative;
 }
 
-.form-group input:focus {
-  border-color: var(--primary-color);
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(10, 35, 68, 0.2);
-}
-
-.btn-login {
+.form-input {
   width: 100%;
-  padding: 16px;
-  background: var(--primary-color);
-  color: white;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem; /* Espaço para o ícone */
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #1f2937;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.input-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #9ca3af;
+  pointer-events: none; /* Garante que o ícone não atrapalhe o clique no input */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
   border: none;
-  border-radius: 8px;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* Estilos das opções (lembrar de mim, esqueci a senha) */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  accent-color: #4f46e5; /* Cor da caixa de seleção */
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: #4f46e5;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.forgot-password:hover {
+  color: #312e81;
+}
+
+/* Estilos do botão de login */
+.login-button {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #4f46e5; /* Cor do botão */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.2s, opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
-.btn-login:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  background: var(--secondary-color);
+.login-button:hover:not(:disabled) {
+  background-color: #312e81;
 }
 
-.login-footer {
-  text-align: center;
-  padding: 25px;
-  color: var(--text-medium);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--border-color);
-  flex-shrink: 0;
+.login-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
-.login-footer a {
-  color: var(--primary-color);
-  text-decoration: none;
+/* Estilos do spinner de carregamento */
+.loading-spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Estilos para as credenciais */
+.demo-credentials {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #0c4a6e;
+}
+
+.demo-credentials-item {
+  margin: 0.2rem 0;
+}
+
+.demo-credentials-label {
   font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.login-footer a:hover {
-  color: var(--secondary-color);
-  text-decoration: underline;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@media (min-width: 768px) {
-  .login-container {
-    max-width: 450px;
-    min-height: auto;
-    border-radius: 16px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    margin: 20px;
-  }
-  
-  body {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-header {
-    padding: 30px 20px;
-  }
-  
-  .logo {
-    font-size: 2.5rem;
-  }
-  
-  .welcome-text {
-    font-size: 1.4rem;
-  }
-  
-  .login-form {
-    padding: 30px 20px;
-  }
-  
-  .login-footer {
-    padding: 20px;
-  }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-  .login-container {
-    min-height: auto;
-  }
-  
-  .login-header {
-    padding: 20px;
-  }
-  
-  .login-form {
-    padding: 20px;
-  }
 }

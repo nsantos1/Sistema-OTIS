@@ -1,99 +1,142 @@
-import React, { useReducer } from "react";
-import "./style.css";
+import { useState } from 'react'
+import './style.css'
 
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case "SET_FIELD":
-      return {
-        ...state,
-        [action.field]: action.value,
-      };
-    case "SET_ERROR":
-      return {
-        ...state,
-        error: action.error,
-      };
-    case "CLEAR_ERROR":
-      return {
-        ...state,
-        error: "",
-      };
-    default:
-      return state;
+function Login () {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+  const [isLoading, setIsLoading] = useState(false)
+  const [rememberMe, setRememberMe] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
-};
 
-const initialState = {
-  username: "",
-  password: "",
-  error: "",
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
 
-export default function Login() {
-  const [state, dispatch] = useReducer(formReducer, initialState);
-
-  const { username, password, error } = state;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch({ type: "CLEAR_ERROR" });
-
-    if (!username || !password) {
-      dispatch({ type: "SET_ERROR", error: "Por favor, preencha todos os campos." });
-      return;
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      // Simulate login logic
+      if (formData.email === 'admin@otis.com' && formData.password === '123456') {
+        alert('Login realizado com sucesso!')
+      } else {
+        alert('Email ou senha incorretos')
+      }
+    } catch (error) {
+      alert('Erro ao fazer login. Tente novamente.')
+    } finally {
+      setIsLoading(false)
     }
+  }
 
-    console.log("Tentando login com:", { username, password });
-    
-    setTimeout(() => {
-        console.log("Login realizado com sucesso! Redirecionando...");
-    }, 1000);
-  };
+  const handleForgotPassword = () => {
+    alert('Link de recuperação enviado para seu email')
+  }
 
   return (
     <div className="login-container">
       <div className="login-header">
-        <div className="logo">OTIS</div>
-        <h1 className="welcome-text">Bem-vindo(a) à OTIS</h1>
-        <p className="subtitle">Vamos fazer seu login</p>
+        <h1 className="login-header-title">Bem vindo(a) a<br/>OTIS</h1>
+        <p className="login-header-subtitle">Vamos fazer seu login</p>
       </div>
 
       <form className="login-form" onSubmit={handleSubmit}>
-        {error && <p className="error-message">{error}</p>}
         <div className="form-group">
-          <label htmlFor="username">Usuário</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => dispatch({ type: "SET_FIELD", field: "username", value: e.target.value })}
-            placeholder="Digite seu usuário"
-            required
-          />
+          <label htmlFor="email" className="form-label">Usuário</label>
+          <div className="input-wrapper">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-input"
+              placeholder="Digite seu usuário"
+              value={formData.email}
+              onChange={handleInputChange}
+              disabled={isLoading}
+            />
+            <span className="input-icon">📧</span>
+          </div>
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => dispatch({ type: "SET_FIELD", field: "password", value: e.target.value })}
-            placeholder="Digite sua senha"
-            required
-          />
+          <label htmlFor="password" className="form-label">Senha</label>
+          <div className="input-wrapper">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              name="password"
+              className="form-input"
+              placeholder="Digite sua senha"
+              value={formData.password}
+              onChange={handleInputChange}
+              disabled={isLoading}
+            />
+            <button
+              type="button"
+              className="password-toggle"
+              onClick={() => setShowPassword(!showPassword)}
+              disabled={isLoading}
+            >
+              {showPassword ? '👁️' : '👁️‍🗨️'}
+            </button>
+          </div>
         </div>
 
-        <button type="submit" className="btn-login">
-          Entrar
+        <div className="form-options">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              className="checkbox-input"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+              disabled={isLoading}
+            />
+            <span className="checkbox-custom"></span>
+            Lembrar de mim
+          </label>
+
+          <button
+            type="button"
+            className="forgot-password"
+            onClick={handleForgotPassword}
+            disabled={isLoading}
+          >
+            Esqueceu a senha?
+          </button>
+        </div>
+
+        <button
+          type="submit"
+          className={`login-button ${isLoading ? 'loading' : ''}`}
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <>
+              <span className="loading-spinner"></span>
+              Entrando...
+            </>
+          ) : (
+            'Entrar'
+          )}
         </button>
-      </form>
 
-      <div className="login-footer">
-        <p>
-          Problemas para acessar? <a href="#">Recuperar senha</a>
-        </p>
-      </div>
+        <div className="demo-credentials">
+          <p className="demo-credentials-item">
+            <strong className="demo-credentials-label">Credenciais de demonstração:</strong>
+          </p>
+          <p className="demo-credentials-item">Email: admin@otis.com</p>
+          <p className="demo-credentials-item">Senha: 123456</p>
+        </div>
+      </form>
     </div>
-  );
+  )
 }
+
+export default Login;
