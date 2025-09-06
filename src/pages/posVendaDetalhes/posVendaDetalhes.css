@@ -5,6 +5,10 @@ main h4 {
     color: #0A2344;
 }
 
+main div {
+    width: 100%;
+}
+
 .cabecalho {
     width: 451px;
     margin-bottom: 25px;

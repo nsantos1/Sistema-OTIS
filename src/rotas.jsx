@@ -1,6 +1,6 @@
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 
-import PosVenda from "./pages/posvenda/posvenda";
+import PosVenda from "./pages/posVenda/posVenda";
 import PosVendaDetalhes from "./pages/posVendaDetalhes/posVendaDetalhes";
 
 const Rotas = () => {
