@@ -7,6 +7,7 @@
   padding: 30px;
   overflow-y: auto; /* Permite que a própria barra de filtros role se o conteúdo for longo */
   flex-shrink: 0;
+  font-family: var(--fonte-principal);
 }
 
 .filter-group {
