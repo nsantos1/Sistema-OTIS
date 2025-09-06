@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import Colaboradores from "./pages/colaboradores/colaboradores";
 
 function App() {
-
   return (
-    
+    <Colaboradores />
   );
 }
 
-export default App
+export default App;
