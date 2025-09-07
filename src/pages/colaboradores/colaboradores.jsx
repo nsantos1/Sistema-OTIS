@@ -10,7 +10,7 @@ import Treinamentos from "../../componentes/treinamentoRegistro/treinamentoRegis
 
 export default function Colaboradores() {
   return (
-    <div className="detalhes-contrato">
+    <div className="detalhes-colaborador">
       <div className="colab-header">
         <ColaboradorHeader />
       </div>

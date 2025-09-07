@@ -7,7 +7,7 @@ body {
   padding: 0;
 }
 
-.detalhes-contrato {
+.detalhes-colaborador {
   display: grid;
   grid-template-columns: 2fr 2fr 1.5fr; /* esquerda, meio, direita */
   grid-template-areas:

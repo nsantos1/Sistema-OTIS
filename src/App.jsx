@@ -10,6 +10,7 @@ function App() {
     <div className='app-container'>
       <Sidebar />
       <div className='main-container'>
+        <DetalhesDoContrato />
         <DetalhesDoColaborador />
       </div>
     </div>
