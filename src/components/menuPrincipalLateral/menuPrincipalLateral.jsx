@@ -12,7 +12,9 @@ export default function Sidebar() {
         <h1 className="logo">OTIS</h1>
         <hr />
         <ul className="menu">
-          <li>Dashboard</li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
           <li>Vendas</li>
           <li>
             <Link to="/instalacoes">Instalações</Link>
@@ -26,9 +28,11 @@ export default function Sidebar() {
               Canal Interno
             </span>
             <ul className={`submenu-list ${submenuOpen ? "open" : ""}`}>
-              <li>Mural de feedback</li>
               <li>
-                <Link to="/canal-interno">Chats</Link>
+                <Link to="/canal-interno/mural-de-feedback">Mural de Feedback</Link>
+              </li>
+              <li>
+                <Link to="/canal-interno/chats">Chats</Link>
               </li>
             </ul>
           </li>
