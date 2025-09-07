@@ -41,14 +41,23 @@ function MuralDeFeedback() {
         isRead: 'todos'
     });
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [readStatus, setReadStatus] = useState({});
+
+    const handleToggleRead = (id) => {
+        setReadStatus(prev => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
 
     const filteredFeedbacks = feedbackMockData.filter(item => {
         const authorMatch = filters.authorName ? item.authorName.toLowerCase().includes(filters.authorName.toLowerCase()) : true;
         const messageMatch = filters.message ? item.message.toLowerCase().includes(filters.message.toLowerCase()) : true;
         const setorMatch = filters.setor && filters.setor.length > 0 ? filters.setor.some(s => item.authorRole.toLowerCase().includes(s.toLowerCase())) : true;
         const urgentMatch = filters.isUrgent === 'sim' ? item.isUrgent : filters.isUrgent === 'nao' ? !item.isUrgent : true;
+        const readMatch = filters.isRead === 'sim' ? readStatus[item.id] : filters.isRead === 'nao' ? !readStatus[item.id] : true;
 
-        return authorMatch && messageMatch && setorMatch && urgentMatch;
+        return authorMatch && messageMatch && setorMatch && urgentMatch && readMatch;
     });
 
     return (
@@ -69,7 +78,12 @@ function MuralDeFeedback() {
                     </header>
                     <div className="feedback-grid">
                         {filteredFeedbacks.map(feedback => (
-                            <FeedbackCard key={feedback.id} {...feedback} />
+                            <FeedbackCard 
+                                key={feedback.id} 
+                                {...feedback} 
+                                isRead={!!readStatus[feedback.id]}
+                                onToggleRead={() => handleToggleRead(feedback.id)}
+                            />
                         ))}
                     </div>
                 </div>

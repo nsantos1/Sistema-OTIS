@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import './feedbackCard.css';
 import { FaCheck, FaThumbsUp, FaComment, FaExclamationTriangle } from "react-icons/fa";
 
-function FeedbackCard({ authorName, authorRole, authorAvatar, timestamp, isUrgent, message, likes, comments }) {
-  const [isRead, setIsRead] = useState(false);
+function FeedbackCard({ id, authorName, authorRole, authorAvatar, timestamp, isUrgent, message, likes, comments, isRead, onToggleRead }) {
   const [likeCount, setLikeCount] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
-
-  const initial = authorName ? authorName.charAt(0) : '';
 
   const handleLike = () => {
       if(isLiked) {
@@ -46,14 +43,14 @@ function FeedbackCard({ authorName, authorRole, authorAvatar, timestamp, isUrgen
             </button>
         </div>
         <label
-          htmlFor={`read-checkbox-${timestamp}-${authorName}`}
+          htmlFor={`read-checkbox-${id}`}
           className={`read-confirmation ${isRead ? 'read' : ''}`}
         >
           <input
-            id={`read-checkbox-${timestamp}-${authorName}`}
+            id={`read-checkbox-${id}`}
             type="checkbox"
             checked={isRead}
-            onChange={() => setIsRead(!isRead)}
+            onChange={onToggleRead}
           />
           <span className="custom-checkbox">
             {isRead && <FaCheck />}
