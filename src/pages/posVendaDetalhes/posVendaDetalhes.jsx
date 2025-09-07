@@ -42,22 +42,22 @@ const descricaoData = [
 ];
 
 const fotosData = [
-    { id: 'CT-0921', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0922', fotos: [ '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0923', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0924', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0925', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0926', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0927', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0928', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0929', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0930', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0931', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0932', fotos: [ '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0933', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0934', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0935', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
-    { id: 'CT-0936', fotos: [ '/src/assets/img/Foto_painel_travado.jpg', '/src/assets/img/Foto_painel_travado.jpg' ] },
+    { id: 'CT-0921', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0922', fotos: [ '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0923', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0924', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0925', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0926', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0927', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0928', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0929', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0930', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0931', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0932', fotos: [ '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0933', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0934', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0935', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
+    { id: 'CT-0936', fotos: [ '/src/assets/img/foto_painel_travado.jpg', '/src/assets/img/foto_painel_travado.jpg' ] },
 ];
 
 const updateData = [

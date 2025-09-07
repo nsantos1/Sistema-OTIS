@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import ConversationsList from '../../components/chat/ConversationsList';
-import ChatWindow from '../../components/chat/ChatWindow';
-import ChatPlaceholder from '../../components/chat/ChatPlaceholder';
+import ConversationsList from '../../components/chat/conversationsList';
+import ChatWindow from '../../components/chat/chatWindow';
+import ChatPlaceholder from '../../components/chat/chatPlaceholder';
 import { chatData } from '../../assets/data/chatData';
-import './ChatPage.css';
+import './chatPage.css';
 import Sidebar from '../../components/menuPrincipalLateral/menuPrincipalLateral';
 
 function ChatPage() {
