@@ -12,7 +12,9 @@ export default function Sidebar() {
         <h1 className="logo">OTIS</h1>
         <hr />
         <ul className="menu">
-          <li>Dashboard</li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
           <li>Vendas</li>
           <li>
             <Link to="/instalacoes">Instalações</Link>
