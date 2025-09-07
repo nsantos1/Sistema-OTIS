@@ -45,11 +45,11 @@ function BarraDeFiltros({ filters, onFilterChange }) {
 
   return (
     <aside className="barra-de-filtros">
-      {renderSearchInput("ID do contrato", "id", "Digite o ID do contrato...")}
-      {renderSearchInput("Nome do cliente", "company", "Digite o nome do cliente...")}
-      {renderSearchInput("Localização", "location", "Digite a cidade, estado ou país...")}
-      {renderSearchInput("Modelo de elevador", "elevatorModel", "Digite o modelo do elevador...")}
-      {renderSearchInput("Responsável comercial", "salesRep", "Digite o nome do responsável...")}
+      {renderSearchInput("ID do contrato", "id", "Digite o ID do contrato desejado")}
+      {renderSearchInput("Nome do cliente", "company", "Digite o nome do cliente desejado")}
+      {renderSearchInput("Localização", "location", "Digite a cidade, estado ou país desejado")}
+      {renderSearchInput("Modelo de elevador", "elevatorModel", "Digite o modelo do elevador desejado")}
+      {renderSearchInput("Responsável comercial", "salesRep", "Digite o nome do responsável comercial desejado")}
 
       <div className="filter-group">
         <label>Última atualização</label>

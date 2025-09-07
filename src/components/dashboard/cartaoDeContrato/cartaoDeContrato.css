@@ -40,7 +40,7 @@
 
 .status-tag {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   padding: 3px 10px;
   border-radius: 12px;
   color: #fff;
@@ -57,7 +57,7 @@
 .company-name {
   font-size: 16px;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--cor-principal);
   margin: 0 0 4px 0;
 }
 
@@ -84,7 +84,7 @@
 }
 
 .info-icon {
-  color: #718096;
+  color: var(--cor-principal);
   font-size: 16px;
 }
 
@@ -95,7 +95,7 @@
 
 .info-label {
   font-size: 10px;
-  color: #a0aec0;
+  color: var(--cor-principal);
   text-transform: uppercase;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .details-button-dark {
-  background-color: #1A202C;
+  background-color: var(--cor-principal);
   color: white;
   border: none;
   padding: 14px 0;

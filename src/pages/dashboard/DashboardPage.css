@@ -12,5 +12,5 @@
   width: 100%;
   overflow-y: auto;
   padding: 40px;
-  background-color: #ffffff;
+  background-color: var(--cor-background);
 }

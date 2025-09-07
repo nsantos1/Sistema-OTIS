@@ -122,8 +122,8 @@
 }
 
 .checkbox-item input:checked + label::before {
-  background-color: #3182CE;
-  border-color: #3182CE;
+  background-color: var(--cor-principal);
+  border-color: var(--cor-principal);
 }
 
 .checkbox-item input:checked + label::after {

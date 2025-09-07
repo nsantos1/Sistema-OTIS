@@ -17,6 +17,7 @@ function SecaoDeContratos({ title, contracts = [] }) {
     <section className="secao-de-contratos">
       <header className="section-header">
         <h2>{title}</h2>
+        <hr />
         <div className="section-actions">
           <a href="#">Ver todos</a>
           <div className="scroll-buttons">
