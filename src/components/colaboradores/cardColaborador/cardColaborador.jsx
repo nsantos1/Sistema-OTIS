@@ -13,13 +13,13 @@ export default function CardColaborador({
       <span class="colaborador-id">{id}</span>
       <div class="card-capa">
         <img
-          src="../src/assets/img/image 13.svg"
+          src="/src/assets/img/image 13.svg"
           alt="Foto de João Ricardo, Operário da Fábrica"
         />
       </div>
       <div class="card-perfil">
         <img
-          src="../src/assets/img/image 13.svg"
+          src="/src/assets/img/image 13.svg"
           alt="Foto de perfil de João Ricardo"
         />
       </div>

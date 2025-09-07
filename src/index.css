@@ -16,6 +16,11 @@
   --cinza-claro: #cdcdcd;
   --cor-background: #f0f0f0;
   --cinza-branco: #fef7ff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {

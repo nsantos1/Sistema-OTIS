@@ -1,0 +1,178 @@
+.main-posvendadetalhes {
+    display: flex;
+    height: 100vh;
+}
+
+.cabecalho {
+    width: 451px;
+    margin-bottom: 25px;
+}
+
+.chamado-id h1 {
+    margin-bottom: 40px;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.container-pos h1,
+.container-pos h2,
+.container-pos h3,
+.container-pos h4 {
+    color: #0A2344;
+}
+
+
+.container-pos {
+    display: flex;
+    flex-direction: column;
+    margin: 31px;
+}
+
+.titulo h2 {
+    font-size: 24px;
+}
+
+.subtitulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.subtitulo p {
+    color: #0A2344;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.informacoes-pos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 65px;
+}
+
+.informacoes-pos h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.informacoes-pos h4 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.informacoes-pos p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.informacoes-pos > div {
+    background-color: white;
+    border-radius: .5em;
+    height: 700px;
+    padding: 15px 23px;
+}
+
+.informacoes-principais {
+    width: 535px;
+}
+
+.infos {
+    display: flex;
+    gap: 54px;
+}
+
+.descricao {
+    margin-top: 15px;
+}
+
+.descricao p {
+    line-height: 1.5;
+}
+
+.linha-do-tempo h3 {
+    margin-top: 20px;
+}
+
+.informacoes-adicionais {
+    width: 801px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.informacoes-adicionais > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.painel-anexos,
+.painel-comentarios {
+    box-sizing: border-box;
+    background-color: #F0F0F0;
+    border: solid #0A234440 1px;
+    border-radius: .5em;
+    padding: 11px 11px 4px 11px;
+}
+
+.painel-anexos {
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+}
+
+.foto {
+    width: fit-content;
+}
+
+.comentarios {
+    margin-top: 20px;
+}
+
+.comentario {
+    display: flex;
+}
+
+.comentario p,
+.comentario h4 {
+    margin: 0;
+}
+
+.dados-pos {
+    display: flex;
+    white-space: nowrap;
+    gap: 20px;
+}
+
+.dados-cliente {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.nome-pos h4 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.cargo p {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.div-comentario {
+    margin: 3px 0 12px 0;
+}
+
+.infos-esquerda div,
+.infos-direita div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
