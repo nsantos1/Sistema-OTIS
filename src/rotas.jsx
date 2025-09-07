@@ -18,8 +18,9 @@ const Rotas = () => {
                 <Route path="instalacoes" element={<Instalacoes />} />
                 <Route path="/pos-venda" element={<PosVenda />} />
                     <Route path="/pos-venda/detalhes/:id" element={<PosVendaDetalhes />} />
-                <Route path="canal-interno" element={<ChatPage />} />
-                <Route path="colaboradores" element={<Colaboradores />} />
+                {/*<Route path="/canal-interno/mural-de-feedback" element={<MuralDeFeedBack />} />*/}
+                <Route path="/canal-interno/chats" element={<ChatPage />} />
+                <Route path="/colaboradores" element={<Colaboradores />} />
             </Routes>
         </BrowserRouter>
     )

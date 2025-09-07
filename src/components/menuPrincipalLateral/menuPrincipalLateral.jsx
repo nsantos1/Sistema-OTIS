@@ -28,9 +28,11 @@ export default function Sidebar() {
               Canal Interno
             </span>
             <ul className={`submenu-list ${submenuOpen ? "open" : ""}`}>
-              <li>Mural de feedback</li>
               <li>
-                <Link to="/canal-interno">Chats</Link>
+                <Link to="/canal-interno/mural-de-feedback">Mural de Feedback</Link>
+              </li>
+              <li>
+                <Link to="/canal-interno/chats">Chats</Link>
               </li>
             </ul>
           </li>
