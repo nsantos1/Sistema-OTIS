@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import BarraDeFiltrosPosVenda from '../../components/barraDeFiltros/barraDeFiltrosPosVenda.jsx'
 import Slider from '../../components/slider/slider.jsx'
 
-import './posvenda.css'
+import './posVenda.css'
 import Sidebar from '../../components/menuPrincipalLateral/menuPrincipalLateral.jsx';
 
 const mockData = {
