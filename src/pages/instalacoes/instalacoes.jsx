@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import SecaoDeContratos from '../../components/dashboard/secaoDeContratos/secaoDeContratos.jsx';
+import { useState } from 'react';
+import SecaoDeContratos from '../../components/instalacoes/secaoDeContratos/secaoDeContratos.jsx';
 import BarraDeFiltros from '../../components/barraDeFiltros/barraDeFiltros.jsx';
 import { mockData } from '../../assets/data/mockData.js'; 
-import './DashboardPage.css';
+import './instalacoes.css';
 import Sidebar from '../../components/menuPrincipalLateral/menuPrincipalLateral.jsx';
 
-function DashboardPage() {
+function Instalacoes() {
   
   const [filters, setFilters] = useState({
     etapas: [],
@@ -71,4 +71,4 @@ function DashboardPage() {
   );
 }
 
-export default DashboardPage;
+export default Instalacoes;
