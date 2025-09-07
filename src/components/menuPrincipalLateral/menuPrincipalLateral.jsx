@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./menuPrincipalLateral.css";
 
 export default function Sidebar() {
@@ -12,8 +14,12 @@ export default function Sidebar() {
         <ul className="menu">
           <li>Dashboard</li>
           <li>Vendas</li>
-          <li>Instalações</li>
-          <li>Pós-Venda</li>
+          <li>
+            <Link to="/instalacoes">Instalações</Link>
+          </li>
+          <li>
+            <Link to="/pos-venda">Pós-Venda</Link>
+          </li>
           <li className="submenu" onClick={() => setSubmenuOpen(!submenuOpen)}>
             <span className="submenu-title">
               <span className={`arrow ${submenuOpen ? "up" : "down"}`}></span>
@@ -21,11 +27,15 @@ export default function Sidebar() {
             </span>
             <ul className={`submenu-list ${submenuOpen ? "open" : ""}`}>
               <li>Mural de feedback</li>
-              <li>Chats</li>
+              <li>
+                <Link to="/canal-interno">Chats</Link>
+              </li>
             </ul>
           </li>
 
-          <li>Colaboradores</li>
+          <li>
+            <Link to="/colaboradores">Colaboradores</Link>
+          </li>
         </ul>
       </div>
     </nav>
