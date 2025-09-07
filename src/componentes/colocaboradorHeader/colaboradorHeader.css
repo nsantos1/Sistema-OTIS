@@ -1,0 +1,91 @@
+.colab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f5f7fa; /* fundo clarinho como no figma */
+  padding: 20px 24px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  gap: 500px;
+}
+
+/* Parte esquerda */
+.colab-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.colab-foto {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.colab-dados {
+  display: flex;
+  flex-direction: column;
+}
+
+.colab-id {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0A2344;
+  margin-bottom: 6px;
+}
+
+.colab-nome {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0a2344;
+}
+
+.cargo {
+  margin: 2px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3e50;
+}
+
+.setor {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: #6b7b91;
+}
+
+/* Parte direita */
+.colab-acoes {
+  display: flex;
+  gap: 12px;
+}
+
+.colab-acoes .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.colab-acoes .editar {
+  background-color: #0a2344;
+  color: #fff;
+}
+
+.colab-acoes .editar:hover {
+  background-color: #123a70;
+}
+
+.colab-acoes .excluir {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.colab-acoes .excluir:hover {
+  background-color: #c9302c;
+}

@@ -15,9 +15,7 @@ export default function DetalhesDoContrato() {
           <button>Voltar</button>
         </div>
       </div>
-
       <InformacaoDoContrato />
-
       <div className="detalhes-bottom">
         <Documentos />
         <Observacao />
