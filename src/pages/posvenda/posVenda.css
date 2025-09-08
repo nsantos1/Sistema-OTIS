@@ -54,11 +54,12 @@
 }
 
 .legenda .estado-do-chamado strong {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .legenda .estado-do-chamado span {
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 13px;
 }
 
 .em-aberto {

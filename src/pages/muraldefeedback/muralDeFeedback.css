@@ -28,8 +28,9 @@
 }
 
 .mural-header h1 {
-  font-size: 28px;
-  font-weight: 900;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cor-principal);
   margin: 0 0 4px 0;
 }
 

@@ -9,7 +9,7 @@
 }
 
 .chamado-id h1 {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-size: 28px;
     font-weight: 900;
 }
@@ -30,6 +30,8 @@
 
 .titulo h2 {
     font-size: 24px;
+  font-weight: 600;
+  color: var(--cor-principal);
 }
 
 .subtitulo {

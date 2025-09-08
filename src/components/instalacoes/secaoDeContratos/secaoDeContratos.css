@@ -12,7 +12,7 @@
 .section-header hr {
   flex-grow: 1;
   height: 1px;
-  background-color: var(--cinza);
+  background-color: #cbd5e0;
   border: 0;
   margin: 0 22px;
 }
@@ -32,10 +32,10 @@
 }
 
 .section-header h2 {
-  font-size: 18px;
+  font-size: 24px;
+  font-weight: 600;
   color: var(--cor-principal);
   margin: 0;
-  font-weight: 700;
 }
 
 .section-actions {

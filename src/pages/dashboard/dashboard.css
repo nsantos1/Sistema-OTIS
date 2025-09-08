@@ -20,7 +20,8 @@
 
 .dashboard-header h1 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
+  color: var(--cor-principal);
   margin: 0;
 }
 
