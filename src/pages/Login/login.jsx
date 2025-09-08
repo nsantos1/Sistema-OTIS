@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import './style.css'
 
 function Login () {
+  const navegacao = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -25,9 +27,9 @@ function Login () {
       
       // Simulate login logic
       if (formData.email === 'admin@otis.com' && formData.password === '123456') {
-        alert('Login realizado com sucesso!')
+        navegacao("/dashboard");
       } else {
-        alert('Email ou senha incorretos')
+        alert('Usuario ou senha incorretos')
       }
     } catch (error) {
       alert('Erro ao fazer login. Tente novamente.')

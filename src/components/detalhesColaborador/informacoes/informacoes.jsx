@@ -20,7 +20,7 @@ export default function Informacoes() {
             <p className="label">Contato</p>
             <span>Tel: (69) 98112-3101</span>
             <br />
-            <span>Email: joaoricardosoc@gmail.com</span>
+            <span>Email: exemplo@otis.com</span>
           </div>
         </li>
         <li>
