@@ -1,0 +1,149 @@
+.feedback-card {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: var(--cor-principal);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 5px solid transparent;
+}
+.feedback-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.feedback-card.urgent-border {
+    border-left: 5px solid #E53E3E;
+}
+
+
+.card-header-mural {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.author-role {
+  font-size: 13px;
+  color: var(--cor-terciaria);
+}
+
+.timestamp-details {
+  text-align: right;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: var(--cor-terciaria);
+}
+
+.urgent-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #FFF5F5;
+  color: #C53030;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.card-body-mural p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: #2d3748;
+}
+
+.card-footer-mural {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-actions {
+    display: flex;
+    gap: 15px;
+}
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    transition: color 0.2s;
+}
+.action-btn:hover, .action-btn.liked {
+    color: var(--cor-principal);
+}
+
+
+.read-confirmation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-terciaria);
+  cursor: pointer;
+}
+
+.read-confirmation.read {
+  color: #38A169;
+}
+
+.read-confirmation input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--cor-terciaria);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.read-confirmation.read .custom-checkbox {
+  border-color: #38A169;
+  background-color: #38A169;
+}
+
+.custom-checkbox svg {
+  color: white;
+  font-size: 10px;
+}

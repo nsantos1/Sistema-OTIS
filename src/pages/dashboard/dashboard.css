@@ -1,0 +1,135 @@
+.main-dashboard-kpi {
+  display: flex;
+  background-color: var(--cor-background);
+}
+
+.dashboard-kpi-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding: 40px;
+  color: var(--cor-principal);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dashboard-filters {
+  display: flex;
+  gap: 15px;
+}
+
+.dashboard-filters select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--cinza-claro);
+  background-color: #fff;
+  color: var(--cor-terciaria);
+  font-weight: 600;
+}
+
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 25px;
+}
+
+.chart-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.chart-container h3 {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+}
+
+
+.chart-container.full-width {
+  grid-column: 1 / -1;
+}
+
+
+.recharts-legend-item-text {
+    color: var(--cor-terciaria) !important;
+}
+.recharts-text.recharts-tooltip-label {
+    color: var(--cor-terciaria) !important;
+}
+.recent-activities-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: 25px;
+}
+
+.recent-activities-container h3 {
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+}
+
+.activities-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activities-table th,
+.activities-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.activities-table th {
+  font-weight: 600;
+  color: var(--cor-terciaria);
+}
+
+.activities-table td {
+  color: #2d3748;
+}
+
+.status-badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 14px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+}
+
+.status-resolvido { background-color: #38A169; }
+.status-em-atendimento { background-color: #0003B5; }
+.status-dentro-do-prazo { background-color: #38A169; }
+.status-fora-do-prazo { background-color: #E53E3E; }

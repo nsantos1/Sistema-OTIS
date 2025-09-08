@@ -1,5 +1,6 @@
 .main-posvenda {
     display: flex;
+    height: 100vh;
 }
 
 .main-posvenda-conteudo {
@@ -8,8 +9,11 @@
     margin-left: 42px;
     overflow-y: auto;
     max-height: 100vh;
-    padding-right: 120px;
+    padding-right: 160px;
+}
 
+.main-posvenda-conteudo button:hover {
+    cursor: pointer;
 }
 
 .legenda {

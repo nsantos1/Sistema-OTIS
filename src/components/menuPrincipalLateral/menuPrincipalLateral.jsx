@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./menuPrincipalLateral.css";
 
 export default function Sidebar() {
@@ -10,22 +12,34 @@ export default function Sidebar() {
         <h1 className="logo">OTIS</h1>
         <hr />
         <ul className="menu">
-          <li>Dashboard</li>
+          <li>
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
           <li>Vendas</li>
-          <li>Instalações</li>
-          <li>Pós-Venda</li>
+          <li>
+            <Link to="/instalacoes">Instalações</Link>
+          </li>
+          <li>
+            <Link to="/pos-venda">Pós-Venda</Link>
+          </li>
           <li className="submenu" onClick={() => setSubmenuOpen(!submenuOpen)}>
             <span className="submenu-title">
               <span className={`arrow ${submenuOpen ? "up" : "down"}`}></span>
               Canal Interno
             </span>
             <ul className={`submenu-list ${submenuOpen ? "open" : ""}`}>
-              <li>Mural de feedback</li>
-              <li>Chats</li>
+              <li>
+                <Link to="/canal-interno/mural-de-feedback">Mural de Feedback</Link>
+              </li>
+              <li>
+                <Link to="/canal-interno/chats">Chats</Link>
+              </li>
             </ul>
           </li>
 
-          <li>Colaboradores</li>
+          <li>
+            <Link to="/colaboradores">Colaboradores</Link>
+          </li>
         </ul>
       </div>
     </nav>
