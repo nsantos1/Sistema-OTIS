@@ -1,0 +1,50 @@
+.card-cliente-vendas {
+  display: flex;
+  flex-direction: column;
+  width: 314px;
+  height: 215px;
+  border: 1px solid var(--preto-transparente);
+  border-radius: 8px;
+  background-color: var(--cor-branca);
+  padding: 8px;
+}
+
+.titulo-cliente-vendas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  margin: 50px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+.card-cliente-vendas hr {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: var(--cor-principal-transparente);
+}
+
+.info-cliente-vendas {
+  display: flex;
+  flex-direction: column;
+  color: var(--cor-principal);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.card-cliente-vendas a {
+  display: flex;
+  padding: 10px 21px;
+  background-color: var(--cor-principal);
+  text-decoration: none;
+  color: var(--cor-branca);
+  font-size: 11px;
+  font-weight: 900;
+  border-radius: 4px;
+  justify-content: center;
+  margin-top: auto;
+}

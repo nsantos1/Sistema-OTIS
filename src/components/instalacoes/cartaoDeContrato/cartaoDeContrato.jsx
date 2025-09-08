@@ -1,5 +1,3 @@
-
-
 import './cartaoDeContrato.css';
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa"; 
 

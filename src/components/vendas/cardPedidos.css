@@ -1,0 +1,128 @@
+.card-pedido-vendas {
+  display: flex;
+  flex-direction: column;
+  width: 314px;
+  height: 215px;
+  border: 1px solid var(--preto-transparente);
+  border-radius: 8px;
+  background-color: var(--cor-branca);
+  padding: 8px;
+}
+
+.id-card-pedido-vendas {
+  display: flex;
+  justify-content: space-between;
+}
+
+.id-card-pedido-vendas .id-pedido {
+  font-size: 14px;
+  color: var(--cor-principal);
+  font-weight: 600;
+}
+
+.id-card-pedido-vendas .status-pedido {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cor-branca);
+  background-color: #c70000;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.titulo-pedido-vendas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  margin: 16px 0 24px 0;
+}
+
+.titulo-pedido-vendas h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+.titulo-pedido-vendas span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cor-secundaria);
+}
+
+.info-card-pedido-vendas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-card-pedido-vendas h3 {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a2344;
+  border-radius: 50%;
+  color: var(--cor-branca);
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.info-cliente-pedido-vendas {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.info-cliente-pedido-vendas h4 {
+  color: var(--cor-principal);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.info-cliente-pedido-vendas p {
+  color: var(--cor-secundaria);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.data-card-pedido-vendas,
+.local-card-pedido-vendas {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.data-card-pedido-vendas img,
+.local-card-pedido-vendas img {
+  width: 16px;
+  height: 16px;
+}
+
+.data-card-pedido-vendas span,
+.local-card-pedido-vendas span {
+  color: var(--cor-principal);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.card-pedido-vendas a {
+  display: flex;
+  padding: 10px 21px;
+  background-color: var(--cor-principal);
+  text-decoration: none;
+  color: var(--cor-branca);
+  font-size: 11px;
+  font-weight: 900;
+  border-radius: 4px;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.card-pedido-vendas hr {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: var(--cor-principal-transparente);
+}

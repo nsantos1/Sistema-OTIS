@@ -1,0 +1,41 @@
+.main-vendas {
+  display: flex;
+}
+
+.vendas-conteudo-principal {
+  width: 100%;
+  padding: 0 87px 0 42px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.vendas-secao-pedidos-container,
+.vendas-secao-contratos-container,
+.vendas-secao-clientes-container {
+  margin-bottom: 15px;
+}
+
+.cabecalho-vendas button {
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cabecalho-vendas {
+  margin-bottom: 20px;
+}
+
+.vendas-secao-pedidos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.vendas-secao-contratos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.vendas-secao-clientes {
+  display: flex;
+  justify-content: space-around;
+}

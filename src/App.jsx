@@ -6,11 +6,12 @@ import Instalacoes from "./pages/instalacoes/instalacoes.jsx";
 import PosVenda from "./pages/posvenda/posVenda";
 import PosVendaDetalhes from "./pages/posVendaDetalhes/posVendaDetalhes";
 import Login from "./pages/login/login.jsx";
+import Vendas from "./pages/vendas/vendas.jsx";
 import Sidebar from "./components/menuPrincipalLateral/menuPrincipalLateral";
 
 function App() {
   return (
-      <ChatPage />
+      <Vendas />
   );
 }
 
