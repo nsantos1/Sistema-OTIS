@@ -1,41 +1,59 @@
 .main-vendas {
   display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--cor-background);
 }
 
 .vendas-conteudo-principal {
-  width: 100%;
-  padding: 0 87px 0 42px;
+  flex-grow: 1;
+  padding: 40px;
   overflow-y: auto;
-  max-height: 100vh;
 }
 
-.vendas-secao-pedidos-container,
-.vendas-secao-contratos-container,
-.vendas-secao-clientes-container {
-  margin-bottom: 15px;
+.secao-vendas {
+  margin-bottom: 40px;
 }
 
-.cabecalho-vendas button {
-  border-radius: 18px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.cabecalho-vendas {
+.cabecalho-secao {
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
+  color: var(--cor-principal);
 }
 
-.vendas-secao-pedidos {
-  display: flex;
-  justify-content: space-around;
+.cabecalho-secao h1 {
+  font-size: 24px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.vendas-secao-contratos {
-  display: flex;
-  justify-content: space-around;
+.cabecalho-secao hr {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #cbd5e0;
+  border: none;
+  margin: 0 20px;
 }
 
-.vendas-secao-clientes {
-  display: flex;
-  justify-content: space-around;
+.ver-todos-btn {
+  background-color: var(--cor-principal);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ver-todos-btn:hover {
+  background-color: var(--cor-secundaria);
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
 }

@@ -1,24 +1,27 @@
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import "./cardContratos.css";
 
-export default function CardContratos() {
+export default function CardContratos({ id, status, statusType, cliente, local, modelo, ultimaAtualizacao, responsavel, imagemUrl }) {
+  
+  const statusClassName = `status-tag ${statusType || ''}`;
+
   return (
     <div className="card-contrato-final">
       <img
-        src="/src/assets/img/image 3.png"
-        alt={`Elevador para Construtora Maston`}
+        src={imagemUrl}
+        alt={`Elevador para ${cliente}`}
         className="card-img"
       />
       <div className="card-content">
         <div className="card-header">
-          <span className="contract-id">#CT-0921</span>
-          <span className="status-tag ontime">Dentro do prazo</span>
+          <span className="contract-id">{id}</span>
+          <span className={statusClassName}>{status}</span>
         </div>
 
         <div className="card-body">
-          <h4 className="company-name">Construtora Maston</h4>
-          <p className="location">São Paulo/SP - BR</p>
-          <p className="elevator-model">Gen2® Comfort Panorâmico</p>
+          <h4 className="company-name">{cliente}</h4>
+          <p className="location">{local}</p>
+          <p className="elevator-model">{modelo}</p>
         </div>
 
         <div className="card-info-footer">
@@ -26,14 +29,14 @@ export default function CardContratos() {
             <FaRegCalendarAlt className="info-icon" />
             <div>
               <span className="info-label">Última atualização</span>
-              <span className="info-value">27/08/2025</span>
+              <span className="info-value">{ultimaAtualizacao}</span>
             </div>
           </div>
           <div className="info-item">
             <FaUser className="info-icon" />
             <div>
               <span className="info-label">Resp. Comercial</span>
-              <span className="info-value">João Ric...</span>
+              <span className="info-value">{responsavel.nome}</span>
             </div>
           </div>
         </div>

@@ -1,128 +1,130 @@
 .card-pedido-vendas {
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  width: 314px;
-  height: 215px;
-  border: 1px solid var(--preto-transparente);
-  border-radius: 8px;
-  background-color: var(--cor-branca);
-  padding: 8px;
 }
 
-.id-card-pedido-vendas {
+.card-pedido-header {
   display: flex;
   justify-content: space-between;
-}
-
-.id-card-pedido-vendas .id-pedido {
-  font-size: 14px;
-  color: var(--cor-principal);
-  font-weight: 600;
-}
-
-.id-card-pedido-vendas .status-pedido {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--cor-branca);
-  background-color: #c70000;
-  padding: 3px 10px;
-  border-radius: 10px;
-}
-
-.titulo-pedido-vendas {
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  margin-bottom: 12px;
+}
+
+.pedido-id {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-principal);
+}
+
+.status-tag-pedido {
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+.status-tag-pedido.pendente { background-color: #E53E3E; }
+.status-tag-pedido.aprovado { background-color: #38A169; }
+.status-tag-pedido.analise { background-color: #D69E2E; }
+.status-tag-pedido.default { background-color: #A0AEC0; }
+
+.card-pedido-body {
   text-align: center;
-  gap: 5px;
-  margin: 16px 0 24px 0;
+  margin-bottom: 16px;
 }
 
-.titulo-pedido-vendas h2 {
+.cliente-nome {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--cor-principal);
+  margin: 0 0 4px 0;
 }
 
-.titulo-pedido-vendas span {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--cor-secundaria);
+.atualizacao {
+  font-size: 12px;
+  color: var(--cor-terciaria);
 }
 
-.info-card-pedido-vendas {
+.card-divider {
+  border: none;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin: 0 0 16px 0;
+}
+
+.card-pedido-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 }
 
-.info-card-pedido-vendas h3 {
-  width: 46px;
-  height: 46px;
+.responsavel-info {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #0a2344;
+  gap: 10px;
+}
+
+.responsavel-avatar {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  color: var(--cor-branca);
-  font-size: 36px;
-  font-weight: 900;
-}
-
-.info-cliente-pedido-vendas {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.info-cliente-pedido-vendas h4 {
-  color: var(--cor-principal);
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.info-cliente-pedido-vendas p {
-  color: var(--cor-secundaria);
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.data-card-pedido-vendas,
-.local-card-pedido-vendas {
-  display: flex;
-  align-items: center;
-  gap: 1px;
-}
-
-.data-card-pedido-vendas img,
-.local-card-pedido-vendas img {
-  width: 16px;
-  height: 16px;
-}
-
-.data-card-pedido-vendas span,
-.local-card-pedido-vendas span {
-  color: var(--cor-principal);
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.card-pedido-vendas a {
-  display: flex;
-  padding: 10px 21px;
   background-color: var(--cor-principal);
-  text-decoration: none;
-  color: var(--cor-branca);
-  font-size: 11px;
-  font-weight: 900;
-  border-radius: 4px;
+  color: #fff;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: auto;
+  font-size: 20px;
+  font-weight: 900;
 }
 
-.card-pedido-vendas hr {
-  width: 100%;
-  height: 1px;
-  border: none;
-  background: var(--cor-principal-transparente);
+.responsavel-nome {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-principal);
+  display: block;
+}
+
+.responsavel-cliente {
+  font-size: 12px;
+  color: var(--cor-terciaria);
+}
+
+.pedido-details {
+  font-size: 12px;
+  color: var(--cor-terciaria);
+  text-align: right;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.detail-item:first-child {
+  margin-bottom: 4px;
+}
+
+.details-button {
+  margin-top: auto;
+  background-color: var(--cor-principal);
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.details-button:hover {
+  background-color: var(--cor-secundaria);
 }

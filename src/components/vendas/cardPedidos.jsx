@@ -1,43 +1,46 @@
+import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import "./cardPedidos.css";
 
-export default function CardPedidos() {
+export default function CardPedidos({ id, status, statusType, cliente, ultimaAtualizacao, responsavel, data, local }) {
+  
+  const statusClass = `status-tag-pedido ${statusType || 'default'}`;
+
   return (
     <div className="card-pedido-vendas">
-      <div className="id-card-pedido-vendas">
-        <span className="id-pedido">#CT-0921</span>
-        <span className="status-pedido">Pendente</span>
+      <div className="card-pedido-header">
+        <span className="pedido-id">{id}</span>
+        <span className={statusClass}>{status}</span>
       </div>
 
-      <div className="titulo-pedido-vendas">
-        <h2>Construtora Maston</h2>
-        <span>
-          Última atualização: <br />
-          03/04/2025
+      <div className="card-pedido-body">
+        <h2 className="cliente-nome">{cliente}</h2>
+        <span className="atualizacao">
+          Última atualização: {ultimaAtualizacao}
         </span>
       </div>
 
-      <hr />
+      <hr className="card-divider"/>
 
-      <div className="info-card-pedido-vendas">
-        <div className="info-cliente-pedido-vendas">
-          <h3>J</h3>
+      <div className="card-pedido-footer">
+        <div className="responsavel-info">
+          <div className="responsavel-avatar">{responsavel.inicial}</div>
           <div>
-            <h4>João Ricardo</h4>
-            <p>Construtora Maston</p>
+            <span className="responsavel-nome">{responsavel.nome}</span>
+            <span className="responsavel-cliente">{cliente}</span>
           </div>
         </div>
-        <div>
-          <div className="data-card-pedido-vendas">
-            <img src="src/assets/img/today.svg" alt="" />
-            <span>27/08/2025</span>
+        <div className="pedido-details">
+          <div className="detail-item">
+            <FaRegCalendarAlt />
+            <span>{data}</span>
           </div>
-          <div className="local-card-pedido-vendas">
-            <img src="src/assets/img/location_on.svg" alt="" />
-            <span>São Paulo/SP</span>
+          <div className="detail-item">
+            <FaMapMarkerAlt />
+            <span>{local}</span>
           </div>
         </div>
       </div>
-      <a href="#">VER DETALHES DO PEDIDO</a>
+      <a href="#" className="details-button">VER DETALHES DO PEDIDO</a>
     </div>
   );
 }

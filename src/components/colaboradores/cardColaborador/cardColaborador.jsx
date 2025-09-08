@@ -7,26 +7,26 @@ export default function CardColaborador({
   cargo,
   setor,
   supervisor,
+  avatarUrl,
 }) {
+  const statusClass = status ? status.toLowerCase().replace(' ', '-') : '';
+
   return (
-    <article class="card-colaborador">
-      <span class="colaborador-id">{id}</span>
-      <div class="card-capa">
-        <img
-          src="/src/assets/img/image 13.svg"
-          alt="Foto de João Ricardo, Operário da Fábrica"
-        />
+    <article className="card-colaborador">
+      <div className="card-header-colaborador">
+        <span className="colaborador-id">{id}</span>
+        <div className="card-perfil">
+          <img
+            src={avatarUrl}
+            alt={`Foto de perfil de ${nome}`}
+          />
+        </div>
       </div>
-      <div class="card-perfil">
-        <img
-          src="/src/assets/img/image 13.svg"
-          alt="Foto de perfil de João Ricardo"
-        />
-      </div>
-      <div class="card-conteudo">
-        <h2 class="nome-colaborador">{nome}</h2>
-        <span class="status">{status}</span>
-        <ul class="info-colaborador">
+
+      <div className="card-conteudo">
+        <h2 className="nome-colaborador">{nome}</h2>
+        <span className={`status ${statusClass}`}>{status}</span>
+        <ul className="info-colaborador">
           <li>
             <strong>Cargo:</strong> {cargo}
           </li>
@@ -37,7 +37,7 @@ export default function CardColaborador({
             <strong>Supervisor:</strong> {supervisor}
           </li>
         </ul>
-        <a href="#" class="btn-detalhes">
+        <a href="#" className="btn-detalhes">
           VER DETALHES
         </a>
       </div>

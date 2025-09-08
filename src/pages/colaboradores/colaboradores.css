@@ -1,34 +1,23 @@
 .main-colaboradores {
   display: flex;
   background-color: var(--cor-background);
+  height: 100vh;
+  overflow: hidden;
 }
-
-/* CABECALHO DO CONTEUDO PRINCIPAL */
 
 .conteudo-principal {
   flex-grow: 1;
   overflow-y: auto;
-  max-height: 100vh;
-  margin: 0 0 0 92px;
-  padding-right: 87px;
-  align-items: center;
+  padding: 40px;
 }
-
-/* SECAO DO CONTEUDO PRINCIPAL */
 
 .secao-colaboradores {
   display: grid;
-  flex-wrap: wrap;
-  grid-template-columns: repeat(4, 1fr);
-  margin-left: 50px;
-  row-gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
+  gap: 25px;
 }
 
-/* ===================== */
-/* NOVO: ESTILO DO MODAL */
-/* ===================== */
-
-/* Fundo escurecido */
+/* Estilos do Modal */
 .fundo-escuro {
   position: fixed;
   top: 0;
@@ -41,7 +30,6 @@
   animation: fadeIn 0.3s forwards;
 }
 
-/* Modal principal */
 .modal-conteudo {
   position: fixed;
   top: 50%;
@@ -66,18 +54,6 @@
   text-align: center;
 }
 
-/* Botão fechar */
-.fechar-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-/* Foto */
 .foto-container {
   display: flex;
   align-items: center;
@@ -100,7 +76,6 @@
   color: var(--cor-principal);
 }
 
-/* Formulário dividido */
 .modal-form {
   display: flex;
   gap: 2rem;
@@ -123,7 +98,6 @@
   margin-bottom: 0.5rem;
 }
 
-/* Inputs e selects */
 .modal-form input,
 .modal-form select {
   padding: 6px 10px;
@@ -137,7 +111,6 @@
   font-weight: 600;
 }
 
-/* Horário de trabalho */
 .horario-trabalho {
   display: flex;
   align-items: center;
@@ -147,7 +120,6 @@
   flex: 1;
 }
 
-/* Botões criar/cancelar */
 .modal-buttons {
   display: flex;
   justify-content: flex-end;
@@ -172,8 +144,6 @@
   cursor: pointer;
 }
 
-/* ===================== */
-/* ANIMAÇÕES */
 @keyframes fadeIn {
   to {
     opacity: 1;

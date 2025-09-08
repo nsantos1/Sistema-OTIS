@@ -1,31 +1,36 @@
+import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import "./cardClientes.css";
 
-export default function CardClientes() {
+export default function CardClientes({ id, nome, desde, local, stats }) {
   return (
     <div className="card-cliente-vendas">
-      <div className="titulo-cliente-vendas">
-        <h2>Construtora Maston</h2>
+      <div className="cliente-header">
+        <h2 className="cliente-nome-vendas">{nome}</h2>
+        <span className="cliente-id">{id}</span>
       </div>
-
-      <hr />
-
-      <div className="info-card-pedido-vendas">
-        <div className="info-cliente-vendas">
-          <span>Cliente desde:</span>
-          <span>Localização:</span>
+      
+      <div className="cliente-info">
+        <div className="info-line">
+          <FaRegCalendarAlt />
+          <span>Cliente desde: <strong>{desde}</strong></span>
         </div>
-        <div>
-          <div className="data-card-pedido-vendas">
-            <img src="src/assets/img/today.svg" alt="" />
-            <span>27/08/2025</span>
-          </div>
-          <div className="local-card-pedido-vendas">
-            <img src="src/assets/img/location_on.svg" alt="" />
-            <span>São Paulo/SP</span>
-          </div>
+        <div className="info-line">
+          <FaMapMarkerAlt />
+          <span>{local}</span>
         </div>
       </div>
-      <a href="#">VER DETALHES DO CLIENTE</a>
+
+      <div className="cliente-stats">
+        {stats.map((stat, index) => (
+          <div className="stat-item" key={index}>
+            <stat.icon className="stat-icon"/>
+            <span className="stat-value">{stat.valor}</span>
+            <span className="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <a href="#" className="details-button-cliente">VER DETALHES DO CLIENTE</a>
     </div>
   );
 }
