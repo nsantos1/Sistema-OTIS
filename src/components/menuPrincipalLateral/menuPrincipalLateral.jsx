@@ -15,7 +15,9 @@ export default function Sidebar() {
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
-          <li>Vendas</li>
+          <li>
+            <Link to="/vendas">Vendas</Link>
+          </li>
           <li>
             <Link to="/instalacoes">Instalações</Link>
           </li>
