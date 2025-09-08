@@ -1,0 +1,53 @@
+.main-detalhes-do-contrato {
+  display: flex;
+}
+
+.detalhes-contrato {
+  background: #f0f0f0; /* cinza claro de fundo */
+  font-family: Montserrat, sans-serif;
+  min-height: 100vh;
+}
+
+.detalhes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #e9edf3;
+  border-bottom: 2px solid #d3d9e3;
+}
+
+.detalhes-header h2 {
+  color: #0c2340;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+}
+
+.acoes button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0c2340;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.acoes button:hover {
+  background-color: #1e90ff;
+}
+
+.detalhes-bottom {
+  display: flex;
+  gap: 20px;
+  padding: 20px 24px;
+}

@@ -106,6 +106,8 @@
 }
 
 .details-button-dark {
+  text-decoration: none;
+  text-align: center;
   background-color: var(--cor-principal);
   color: white;
   border: none;

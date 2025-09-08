@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.main-detalhes-colaborador {
+  display: flex;
+}
+
+.detalhes-colaborador {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1.5fr; /* esquerda, meio, direita */
+  grid-template-areas:
+    "header header header"
+    "info performance feedbacks"
+    "info performance acoes"
+    "historico treinamentos treinamentos";
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Grid areas */
+.colab-header {
+  grid-area: header;
+}
+
+.info-section {
+  grid-area: info;
+}
+
+.performance-section {
+  grid-area: performance;
+}
+
+.feedbacks-section {
+  grid-area: feedbacks;
+}
+
+.acoes-section {
+  grid-area: acoes;
+}
+
+.historico-section {
+  grid-area: historico;
+}
+
+.treinamentos-section {
+  grid-area: treinamentos;
+}

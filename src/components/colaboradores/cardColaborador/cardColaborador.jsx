@@ -1,4 +1,5 @@
 import "./cardColaborador.css";
+import { Link } from "react-router-dom";
 
 export default function CardColaborador({
   id,
@@ -37,9 +38,9 @@ export default function CardColaborador({
             <strong>Supervisor:</strong> {supervisor}
           </li>
         </ul>
-        <a href="#" className="btn-detalhes">
+        <Link to="/colaboradores/detalhes" className="btn-detalhes">
           VER DETALHES
-        </a>
+        </Link>
       </div>
     </article>
   );

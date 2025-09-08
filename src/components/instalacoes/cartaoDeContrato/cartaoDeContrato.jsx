@@ -1,5 +1,6 @@
 import './cartaoDeContrato.css';
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa"; 
+import { Link } from "react-router-dom";
 
 function CartaoDeContrato(props) {
   const { id, company, location, lastUpdate, status, statusType, elevatorModel, salesRep, imageUrl } = props;
@@ -38,7 +39,7 @@ function CartaoDeContrato(props) {
           </div>
         </div>
       </div>
-      <button className="details-button-dark">VER DETALHES DO CONTRATO</button>
+      <Link to="/instalacoes/detalhes" className="details-button-dark">VER DETALHES DO CONTRATO</Link>
     </div>
   );
 }
