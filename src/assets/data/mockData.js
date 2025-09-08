@@ -1,8 +1,9 @@
 import elevatorImage from '../img/image 3.png';
+import mastonImagem from '../img/clienteMaston.svg';
 
 export const mockData = {
     aprovacao: [
-        { id: '001', company: 'Tech Corp', location: 'São Paulo, SP', lastUpdate: '20/07/2024', status: 'Dentro do prazo', statusType: 'ontime', elevatorModel: 'OTIS-X', salesRep: 'Ana Silva', imageUrl: elevatorImage },
+        { id: '001', company: 'Construtora Maston', location: 'São Paulo, SP', lastUpdate: '20/07/2024', status: 'Dentro do prazo', statusType: 'ontime', elevatorModel: 'OTIS-X', salesRep: 'Ana Silva', imageUrl: mastonImagem },
         { id: '002', company: 'Inovações SA', location: 'Rio de Janeiro, RJ', lastUpdate: '18/07/2024', status: 'Alerta de prazo', statusType: 'alert', elevatorModel: 'OTIS-Y', salesRep: 'Carlos Mendes', imageUrl: elevatorImage },
         { id: '015', company: 'Global Solutions', location: 'Brasília, DF', lastUpdate: '22/07/2024', status: 'Dentro do prazo', statusType: 'ontime', elevatorModel: 'OTIS-Z', salesRep: 'Fernanda Lima', imageUrl: elevatorImage },
         { id: '016', company: 'Centro Empresarial', location: 'Curitiba, PR', lastUpdate: '23/07/2024', status: 'Fora do prazo', statusType: 'late', elevatorModel: 'OTIS-X', salesRep: 'Pedro Almeida', imageUrl: elevatorImage },
