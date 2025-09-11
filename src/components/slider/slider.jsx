@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import './slider.css'
+import CabecalhoSecoes from "../cabecalhoSecoes/cabecalhoSecoes";
 
 export default function Slider({ tituloTipoDeChamado, slides }) {
     const [index, setIndex] = useState(0)
@@ -26,11 +27,9 @@ export default function Slider({ tituloTipoDeChamado, slides }) {
 
     return (
         <>
-            <div className="superior">
-                <div className='tipo-de-chamado'>{tituloTipoDeChamado}</div>
-                <div className='linha'></div>
-                <button className="ver-todos">Ver Todos</button>
-            </div>
+            <CabecalhoSecoes 
+             titulo={tituloTipoDeChamado}
+            />
 
             <div className="principal">
                 <button className="prev" onClick={ prev }>

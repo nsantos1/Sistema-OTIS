@@ -23,7 +23,7 @@ function Login () {
 
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 500))
+      await new Promise(resolve => setTimeout(resolve, 1000))
       
       // Simulate login logic
       if (formData.email === 'admin@otis.com' && formData.password === '123456') {

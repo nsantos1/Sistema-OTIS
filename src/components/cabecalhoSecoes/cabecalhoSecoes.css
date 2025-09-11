@@ -1,0 +1,38 @@
+.ver-todos-btn {
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--cor-branca);
+  text-decoration: none;
+  font-weight: 600;
+  background-color: var(--cor-principal);
+  padding: 1px 10px;
+  border-radius: 16px;
+}
+
+.ver-todos-btn:hover {
+  background-color: var(--cor-secundaria);
+}
+
+.cabecalho-secao {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: var(--cor-principal);
+}
+
+.cabecalho-secao h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cor-principal);
+  white-space: nowrap;
+}
+
+.cabecalho-secao hr {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #cbd5e0;
+  border: none;
+  margin: 0 20px;
+}
