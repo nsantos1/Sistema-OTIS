@@ -17,41 +17,6 @@
 
 .cards-wrapper {
   display: grid;
-  /* Configura um layout de grid responsivo, garantindo que os cards tenham pelo menos 300px de largura. */
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  /* Define o espaçamento uniforme entre os cards. */
   gap: 25px;
-}
-
-.card-vendas {
-  /* Estilo base para todos os cards de vendas, garantindo a padronização. */
-  background-color: var(--cor-branca);
-  border: 1px solid var(--cinza-claro);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 12px var(--preto-transparente);
-  color: var(--cor-principal);
-}
-
-.card-vendas h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--cor-principal);
-  margin-bottom: 10px;
-}
-
-.card-vendas p {
-  font-size: 14px;
-  color: var(--cor-terciaria);
-}
-
-.card-vendas .botao-card {
-  /* Estilo do botão. O `display: inline-block` e o `text-decoration: none` são importantes para botões que são links. */
-  background-color: var(--cor-principal);
-  color: var(--cor-branca);
-  padding: 10px 15px;
-  border-radius: 6px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 15px;
 }

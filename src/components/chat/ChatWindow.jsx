@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
+
 import { FaPaperPlane, FaPlus, FaRegStar, FaStar } from 'react-icons/fa';
 import { FiMoreVertical } from 'react-icons/fi';
 import { IoClose } from 'react-icons/io5';
 import './ChatWindow.css';
+
 
 function MessageBubble({ message, isSender }) {
   return (
@@ -13,11 +15,11 @@ function MessageBubble({ message, isSender }) {
   );
 }
 
+
 function ChatWindow({ conversation, currentUser, onSendMessage, onToggleFavorite, onCloseChat }) {
   if (!conversation) return null;
 
-  const [newMessage, setNewMessage] = useState('');
-  const messagesEndRef = useRef(null);
+  const [newMessage, setNewMessage] = React.useState('');
 
   const handleSend = (e) => {
     e.preventDefault();
@@ -26,10 +28,6 @@ function ChatWindow({ conversation, currentUser, onSendMessage, onToggleFavorite
       setNewMessage('');
     }
   };
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [conversation.messages]);
 
   return (
     <div className="chat-window">
@@ -42,8 +40,8 @@ function ChatWindow({ conversation, currentUser, onSendMessage, onToggleFavorite
           </div>
         </div>
         <div className="chat-actions">
-          <button
-            className="action-button"
+          <button 
+            className="action-button" 
             onClick={() => onToggleFavorite(conversation.id)}
           >
             {conversation.isFavorite ? <FaStar className="action-icon favorited" /> : <FaRegStar className="action-icon" />}
@@ -51,6 +49,7 @@ function ChatWindow({ conversation, currentUser, onSendMessage, onToggleFavorite
           <button className="action-button">
             <FiMoreVertical className="action-icon" />
           </button>
+          
           <button className="action-button" onClick={onCloseChat}>
             <IoClose className="action-icon" />
           </button>
@@ -60,7 +59,6 @@ function ChatWindow({ conversation, currentUser, onSendMessage, onToggleFavorite
         {conversation.messages.map(msg => (
           <MessageBubble key={msg.id} message={msg} isSender={msg.senderId === currentUser.id} />
         ))}
-        <div ref={messagesEndRef} />
       </main>
       <footer className="message-input-area">
         <form onSubmit={handleSend} className="message-form">

@@ -1,11 +1,4 @@
-.main-colaboradores {
-  display: flex;
-  background-color: var(--cor-background);
-  height: 100vh;
-  overflow: hidden;
-}
-
-.conteudo-principal {
+.conteudo-principal-colaboradores {
   flex-grow: 1;
   overflow-y: auto;
   padding: 0px 40px 40px 40px;

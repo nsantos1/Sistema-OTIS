@@ -37,7 +37,8 @@ function ChatPage() {
     });
     setConversations(updatedConversations);
   };
-
+  
+  
   const handleCloseChat = () => {
     setActiveConversationId(null);
   };
@@ -46,31 +47,26 @@ function ChatPage() {
 
   return (
     <main className='main-chatpage'>
-      <Sidebar />
-      <div className="chat-page-container">
-        <div className="chat-wrapper">
-          <div className="chat-sidebar">
-            <ConversationsList
-              conversations={conversations}
-              activeConversationId={activeConversationId}
-              onConversationClick={setActiveConversationId}
-            />
-          </div>
-          <div className="chat-messages-area">
-            {activeConversation ? (
-              <ChatWindow
-                conversation={activeConversation}
-                currentUser={chatData.currentUser}
-                onSendMessage={handleSendMessage}
-                onToggleFavorite={handleToggleFavorite}
-                onCloseChat={handleCloseChat}
-              />
-            ) : (
-              <ChatPlaceholder />
-            )}
-          </div>
-        </div>
-      </div>
+    <Sidebar />
+    <div className="chat-page-container">
+      <ConversationsList
+        conversations={conversations}
+        activeConversationId={activeConversationId}
+        onConversationClick={setActiveConversationId}
+      />
+      {activeConversation ? (
+        <ChatWindow
+          conversation={activeConversation}
+          currentUser={chatData.currentUser}
+          onSendMessage={handleSendMessage}
+          onToggleFavorite={handleToggleFavorite}
+         
+          onCloseChat={handleCloseChat}
+        />
+      ) : (
+        <ChatPlaceholder />
+      )}
+    </div>
     </main>
   );
 }

@@ -179,7 +179,7 @@ export default function PosVendaDetalhes() {
     return (
         <main className="main-posvendadetalhes">
             <Sidebar />
-            <div className="container-pos main-container">
+            <div className="container-pos main-pos-venda-detalhes-container">
                 <div className="cabecalho">
                     <div className="chamado-id">
                         <h1>

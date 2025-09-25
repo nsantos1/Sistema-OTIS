@@ -9,7 +9,7 @@ export default function Sidebar() {
   return (
     <nav className="sidebar">
       <div className="sidebar-menu">
-        <h1 className="logo"><Link to="/dashboard">OTIS</Link></h1>
+        <h1 className="logo"><a><Link to="/dashboard">OTIS</Link></a></h1>
         <hr />
         <ul className="menu">
           <li>
