@@ -1,6 +1,7 @@
 .main-posvenda {
     display: flex;
     height: 100vh;
+    overflow: hidden;
 }
 
 .main-posvenda-conteudo {

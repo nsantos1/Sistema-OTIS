@@ -1,6 +1,8 @@
 .main-dashboard-kpi {
   display: flex;
   background-color: var(--cor-background);
+  height: 100vh;
+  overflow: hidden;
 }
 
 .dashboard-kpi-content {

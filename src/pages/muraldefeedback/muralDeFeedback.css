@@ -1,18 +1,21 @@
 .main-mural {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--cor-background);
+  overflow: hidden;
 }
 
 .mural-container {
   display: flex;
   flex-grow: 1;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .mural-content {
   flex-grow: 1;
-  padding: 40px;
+  padding-left: 40px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -56,6 +59,7 @@
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-right: 65px;
 }
 
 .novo-aviso-btn:hover {
