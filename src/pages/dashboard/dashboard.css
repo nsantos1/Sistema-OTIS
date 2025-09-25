@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap");
+
+* {
+  font-family: "Montserrat";
+}
+
 .main-dashboard-kpi {
   display: flex;
   background-color: var(--cor-background);
@@ -39,14 +45,12 @@
   font-weight: 600;
 }
 
-
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   margin-bottom: 30px;
 }
-
 
 .charts-grid {
   display: grid;
@@ -56,11 +60,11 @@
 }
 
 .chart-container {
-  background-color: #fff;
+  background-color: var(--cor-branca);
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--cinza-claro);
+  box-shadow: 0 4px 12px var(--preto-transparente);
 }
 
 .chart-container h3 {
@@ -70,24 +74,24 @@
   text-align: left;
 }
 
-
 .chart-container.full-width {
   grid-column: 1 / -1;
 }
 
-
 .recharts-legend-item-text {
-    color: var(--cor-terciaria) !important;
+  color: var(--cor-terciaria) !important;
 }
+
 .recharts-text.recharts-tooltip-label {
-    color: var(--cor-terciaria) !important;
+  color: var(--cor-terciaria) !important;
 }
+
 .recent-activities-container {
-  background-color: #fff;
+  background-color: var(--cor-branca);
   padding: 20px;
   border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--cinza-claro);
+  box-shadow: 0 4px 12px var(--preto-transparente);
   margin-top: 25px;
 }
 
@@ -107,7 +111,7 @@
 .activities-table td {
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--cinza-claro);
   font-size: 14px;
 }
 
@@ -117,20 +121,31 @@
 }
 
 .activities-table td {
-  color: #2d3748;
+  color: var(--cor-secundaria);
 }
 
 .status-badge {
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 14px;
-    color: #fff;
-    text-align: center;
-    display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 14px;
+  color: var(--cor-branca);
+  text-align: center;
+  display: inline-block;
 }
 
-.status-resolvido { background-color: #38A169; }
-.status-em-atendimento { background-color: #0003B5; }
-.status-dentro-do-prazo { background-color: #38A169; }
-.status-fora-do-prazo { background-color: #E53E3E; }
+.status-resolvido {
+  background-color: #38A169;
+}
+
+.status-em-atendimento {
+  background-color: #0003B5;
+}
+
+.status-dentro-do-prazo {
+  background-color: #38A169;
+}
+
+.status-fora-do-prazo {
+  background-color: #E53E3E;
+}
