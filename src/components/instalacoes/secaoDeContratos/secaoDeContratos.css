@@ -1,5 +1,10 @@
 .secao-de-contratos {
   margin-bottom: 40px;
+  padding-top: 0;
+}
+
+.secao-de-contratos.full-view {
+  padding-top: 20px;
 }
 
 .section-header {
@@ -9,12 +14,40 @@
   margin-bottom: 20px;
 }
 
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--cor-principal);
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 20px;
+  transition: opacity 0.2s;
+}
+
+.back-button:hover {
+  opacity: 0.8;
+}
+
+.secao-de-contratos.full-view .section-header {
+  justify-content: flex-start;
+  gap: 20px;
+}
+
 .section-header hr {
   flex-grow: 1;
   height: 1px;
   background-color: #cbd5e0;
   border: 0;
   margin: 0 22px;
+}
+
+.secao-de-contratos.full-view .section-header h2 {
+  font-size: 28px;
 }
 
 .cards-container {
@@ -28,7 +61,19 @@
 }
 
 .cards-container::-webkit-scrollbar {
-  display: none; 
+  display: none;
+}
+
+.secao-de-contratos.full-view .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding-bottom: 0;
+}
+
+.secao-de-contratos.full-view .scroll-buttons {
+    display: none;
 }
 
 .section-header h2 {

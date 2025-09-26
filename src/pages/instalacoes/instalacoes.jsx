@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SecaoDeContratos from '../../components/instalacoes/secaoDeContratos/secaoDeContratos.jsx';
 import BarraDeFiltros from '../../components/barraDeFiltros/barraDeFiltros.jsx';
-import { mockData } from '../../assets/data/mockData.js'; 
+import { mockData } from '../../assets/data/mockData.js';
 import './instalacoes.css';
 import Sidebar from '../../components/menuPrincipalLateral/menuPrincipalLateral.jsx';
 
@@ -17,11 +17,16 @@ function Instalacoes() {
     salesRep: '',
   });
 
+  const [selectedEtapa, setSelectedEtapa] = useState(null);
+
   const handleFilterChange = (newFilters) => {
     setFilters(newFilters);
   };
-
   
+  const handleViewAll = (etapaKey) => {
+    setSelectedEtapa(etapaKey);
+  };
+
   const filteredData = Object.entries(mockData).reduce((acc, [etapa, contracts]) => {
     if (filters.etapas.length === 0 || filters.etapas.includes(etapa)) {
       const filteredContracts = contracts.filter(contract => {
@@ -50,23 +55,41 @@ function Instalacoes() {
     testesFinais: "Em testes finais",
     concluidos: "Concluídos"
   };
-
   
+  const content = selectedEtapa 
+    ? (
+      <SecaoDeContratos
+          key={selectedEtapa}
+          title={titles[selectedEtapa]}
+          contracts={filteredData[selectedEtapa] || []}
+          isFullView={true}
+          onViewAllClick={() => handleViewAll(null)}
+      />
+    )
+    : (
+      Object.keys(filteredData).map(etapa =>
+          <SecaoDeContratos
+              key={etapa}
+              title={titles[etapa]}
+              contracts={filteredData[etapa]}
+              isFullView={false}
+              onViewAllClick={() => handleViewAll(etapa)}
+          />
+      )
+    );
+
   return (
     <div className='main-dashboard'>
-    <Sidebar />
-    <div className="dashboard-container">
-      <BarraDeFiltros filters={filters} onFilterChange={handleFilterChange} />
-      <main className="dashboard-page">
-          {Object.keys(filteredData).map(etapa =>
-              <SecaoDeContratos
-                  key={etapa}
-                  title={titles[etapa]}
-                  contracts={filteredData[etapa]}
-              />
-          )}
-      </main>
-    </div>
+      {selectedEtapa === null && <Sidebar />} 
+      
+      <div className={`dashboard-container ${selectedEtapa ? 'full-width' : ''}`}>
+        
+        {selectedEtapa === null && <BarraDeFiltros filters={filters} onFilterChange={handleFilterChange} />}
+        
+        <main className="dashboard-page">
+            {content}
+        </main>
+      </div>
     </div>
   );
 }

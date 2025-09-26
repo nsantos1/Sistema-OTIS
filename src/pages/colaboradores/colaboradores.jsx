@@ -1,4 +1,5 @@
-import { useState } from "react";
+// Colaboradores.jsx - Lógica completa (Limitador de 12 itens, Carregar Mais, No Results)
+import { useState, useRef } from "react"; // IMPORTADO: useRef
 import CardColaborador from "../../components/colaboradores/cardColaborador/cardColaborador";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 import "./colaboradores.css";
@@ -7,17 +8,64 @@ import CabecalhoColaboradores from "../../components/colaboradores/cabecalhoCola
 import BarraDeFiltrosColaboradores from "../../components/barraDeFiltros/barraDeFiltrosColaboradores";
 import { colaboradoresData } from "../../assets/data/colaboradoresData";
 
+// Define quantos colaboradores exibir por vez (3 linhas * 4 colunas = 12)
+const ITEMS_PER_LOAD = 12;
+
 export default function Colaboradores() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // Estado para controlar a quantidade de itens a mostrar (começa com 12)
+  const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_LOAD);
+  
+  // NOVO: Estado para armazenar o URL da imagem de pré-visualização
+  const [newColabImage, setNewColabImage] = useState(null); 
+  // NOVO: Referência para o input de arquivo oculto
+  const fileInputRef = useRef(null); 
+  
   const [filters, setFilters] = useState({
     nome: "",
     cargo: [],
     setor: [],
     status: "todos",
   });
+  
+  const abrirModal = () => {
+    setIsModalOpen(true);
+    setNewColabImage(null); // Limpa a imagem ao abrir
+  };
+  
+  const fecharModal = () => {
+    setIsModalOpen(false);
+    setNewColabImage(null); // Limpa a imagem ao fechar
+  };
+  
+  // NOVO: Função para lidar com a seleção de imagem
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      // Cria um URL temporário para pré-visualização e armazena no estado
+      setNewColabImage(URL.createObjectURL(file));
+      // NOTA: O arquivo real (file) está em event.target.files[0] 
+      // e deve ser enviado para o backend na função handleCriarColaborador.
+    }
+  };
 
-  const abrirModal = () => setIsModalOpen(true);
-  const fecharModal = () => setIsModalOpen(false);
+  // NOVO: Função para disparar o clique no input file oculto
+  const handleUploadClick = () => {
+    fileInputRef.current.click();
+  };
+
+  // Função para criar colaborador (simulada)
+  const handleCriarColaborador = () => {
+      // Aqui entraria a lógica de envio para o Backend ou atualização global do estado.
+      console.log("Novo colaborador criado com sucesso!");
+      fecharModal();
+      setItemsToShow(ITEMS_PER_LOAD); 
+  };
+  
+  // Função para carregar mais (incrementa 12)
+  const handleCarregarMais = () => {
+    setItemsToShow(prev => prev + ITEMS_PER_LOAD);
+  };
 
   const filteredColaboradores = colaboradoresData.filter((colaborador) => {
     const nomeMatch = filters.nome
@@ -39,6 +87,15 @@ export default function Colaboradores() {
     return nomeMatch && cargoMatch && setorMatch && statusMatch;
   });
 
+  // Lista de colaboradores a ser exibida (fatiada)
+  const displayedColaboradores = filteredColaboradores.slice(0, itemsToShow);
+  
+  // Verifica se o botão "Carregar Mais" deve ser exibido 
+  const showCarregarMais = itemsToShow < filteredColaboradores.length;
+
+  // Verifica se a lista está vazia
+  const noResults = filteredColaboradores.length === 0;
+
   return (
     <main className="main-container">
       <div className="container-sidebar">
@@ -58,7 +115,7 @@ export default function Colaboradores() {
             }
             colaboradoresTreinamento={
               colaboradoresData.filter((c) => c.status === "em treinamento")
-                .length
+              .length
             }
             colaboradoresInativos={
               colaboradoresData.filter((c) => c.status === "inativo").length
@@ -66,12 +123,25 @@ export default function Colaboradores() {
           />
 
           <div className="secao-colaboradores">
-            {filteredColaboradores.map((colaborador) => (
-              <CardColaborador key={colaborador.id} {...colaborador} />
-            ))}
+            {/* Renderiza a mensagem de 'Nenhum item encontrado' */}
+            {noResults ? (
+                <div className="no-results-message">
+                    <h2>Nenhum colaborador encontrado!</h2>
+                    <p>Tente ajustar seus filtros ou cadastre um novo colaborador.</p>
+                </div>
+            ) : (
+                 // Mapeia apenas os colaboradores a serem exibidos (máximo de 12 por vez)
+                displayedColaboradores.map((colaborador) => (
+                  <CardColaborador key={colaborador.id} {...colaborador} />
+                ))
+            )}
           </div>
 
-          <CarregarMais item={"colaboradores"} />
+          {/* Renderiza CarregarMais apenas se houver mais itens e houver resultados */}
+          {showCarregarMais && !noResults && (
+            <CarregarMais item={"colaboradores"} btFunc={handleCarregarMais} />
+          )}
+          
         </div>
 
         {isModalOpen && (
@@ -79,12 +149,28 @@ export default function Colaboradores() {
             <div className="fundo-escuro" onClick={fecharModal}></div>
             <div className="modal-conteudo">
               <h2>Novo Colaborador</h2>
+              
               <div className="foto-container">
+                {/* NOVO: INPUT FILE OCULTO */}
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleImageChange}
+                  style={{ display: 'none' }}
+                  accept="image/*"
+                />
+                
                 <div className="foto-placeholder">
-                  <img src="../src/assets/img/person.svg" alt="" />
+                  {/* NOVO: Usa a imagem de preview (newColabImage) ou a imagem padrão */}
+                  <img 
+                    src={newColabImage || "../src/assets/img/person.svg"} 
+                    alt="Foto do Colaborador" 
+                  />
                 </div>
-                <span>Adicionar foto</span>
+                {/* NOVO: Elemento clicável que dispara o clique no input file oculto */}
+                <span onClick={handleUploadClick}>Adicionar foto</span>
               </div>
+              
               <div className="modal-form">
                 <div className="dados-gerais">
                   <h3>Dados gerais</h3>
@@ -132,7 +218,8 @@ export default function Colaboradores() {
                 </div>
               </div>
               <div className="modal-buttons">
-                <button className="criar" onClick={fecharModal}>
+                {/* Chama a função de criação */}
+                <button className="criar" onClick={handleCriarColaborador}>
                   CRIAR
                 </button>
                 <button className="cancelar" onClick={fecharModal}>

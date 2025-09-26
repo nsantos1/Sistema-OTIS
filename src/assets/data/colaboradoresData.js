@@ -6,7 +6,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Nicolas Santos",
-    avatarUrl: "https://i.pravatar.cc/150?u=joao.ricardo",
+    avatarUrl: "https://i.pravatar.cc/150?u=joao.ricardo", // Masculino
   },
   {
     id: "#FO-303032",
@@ -15,7 +15,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Engenharia",
     supervisor: "Juliana Costa",
-    avatarUrl: "https://i.pravatar.cc/150?u=maria.oliveira_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=maria.oliveira_female", // Feminino
   },
   {
     id: "#FO-303033",
@@ -24,7 +24,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Fábrica",
     supervisor: "Ricardo Alves",
-    avatarUrl: "https://i.pravatar.cc/150?u=carlos.pereira",
+    avatarUrl: "https://i.pravatar.cc/150?u=carlos.pereira", // Masculino
   },
   {
     id: "#FO-303034",
@@ -33,7 +33,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Vendas",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=ana.souza_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=ana.souza_female", // Feminino
   },
   {
     id: "#FO-303035",
@@ -42,7 +42,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Nicolas Santos",
-    avatarUrl: "https://i.pravatar.cc/150?u=lucas.martins",
+    avatarUrl: "https://i.pravatar.cc/150?u=lucas.martins", // Masculino
   },
   {
     id: "#FO-303036",
@@ -51,7 +51,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Engenharia",
     supervisor: "Juliana Costa",
-    avatarUrl: "https://i.pravatar.cc/150?u=beatriz.lima_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=beatriz.lima_female", // Feminino
   },
   {
     id: "#FO-303037",
@@ -60,7 +60,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Nicolas Santos",
-    avatarUrl: "https://i.pravatar.cc/150?u=gabriel.alves",
+    avatarUrl: "https://i.pravatar.cc/150?u=gabriel.alves", // Masculino
   },
   {
     id: "#FO-303038",
@@ -69,16 +69,16 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Vendas",
     supervisor: "Ana Souza",
-    avatarUrl: "https://i.pravatar.cc/150?u=juliana.ribeiro_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=juliana.ribeiro_female", // Feminino
   },
-   {
+  {
     id: "#FO-303039",
     nome: "Marcos Andrade",
     status: "ativo",
     cargo: "Gerente",
     setor: "RH",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=marcos.andrade",
+    avatarUrl: "https://i.pravatar.cc/150?u=marcos.andrade", // Masculino
   },
   {
     id: "#FO-303040",
@@ -87,7 +87,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Carlos Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=fernanda.rocha_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=fernanda.rocha_female", // Feminino
   },
   {
     id: "#FO-303041",
@@ -96,7 +96,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Engenharia",
     supervisor: "Juliana Costa",
-    avatarUrl: "https://i.pravatar.cc/150?u=thiago.nunes",
+    avatarUrl: "https://i.pravatar.cc/150?u=thiago.nunes", // Masculino
   },
   {
     id: "#FO-303042",
@@ -105,7 +105,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Fábrica",
     supervisor: "Ricardo Alves",
-    avatarUrl: "https://i.pravatar.cc/150?u=sofia.pereira_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=sofia.pereira_female", // Feminino
   },
   {
     id: "#FO-303043",
@@ -114,7 +114,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Engenharia",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=rafael.ferreira",
+    avatarUrl: "https://i.pravatar.cc/150?u=rafael.ferreira", // Masculino
   },
   {
     id: "#FO-303044",
@@ -123,7 +123,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Carlos Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=camila.rodrigues_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=camila.rodrigues_female", // Feminino
   },
   {
     id: "#FO-303045",
@@ -132,7 +132,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Engenharia",
     supervisor: "Juliana Costa",
-    avatarUrl: "https://i.pravatar.cc/150?u=bruno.gomes",
+    avatarUrl: "https://i.pravatar.cc/150?u=bruno.gomes", // Masculino
   },
   {
     id: "#FO-303046",
@@ -141,7 +141,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "RH",
     supervisor: "Marcos Andrade",
-    avatarUrl: "https://i.pravatar.cc/150?u=leticia.barros_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=leticia.barros_female", // Feminino
   },
   {
     id: "#FO-303047",
@@ -150,7 +150,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Sofia Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=daniel.azevedo",
+    avatarUrl: "https://i.pravatar.cc/150?u=daniel.azevedo", // Masculino
   },
   {
     id: "#FO-303048",
@@ -159,7 +159,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Fábrica",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=carolina.dias_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=carolina.dias_female", // Feminino
   },
   {
     id: "#FO-303049",
@@ -168,7 +168,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Vendas",
     supervisor: "Ana Souza",
-    avatarUrl: "https://i.pravatar.cc/150?u=vinicius.monteiro",
+    avatarUrl: "https://i.pravatar.cc/150?u=vinicius.monteiro", // Masculino
   },
   {
     id: "#FO-303050",
@@ -177,7 +177,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Carlos Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=isabela.freitas_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=isabela.freitas_female", // Feminino
   },
   {
     id: "#FO-303051",
@@ -186,7 +186,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Vendas",
     supervisor: "Juliana Ribeiro",
-    avatarUrl: "https://i.pravatar.cc/150?u=felipe.barros",
+    avatarUrl: "https://i.pravatar.cc/150?u=felipe.barros", // Masculino
   },
   {
     id: "#FO-303052",
@@ -195,7 +195,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Engenharia",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=laura.pinto_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=laura.pinto_female", // Feminino
   },
   {
     id: "#FO-303053",
@@ -204,7 +204,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Sofia Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=andre.peixoto",
+    avatarUrl: "https://i.pravatar.cc/150?u=andre.peixoto", // Masculino
   },
   {
     id: "#FO-303054",
@@ -213,7 +213,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Engenharia",
     supervisor: "Rafael Ferreira",
-    avatarUrl: "https://i.pravatar.cc/150?u=patricia.farias_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=patricia.farias_female", // Feminino
   },
   {
     id: "#FO-303055",
@@ -222,7 +222,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Fábrica",
     supervisor: "Carolina Dias",
-    avatarUrl: "https://i.pravatar.cc/150?u=rodrigo.carvalho",
+    avatarUrl: "https://i.pravatar.cc/150?u=rodrigo.carvalho", // Masculino
   },
   {
     id: "#FO-303056",
@@ -231,7 +231,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Vendas",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=amanda.teixeira_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=amanda.teixeira_female", // Feminino
   },
   {
     id: "#FO-303057",
@@ -240,7 +240,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Carlos Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=diego.ramos",
+    avatarUrl: "https://i.pravatar.cc/150?u=diego.ramos", // Masculino
   },
   {
     id: "#FO-303058",
@@ -249,7 +249,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "RH",
     supervisor: "Marcos Andrade",
-    avatarUrl: "https://i.pravatar.cc/150?u=larissa.cunha_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=larissa.cunha_female", // Feminino
   },
   {
     id: "#FO-303059",
@@ -258,7 +258,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Engenharia",
     supervisor: "Laura Pinto",
-    avatarUrl: "https://i.pravatar.cc/150?u=eduardo.castro",
+    avatarUrl: "https://i.pravatar.cc/150?u=eduardo.castro", // Masculino
   },
   {
     id: "#FO-303060",
@@ -267,7 +267,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Rodrigo Carvalho",
-    avatarUrl: "https://i.pravatar.cc/150?u=tatiane.barbosa_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=tatiane.barbosa_female", // Feminino
   },
   {
     id: "#FO-303061",
@@ -276,7 +276,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Vendas",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=marcelo.correia",
+    avatarUrl: "https://i.pravatar.cc/150?u=marcelo.correia", // Masculino
   },
   {
     id: "#FO-303062",
@@ -285,7 +285,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Engenharia",
     supervisor: "Eduardo Castro",
-    avatarUrl: "https://i.pravatar.cc/150?u=vanessa.melo_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=vanessa.melo_female", // Feminino
   },
   {
     id: "#FO-303063",
@@ -294,7 +294,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Carlos Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=ricardo.dias",
+    avatarUrl: "https://i.pravatar.cc/150?u=ricardo.dias", // Masculino
   },
   {
     id: "#FO-303064",
@@ -303,7 +303,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "RH",
     supervisor: "Marcos Andrade",
-    avatarUrl: "https://i.pravatar.cc/150?u=sandra.neves_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=sandra.neves_female", // Feminino
   },
   {
     id: "#FO-303065",
@@ -312,7 +312,7 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "Fábrica",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=fabio.azevedo",
+    avatarUrl: "https://i.pravatar.cc/150?u=fabio.azevedo", // Masculino
   },
   {
     id: "#FO-303066",
@@ -321,7 +321,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Sofia Pereira",
-    avatarUrl: "https://i.pravatar.cc/150?u=claudia.moreira_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=claudia.moreira_female", // Feminino
   },
   {
     id: "#FO-303067",
@@ -330,7 +330,7 @@ export const colaboradoresData = [
     cargo: "Engenheiro",
     setor: "Vendas",
     supervisor: "Juliana Ribeiro",
-    avatarUrl: "https://i.pravatar.cc/150?u=roberto.pinto",
+    avatarUrl: "https://i.pravatar.cc/150?u=roberto.pinto", // Masculino
   },
   {
     id: "#FO-303068",
@@ -339,7 +339,7 @@ export const colaboradoresData = [
     cargo: "Supervisor",
     setor: "Engenharia",
     supervisor: "Laura Pinto",
-    avatarUrl: "https://i.pravatar.cc/150?u=sonia.abreu_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=sonia.abreu_female", // Feminino
   },
   {
     id: "#FO-303069",
@@ -348,7 +348,7 @@ export const colaboradoresData = [
     cargo: "Operário",
     setor: "Fábrica",
     supervisor: "Rodrigo Carvalho",
-    avatarUrl: "https://i.pravatar.cc/150?u=igor.nogueira",
+    avatarUrl: "https://i.pravatar.cc/150?u=igor.nogueira", // Masculino
   },
   {
     id: "#FO-303070",
@@ -357,6 +357,6 @@ export const colaboradoresData = [
     cargo: "Gerente",
     setor: "RH",
     supervisor: "Diretoria",
-    avatarUrl: "https://i.pravatar.cc/150?u=ester.fogaca_female",
+    avatarUrl: "https://i.pravatar.cc/150?u=ester.fogaca_female", // Feminino
   }
 ];

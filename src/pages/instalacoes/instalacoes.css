@@ -9,6 +9,11 @@
   display: flex;
   flex-grow: 1;
   overflow-x: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+.dashboard-container.full-width {
+  width: 100%;
 }
 
 .dashboard-page {

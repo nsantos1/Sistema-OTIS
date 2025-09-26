@@ -1,12 +1,38 @@
 .carregar-mais {
+  /* Centraliza na página */
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 32px auto;
+
+  /* Estilo do Botão NOVO COLABORADOR */
+  background-color: var(--cor-principal); /* Azul Escuro */
+  color: var(--cor-branca);
+  padding: 10px 25px;
+  border-radius: 6px;
+  width: fit-content;
+
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.1s ease;
+}
+
+.carregar-mais:hover {
+  background-color: var(--cor-secundaria);
 }
 
 .carregar-mais span {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--cor-principal);
+  font-size: 15px; 
+  font-weight: 900; /* Negrito Forte */
+  color: var(--cor-branca); /* Texto branco */
+  margin-right: 8px;
+  text-transform: uppercase; /* Todo em MAIÚSCULAS */
+  color: var(--cor-branca) !important; /* Força a cor do texto para branco */
+}
+
+.carregar-mais img {
+  filter: invert(100%); /* Inverte a cor da seta para branco */
+  width: 20px;
+  height: 20px;
 }
