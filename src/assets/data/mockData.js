@@ -58,6 +58,17 @@ export const mockData = {
       salesRep: "Juliana Costa",
       imageUrl: elevatorImage,
     },
+    {
+      id: "098",
+      company: "Alpha Condomínios",
+      location: "Belo Horizonte, MG",
+      lastUpdate: "21/07/2024",
+      status: "Dentro do prazo",
+      statusType: "ontime",
+      elevatorModel: "OTIS-Y",
+      salesRep: "Juliana Costa",
+      imageUrl: elevatorImage,
+    },
   ],
   obraCivil: [
     {

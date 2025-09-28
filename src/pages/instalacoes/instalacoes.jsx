@@ -105,13 +105,11 @@ function Instalacoes() {
 
   return (
     <div className="main-dashboard">
-      {selectedEtapa === null && <Sidebar />}
-
-      <div className={`dashboard-container ${selectedEtapa ? "full-width" : ""}`}>
-        {selectedEtapa === null && (
-          <BarraDeFiltros filters={filters} onFilterChange={handleFilterChange} />
-        )}
-
+      <Sidebar />
+      <div
+        className={`dashboard-container ${selectedEtapa ? "full-width" : ""}`}
+      >
+        <BarraDeFiltros filters={filters} onFilterChange={handleFilterChange} />
         <main className="dashboard-page">{content}</main>
       </div>
     </div>

@@ -22,17 +22,24 @@
 }
 
 .status-tag-pedido {
-  font-size: 12px;
-  font-weight: 900;
+  font-size: 11px;
+  font-weight: 600;
   color: #fff;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 12px;
-  text-transform: uppercase;
 }
-.status-tag-pedido.pendente { background-color: #E53E3E; }
-.status-tag-pedido.aprovado { background-color: #38A169; }
-.status-tag-pedido.analise { background-color: #D69E2E; }
-.status-tag-pedido.default { background-color: #A0AEC0; }
+.status-tag-pedido.pendente {
+  background-color: #e53e3e;
+}
+.status-tag-pedido.aprovado {
+  background-color: #38a169;
+}
+.status-tag-pedido.analise {
+  background-color: #d69e2e;
+}
+.status-tag-pedido.default {
+  background-color: #a0aec0;
+}
 
 .card-pedido-body {
   text-align: center;
