@@ -32,6 +32,11 @@
   overflow: hidden;
 }
 
+.principal.grid-view .slider-wrapper {
+  width: 100%;
+  overflow: visible;
+}
+
 .slider {
   transition: transform 0.3s ease;
 }
@@ -41,22 +46,26 @@
   flex-direction: row;
   gap: 15px;
   padding-left: 0;
-
   width: 100%;
   white-space: nowrap;
-
   list-style: none;
   padding: 10px;
   margin: 0;
+}
+
+.principal.grid-view .card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(318px, 1fr));
+  white-space: normal;
 }
 
 .card-item {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: fit-content;
+  width: 318px;
+  min-width: 318px;
   height: fit-content;
-
   color: #0a2344;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -79,6 +88,7 @@
 
 .badges-tipo {
   display: flex;
+  gap: 5px;
 }
 
 .tipo-badge,
@@ -90,31 +100,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 2px 8px;
 }
 
 .tipo-badge {
   background-color: #0a2344;
-  margin-right: 8px;
+}
+
+.estado-badge.em-aberto {
+  background-color: #e9b700;
+}
+.estado-badge.em-aberto-mais {
+  background-color: #c70000;
+}
+.estado-badge.em-atendimento {
+  background-color: #0003b5;
+}
+.estado-badge.resolvido {
+  background-color: #00a100;
 }
 
 .titulo {
   font-weight: bold;
   font-size: 16px;
+  white-space: normal;
 }
 
 .descricao {
   font-weight: medium;
   font-size: 13px;
-  white-space: wrap;
+  white-space: normal;
+  margin-top: 5px;
 }
 
 .linha-divisao {
   background-color: #0a234440;
   width: 100%;
   height: 2px;
-
   margin-top: 25px;
   margin-bottom: 8px;
 }
@@ -153,6 +175,7 @@
 .nome {
   font-weight: bold;
   font-size: 15px;
+  white-space: normal;
 }
 
 .empresa {
@@ -168,6 +191,8 @@
 
 .dados div {
   display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .ver-detalhes {
@@ -181,6 +206,7 @@
   border: none;
   outline: none;
   color: var(--cor-branca);
+  margin-top: auto;
 }
 
 .ver-detalhes:hover {

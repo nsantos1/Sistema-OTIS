@@ -1,50 +1,38 @@
 import React from "react";
 import "./informacaoDoContrato.css";
-import ClienteMaston from '../../../assets/img/clienteMaston.svg';
 import Elevador from '../../../assets/img/elevador.svg';
 
-export default function InformacaoDoContrato() {
+export default function InformacaoDoContrato({ contract }) {
   return (
     <div className="info-contrato">
       <h3>INFORMAÇÕES DO CONTRATO</h3>
-
-      {/* Grid principal */}
       <div className="info-grid">
-        {/* Bloco 1 - Informações do contrato */}
         <div className="info-texto">
-          <p><strong>ID</strong><br />#CT-0921</p>
-          <p><strong>Cliente</strong><br />Construtora Maston</p>
-          <p><strong>Resp. comercial</strong><br />João Ricardo S. O. Coto</p>
-          <p><strong>Endereço da obra civil</strong><br />Av. Paulista, 1106 - Bela Vista, SP</p>
-          <p><strong>Data de assinatura</strong><br />28/08/2025</p>
+          <p><strong>ID</strong><br />#{contract.id}</p>
+          <p><strong>Cliente</strong><br />{contract.company}</p>
+          <p><strong>Resp. comercial</strong><br />{contract.salesRep}</p>
+          <p><strong>Endereço da obra civil</strong><br />{contract.location}</p>
+          <p><strong>Última atualização</strong><br />{contract.lastUpdate}</p>
         </div>
 
-        {/* Bloco 2 - Logo + modelo */}
         <div className="info-coluna">
-          <div className="info-box verde">
-            <img src={ClienteMaston} alt="Logo/Imagem do cliente" />
+          <div className="info-box-logo-otis"> 
+            OTIS 
           </div>
           <div className="info-extra">
-            <p><strong>Modelo de elevador</strong> Gen2® Comfort Panorâmico</p>
-            <p><strong>Número de paradas</strong> 15 Paradas</p>
-            <p><strong>Comprimento do percurso</strong> 60 metros</p>
+            <p><strong>Modelo de elevador</strong> {contract.elevatorModel}</p>
           </div>
         </div>
 
-        {/* Bloco 3 - Elevador + opcionais */}
         <div className="info-coluna">
           <div className="info-box cinza">
-            <img src={Elevador} alt="Imagem Elevador" />
+            <img src={Elevador} alt="Imagem do Elevador" />
           </div>
           <div className="info-extra">
-            <p><strong>Opcionais do modelo</strong> Acabamentos e Materiais</p>
-            <p>Teto com iluminação indireta em LED</p>
-            <p><strong>Iluminação e Atmosfera</strong> Espelhos de corpo inteiro</p>
           </div>
         </div>
       </div>
 
-      {/* Linha de etapas */}
       <div className="etapas">
         <h4>Etapas</h4>
         <div className="timeline">

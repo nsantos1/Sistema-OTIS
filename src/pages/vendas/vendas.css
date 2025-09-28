@@ -18,5 +18,35 @@
 .cards-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 25px;
+  gap: 20px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: var(--cor-terciaria);
+  font-size: 18px;
+  font-weight: 500;
+  grid-column: 1 / -1;
+}
+
+.no-results-geral {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--cor-terciaria);
+  text-align: center;
+}
+
+.no-results-geral h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cor-principal);
+  margin-bottom: 10px;
+}
+
+.no-results-geral p {
+  font-size: 16px;
 }

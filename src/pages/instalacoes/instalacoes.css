@@ -23,3 +23,19 @@
   padding: 40px 40px 0 40px;
   background-color: var(--cor-background);
 }
+
+.no-results-message-instalacoes {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cor-secundaria);
+}
+.no-results-message-instalacoes h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--cor-principal);
+}
+.no-results-message-instalacoes p {
+  font-size: 18px;
+  font-weight: 500;
+}

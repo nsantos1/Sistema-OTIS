@@ -1,5 +1,6 @@
 import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import "./cardClientes.css";
+import { Link } from "react-router-dom";
 
 export default function CardClientes({ id, nome, desde, local, stats }) {
   return (
@@ -8,11 +9,13 @@ export default function CardClientes({ id, nome, desde, local, stats }) {
         <h2 className="cliente-nome-vendas">{nome}</h2>
         <span className="cliente-id">{id}</span>
       </div>
-      
+
       <div className="cliente-info">
         <div className="info-line">
           <FaRegCalendarAlt />
-          <span>Cliente desde: <strong>{desde}</strong></span>
+          <span>
+            Cliente desde: <strong>{desde}</strong>
+          </span>
         </div>
         <div className="info-line">
           <FaMapMarkerAlt />
@@ -23,14 +26,19 @@ export default function CardClientes({ id, nome, desde, local, stats }) {
       <div className="cliente-stats">
         {stats.map((stat, index) => (
           <div className="stat-item" key={index}>
-            <stat.icon className="stat-icon"/>
+            <stat.icon className="stat-icon" />
             <span className="stat-value">{stat.valor}</span>
             <span className="stat-label">{stat.label}</span>
           </div>
         ))}
       </div>
 
-      <a href="#" className="details-button-cliente">VER DETALHES DO CLIENTE</a>
+      <Link
+        to={`/vendas/cliente/${id.replace("#", "")}`}
+        className="details-button-cliente"
+      >
+        VER DETALHES DO CLIENTE
+      </Link>
     </div>
   );
 }

@@ -15,6 +15,16 @@ export default function Vendas() {
     responsavel: "",
   });
 
+  const [viewAll, setViewAll] = useState({
+    pedidos: false,
+    contratos: false,
+    clientes: false,
+  });
+
+  const toggleViewAll = (section) => {
+    setViewAll((prev) => ({ ...prev, [section]: !prev[section] }));
+  };
+
   const applyFilters = (data, keys) => {
     return data.filter((item) => {
       return keys.every((key) => {
@@ -31,7 +41,7 @@ export default function Vendas() {
           return item.nome.toLowerCase().includes(filterValue);
         }
         if (item[key]) {
-          return item[key].toLowerCase().includes(filterValue);
+          return String(item[key]).toLowerCase().includes(filterValue);
         }
         return false;
       });
@@ -50,44 +60,80 @@ export default function Vendas() {
   ]);
   const filteredClientes = applyFilters(vendasData.clientes, ["id", "cliente"]);
 
+  const displayedPedidos = viewAll.pedidos
+    ? filteredPedidos
+    : filteredPedidos.slice(0, 4);
+  const displayedContratos = viewAll.contratos
+    ? filteredContratos
+    : filteredContratos.slice(0, 4);
+  const displayedClientes = viewAll.clientes
+    ? filteredClientes
+    : filteredClientes.slice(0, 4);
+    
+  const noResultsFound =
+    filteredPedidos.length === 0 &&
+    filteredContratos.length === 0 &&
+    filteredClientes.length === 0;
+
   return (
     <main className="main-vendas">
       <Sidebar />
       <BarraDeFiltrosVendas filters={filters} onFilterChange={setFilters} />
 
       <div className="vendas-conteudo-principal">
-        <div className="secao-vendas">
-          <CabecalhoSecoes 
-            titulo={"Pedidos"}
-          />
-          <div className="cards-wrapper">
-            {filteredPedidos.map((pedido) => (
-              <CardPedidos key={pedido.id} {...pedido} />
-            ))}
+        {noResultsFound ? (
+          <div className="no-results-geral">
+            <h2>Nenhum item encontrado</h2>
+            <p>Tente ajustar os filtros da sua busca.</p>
           </div>
-        </div>
+        ) : (
+          <>
+            {filteredPedidos.length > 0 && (
+              <div className="secao-vendas">
+                <CabecalhoSecoes
+                  titulo={"Pedidos"}
+                  onViewAll={() => toggleViewAll("pedidos")}
+                  isViewingAll={viewAll.pedidos}
+                />
+                <div className="cards-wrapper">
+                  {displayedPedidos.map((pedido) => (
+                    <CardPedidos key={pedido.id} {...pedido} />
+                  ))}
+                </div>
+              </div>
+            )}
 
-        <div className="secao-vendas">
-          <CabecalhoSecoes 
-            titulo={"Contratos"}
-          />
-          <div className="cards-wrapper">
-            {filteredContratos.map((contrato) => (
-              <CardContratos key={contrato.id} {...contrato} />
-            ))}
-          </div>
-        </div>
+            {filteredContratos.length > 0 && (
+              <div className="secao-vendas">
+                <CabecalhoSecoes
+                  titulo={"Contratos"}
+                  onViewAll={() => toggleViewAll("contratos")}
+                  isViewingAll={viewAll.contratos}
+                />
+                <div className="cards-wrapper">
+                  {displayedContratos.map((contrato) => (
+                    <CardContratos key={contrato.id} {...contrato} />
+                  ))}
+                </div>
+              </div>
+            )}
 
-        <div className="secao-vendas">
-          <CabecalhoSecoes 
-            titulo={"Clientes"}
-          />
-          <div className="cards-wrapper">
-            {filteredClientes.map((cliente) => (
-              <CardClientes key={cliente.id} {...cliente} />
-            ))}
-          </div>
-        </div>
+            {filteredClientes.length > 0 && (
+              <div className="secao-vendas">
+                <CabecalhoSecoes
+                  titulo={"Clientes"}
+                  onViewAll={() => toggleViewAll("clientes")}
+                  isViewingAll={viewAll.clientes}
+                />
+                <div className="cards-wrapper">
+                  {displayedClientes.map((cliente) => (
+                    <CardClientes key={cliente.id} {...cliente} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </main>
   );

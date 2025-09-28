@@ -1,17 +1,22 @@
 import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import "./cardContratos.css";
+import { Link } from "react-router-dom";
 
-export default function CardContratos({ id, status, statusType, cliente, local, modelo, ultimaAtualizacao, responsavel, imagemUrl }) {
-  
-  const statusClassName = `status-tag ${statusType || ''}`;
+export default function CardContratos({
+  id,
+  status,
+  statusType,
+  cliente,
+  local,
+  modelo,
+  ultimaAtualizacao,
+  responsavel,
+}) {
+  const statusClassName = `status-tag ${statusType || ""}`;
+  const contractId = id.replace("#CT-", "");
 
   return (
     <div className="card-contrato-final">
-      <img
-        src={imagemUrl}
-        alt={`Elevador para ${cliente}`}
-        className="card-img"
-      />
       <div className="card-content">
         <div className="card-header">
           <span className="contract-id">{id}</span>
@@ -41,7 +46,9 @@ export default function CardContratos({ id, status, statusType, cliente, local, 
           </div>
         </div>
       </div>
-      <button className="details-button-dark">VER DETALHES DO CONTRATO</button>
+      <Link to={`/instalacoes/detalhes/${contractId}`} className="details-button-dark">
+        VER DETALHES DO CONTRATO
+      </Link>
     </div>
   );
 }

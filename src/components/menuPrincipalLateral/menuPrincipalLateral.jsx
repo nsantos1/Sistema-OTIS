@@ -1,46 +1,57 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "./menuPrincipalLateral.css";
 
 export default function Sidebar() {
-  const [submenuOpen, setSubmenuOpen] = useState(false);
+  const location = useLocation();
+  const isCanalInternoActive = location.pathname.startsWith("/canal-interno");
+  const [submenuOpen, setSubmenuOpen] = useState(isCanalInternoActive);
+
+  useEffect(() => {
+    setSubmenuOpen(isCanalInternoActive);
+  }, [isCanalInternoActive]);
 
   return (
     <nav className="sidebar">
       <div className="sidebar-menu">
-        <h1 className="logo"><a><Link to="/dashboard">OTIS</Link></a></h1>
+        <h1 className="logo">
+          <NavLink to="/dashboard">OTIS</NavLink>
+        </h1>
         <hr />
         <ul className="menu">
           <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
           <li>
-            <Link to="/vendas">Vendas</Link>
+            <NavLink to="/vendas">Vendas</NavLink>
           </li>
           <li>
-            <Link to="/instalacoes">Instalações</Link>
+            <NavLink to="/instalacoes">Instalações</NavLink>
           </li>
           <li>
-            <Link to="/pos-venda">Pós-Venda</Link>
+            <NavLink to="/pos-venda">Pós-Venda</NavLink>
           </li>
-          <li className="submenu" onClick={() => setSubmenuOpen(!submenuOpen)}>
-            <span className="submenu-title">
+          <li className="submenu">
+            <span
+              className={`submenu-title ${isCanalInternoActive ? "active" : ""}`}
+              onClick={() => setSubmenuOpen(!submenuOpen)}
+            >
               <span className={`arrow ${submenuOpen ? "up" : "down"}`}></span>
               Canal Interno
             </span>
             <ul className={`submenu-list ${submenuOpen ? "open" : ""}`}>
               <li>
-                <Link to="/canal-interno/mural-de-feedback">Mural de Feedback</Link>
+                <NavLink to="/canal-interno/mural-de-feedback">
+                  Mural de Feedback
+                </NavLink>
               </li>
               <li>
-                <Link to="/canal-interno/chats">Chats</Link>
+                <NavLink to="/canal-interno/chats">Chats</NavLink>
               </li>
             </ul>
           </li>
-
           <li>
-            <Link to="/colaboradores">Colaboradores</Link>
+            <NavLink to="/colaboradores">Colaboradores</NavLink>
           </li>
         </ul>
       </div>

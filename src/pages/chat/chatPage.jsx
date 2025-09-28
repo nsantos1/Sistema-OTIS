@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import ConversationsList from '../../components/chat/conversationsList';
-import ChatWindow from '../../components/chat/chatWindow';
-import ChatPlaceholder from '../../components/chat/chatPlaceholder';
-import { chatData } from '../../assets/data/chatData';
-import './chatPage.css';
-import Sidebar from '../../components/menuPrincipalLateral/menuPrincipalLateral';
+import React, { useState } from "react";
+import ConversationsList from "../../components/chat/conversationsList";
+import ChatWindow from "../../components/chat/chatWindow";
+import ChatPlaceholder from "../../components/chat/chatPlaceholder";
+import { chatData } from "../../assets/data/chatData";
+import "./chatPage.css";
+import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 
 function ChatPage() {
   const [conversations, setConversations] = useState(chatData.conversations);
@@ -15,10 +15,13 @@ function ChatPage() {
       id: `msg_${Date.now()}`,
       senderId: chatData.currentUser.id,
       text: messageText,
-      timestamp: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+      timestamp: new Date().toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
     };
 
-    const updatedConversations = conversations.map(convo => {
+    const updatedConversations = conversations.map((convo) => {
       if (convo.id === convoId) {
         return { ...convo, messages: [...convo.messages, newMessage] };
       }
@@ -29,7 +32,7 @@ function ChatPage() {
   };
 
   const handleToggleFavorite = (convoId) => {
-    const updatedConversations = conversations.map(convo => {
+    const updatedConversations = conversations.map((convo) => {
       if (convo.id === convoId) {
         return { ...convo, isFavorite: !convo.isFavorite };
       }
@@ -37,36 +40,36 @@ function ChatPage() {
     });
     setConversations(updatedConversations);
   };
-  
-  
+
   const handleCloseChat = () => {
     setActiveConversationId(null);
   };
 
-  const activeConversation = conversations.find(c => c.id === activeConversationId);
+  const activeConversation = conversations.find(
+    (c) => c.id === activeConversationId
+  );
 
   return (
-    <main className='main-chatpage'>
-    <Sidebar />
-    <div className="chat-page-container">
-      <ConversationsList
-        conversations={conversations}
-        activeConversationId={activeConversationId}
-        onConversationClick={setActiveConversationId}
-      />
-      {activeConversation ? (
-        <ChatWindow
-          conversation={activeConversation}
-          currentUser={chatData.currentUser}
-          onSendMessage={handleSendMessage}
-          onToggleFavorite={handleToggleFavorite}
-         
-          onCloseChat={handleCloseChat}
+    <main className="main-chatpage">
+      <Sidebar />
+      <div className="chat-page-container">
+        <ConversationsList
+          conversations={conversations}
+          activeConversationId={activeConversationId}
+          onConversationClick={setActiveConversationId}
         />
-      ) : (
-        <ChatPlaceholder />
-      )}
-    </div>
+        {activeConversation ? (
+          <ChatWindow
+            conversation={activeConversation}
+            currentUser={chatData.currentUser}
+            onSendMessage={handleSendMessage}
+            onToggleFavorite={handleToggleFavorite}
+            onCloseChat={handleCloseChat}
+          />
+        ) : (
+          <ChatPlaceholder />
+        )}
+      </div>
     </main>
   );
 }

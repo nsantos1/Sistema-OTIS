@@ -23,14 +23,12 @@
   position: relative;
 }
 
-
 .search-bar input {
   width: 100%;
   padding: 10px 15px 10px 40px;
   border-radius: 20px;
   border: 1px solid #cbd5e0;
   font-size: 14px;
-  
   box-sizing: border-box;
 }
 
@@ -59,11 +57,17 @@
 }
 
 .tab-button.active {
-  color: #3182CE;
-  border-bottom: 2px solid #3182CE;
+  color: #3182ce;
+  border-bottom: 2px solid #3182ce;
 }
 
 .conversations-scroll-area {
   flex-grow: 1;
   overflow-y: auto;
+}
+
+.no-conversations-found {
+  text-align: center;
+  padding: 40px;
+  color: var(--cor-terciaria);
 }

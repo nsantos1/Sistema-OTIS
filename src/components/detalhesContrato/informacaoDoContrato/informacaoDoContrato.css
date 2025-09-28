@@ -1,143 +1,149 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
-
 .info-contrato {
-  background: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #e1e6ef;
-  padding: 20px;
-  margin: 20px 24px;
-  font-family: Montserrat, sans-serif;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
 }
 
 .info-contrato h3 {
-  margin: 0 0 16px;
-  color: #0c2340;
-  font-weight: 800;
-  letter-spacing: .4px;
-  text-transform: uppercase;
-  border-bottom: 2px solid #e6ebf2;
-  padding-bottom: 6px;
+  color: var(--cor-principal);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
 }
 
-/* grid com 3 colunas */
 .info-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: 2fr 1fr 1fr; /* Ajustado para 3 colunas */
+  gap: 30px;
 }
 
 .info-texto p {
-  margin: 6px 0;
-  color: #0A2344BF;
-  line-height: 1.4;
-  font-size: 24px;
-  font-family: Montserrat, sans-serif;;
+  margin-bottom: 15px;
+  font-size: 15px;
+  color: var(--cor-principal);
 }
 
-.info-texto strong {
-  color: #0a2344;
-  font-weight: bold;
-  font-size: 24px;
-  font-family: Montserrat, sans-serif;
+.info-texto p strong {
+  color: var(--cor-terciaria);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
 }
 
-/* caixas */
-.info-box {
-  border-radius: 8px;
+.info-coluna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.info-box-logo-otis { /* Nova classe para a logo da OTIS */
+  background-color: #0c2340; /* Cor de fundo da sidebar */
+  color: white;
+  font-size: 60px; /* Tamanho da fonte para "OTIS" */
+  font-weight: 900;
+  width: 100%;
+  aspect-ratio: 2/2; /* Garante que seja um quadrado */
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 120px;
-  margin-bottom: 10px;
-}
-
-.info-box.verde {
-  background: #2da872;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .info-box.cinza {
-  background: #f3f6fb;
-  border: 1px solid #d6dde6;
+  background-color: #f0f2f5;
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }
 
-/* infos extras */
+.info-box.cinza img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
 .info-extra {
   font-size: 14px;
-}
-
-.info-extra p {
-  margin: 6px 0;
-  color: #0A2344BF;
-  line-height: 1.4;
-  font-size: 18px;
-  font-family: Montserrat, sans-serif;
+  color: var(--cor-principal);
+  text-align: center;
+  width: 100%;
 }
 
 .info-extra strong {
-  color: #0a2344;
-  font-weight: bold;
-  font-size: 20px;
-  font-family: Montserrat, sans-serif;
-  display: block;
+  color: var(--cor-terciaria);
+  font-weight: 600;
+  margin-right: 5px;
 }
 
-/* etapas */
 .etapas {
-  margin-top: 24px;
+  margin-top: 40px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 30px;
 }
 
 .etapas h4 {
-  margin-bottom: 16px;
-  font-size: 28px;
-  color: #0a2344;
-  font-weight: bold;
+  color: var(--cor-principal);
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
 .timeline {
   display: flex;
   justify-content: space-between;
   position: relative;
+  padding: 20px 0;
 }
 
 .timeline::before {
-  content: "";
+  content: '';
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 0;
   right: 0;
-  height: 2px;
-  background: #d6dde6;
+  height: 4px;
+  background-color: #e2e8f0;
+  transform: translateY(-50%);
   z-index: 0;
 }
 
 .step {
+  background-color: #e2e8f0;
+  color: var(--cor-terciaria);
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
   position: relative;
-  text-align: center;
-  font-size: 22px;
-  flex: 1;
-  color: #0A2344BF;
-}
-
-.step::before {
-  content: "";
-  display: block;
-  margin: 0 auto 8px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #d6dde6;
-  border: 2px solid #d6dde6;
   z-index: 1;
-  position: relative;
+  text-align: center;
+  flex-shrink: 0; /* Previne que o item diminua */
+  margin: 0 5px; /* Espaçamento entre os passos */
 }
 
 .step.completed {
-  color: #0c2340;
-  font-weight: 700;
+  background-color: var(--cor-secundaria);
+  color: white;
 }
 
-.step.completed::before {
-  background: #0c2340;
-  border-color: #0c2340;
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .timeline {
+    flex-wrap: wrap; /* Permite que os passos quebrem a linha */
+    justify-content: center; /* Centraliza os passos */
+    gap: 10px; /* Adiciona espaço entre os passos quebrados */
+  }
+  .timeline::before {
+    display: none; /* Remove a linha da timeline em telas pequenas */
+  }
 }

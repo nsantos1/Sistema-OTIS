@@ -3,16 +3,15 @@ import { FaRegCalendarAlt, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function CartaoDeContrato(props) {
-  const { id, company, location, lastUpdate, status, statusType, elevatorModel, salesRep, imageUrl } = props;
+  const { id, company, location, lastUpdate, status, statusType, elevatorModel, salesRep,} = props;
 
   const statusClassName = `status-tag ${statusType || ''}`;
 
   return (
     <div className="card-contrato-final">
-      <img src={imageUrl} alt={`Elevador para ${company}`} className="card-img" />
       <div className="card-content">
         <div className="card-header">
-          <span className="contract-id">{id}</span>
+          <span className="contract-id">#{id}</span>
           <span className={statusClassName}>{status}</span>
         </div>
         
@@ -39,7 +38,7 @@ function CartaoDeContrato(props) {
           </div>
         </div>
       </div>
-      <Link to="/instalacoes/detalhes" className="details-button-dark">VER DETALHES DO CONTRATO</Link>
+      <Link to={`/instalacoes/detalhes/${id}`} className="details-button-dark">VER DETALHES DO CONTRATO</Link>
     </div>
   );
 }

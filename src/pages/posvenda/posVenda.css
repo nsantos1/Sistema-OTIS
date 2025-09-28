@@ -1,97 +1,111 @@
 .main-posvenda {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .main-posvenda-conteudo {
-    display: flex;
-    flex-direction: column;
-    margin-left: 42px;
-    overflow-y: auto;
-    max-height: 100vh;
-    padding-right: 160px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 42px;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding-right: 160px;
+  flex-grow: 1;
 }
 
 .main-posvenda-conteudo button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .legenda {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    gap: 60px;
-    color: #485D78;
-    margin: 50px 0;
-
-    padding: 8px 23px;
-
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 25%);
-    border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 60px;
+  color: #485d78;
+  margin: 50px 0;
+  padding: 8px 23px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 25%);
+  border-radius: 25px;
 }
 
 .legenda .estado-do-chamado {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
 }
 
 .legenda .estado-do-chamado .bolinha {
-    width: 12px;
-    height: 12px;
-
-    border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
 .legenda .estado-do-chamado .tipo {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
 }
 
 .legenda .estado-do-chamado strong {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .legenda .estado-do-chamado span {
-    font-weight: 600;
-    font-size: 13px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .em-aberto {
-    background-color: #E9B700;
+  background-color: #e9b700;
 }
 
 .em-aberto-mais {
-    background-color: #C70000;
+  background-color: #c70000;
 }
 
 .em-atendimento {
-    background-color: #0003B5;
+  background-color: #0003b5;
 }
 
 .resolvido {
-    background-color: #00A100;
+  background-color: #00a100;
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 
 .conteudo-posvenda {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .superior {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .principal {
-    margin-bottom: 34px;
+  margin-bottom: 34px;
+}
+
+.no-results-posvenda {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--cor-secundaria);
+}
+.no-results-posvenda h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--cor-principal);
+}
+.no-results-posvenda p {
+  font-size: 18px;
+  font-weight: 500;
 }

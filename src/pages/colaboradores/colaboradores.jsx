@@ -1,73 +1,101 @@
-// Colaboradores.jsx - Lógica completa (Limitador de 12 itens, Carregar Mais, No Results)
-import { useState, useRef } from "react"; // IMPORTADO: useRef
+import { useState, useRef } from "react";
 import CardColaborador from "../../components/colaboradores/cardColaborador/cardColaborador";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 import "./colaboradores.css";
 import CarregarMais from "../../components/carregarMais/carregarMais";
 import CabecalhoColaboradores from "../../components/colaboradores/cabecalhoColaboradores/cabecalhoColaboradores";
 import BarraDeFiltrosColaboradores from "../../components/barraDeFiltros/barraDeFiltrosColaboradores";
-import { colaboradoresData } from "../../assets/data/colaboradoresData";
+import { colaboradoresData as initialColaboradoresData } from "../../assets/data/colaboradoresData";
 
-// Define quantos colaboradores exibir por vez (3 linhas * 4 colunas = 12)
 const ITEMS_PER_LOAD = 12;
 
 export default function Colaboradores() {
+  const [colaboradores, setColaboradores] = useState(initialColaboradoresData);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // Estado para controlar a quantidade de itens a mostrar (começa com 12)
   const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_LOAD);
-  
-  // NOVO: Estado para armazenar o URL da imagem de pré-visualização
-  const [newColabImage, setNewColabImage] = useState(null); 
-  // NOVO: Referência para o input de arquivo oculto
-  const fileInputRef = useRef(null); 
-  
+  const [newColabImage, setNewColabImage] = useState(null);
+  const fileInputRef = useRef(null);
+  const [newColabData, setNewColabData] = useState({
+    nome: "",
+    cargo: "-",
+    setor: "-",
+    local: "",
+    inicio: "",
+    termino: "",
+    email: "",
+    telefone: "",
+  });
+
   const [filters, setFilters] = useState({
     nome: "",
     cargo: [],
     setor: [],
     status: "todos",
   });
-  
+
   const abrirModal = () => {
     setIsModalOpen(true);
-    setNewColabImage(null); // Limpa a imagem ao abrir
+    setNewColabImage(null);
   };
-  
+
   const fecharModal = () => {
     setIsModalOpen(false);
-    setNewColabImage(null); // Limpa a imagem ao fechar
+    setNewColabImage(null);
+    setNewColabData({
+      nome: "",
+      cargo: "-",
+      setor: "-",
+      local: "",
+      inicio: "",
+      termino: "",
+      email: "",
+      telefone: "",
+    });
   };
-  
-  // NOVO: Função para lidar com a seleção de imagem
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewColabData((prev) => ({ ...prev, [name]: value }));
+  };
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // Cria um URL temporário para pré-visualização e armazena no estado
       setNewColabImage(URL.createObjectURL(file));
-      // NOTA: O arquivo real (file) está em event.target.files[0] 
-      // e deve ser enviado para o backend na função handleCriarColaborador.
     }
   };
 
-  // NOVO: Função para disparar o clique no input file oculto
   const handleUploadClick = () => {
     fileInputRef.current.click();
   };
 
-  // Função para criar colaborador (simulada)
   const handleCriarColaborador = () => {
-      // Aqui entraria a lógica de envio para o Backend ou atualização global do estado.
-      console.log("Novo colaborador criado com sucesso!");
-      fecharModal();
-      setItemsToShow(ITEMS_PER_LOAD); 
-  };
-  
-  // Função para carregar mais (incrementa 12)
-  const handleCarregarMais = () => {
-    setItemsToShow(prev => prev + ITEMS_PER_LOAD);
+    const newId = `#FO-${303070 + colaboradores.length + 1}`;
+    
+    // Lógica para gerar um avatar real aleatório
+    const randomId = Math.floor(Math.random() * 70) + 1; // Gera um número de 1 a 70
+    const randomAvatarUrl = `https://randomuser.me/api/portraits/men/${randomId}.jpg`;
+
+    const novoColaborador = {
+      id: newId,
+      nome: newColabData.nome,
+      status: "ativo",
+      cargo: newColabData.cargo,
+      setor: newColabData.setor,
+      supervisor: "A Definir",
+      avatarUrl:
+        newColabImage || randomAvatarUrl, // Usa o avatar real aleatório se nenhum for enviado
+    };
+    setColaboradores([novoColaborador, ...colaboradores]);
+    fecharModal();
+    setItemsToShow(ITEMS_PER_LOAD);
   };
 
-  const filteredColaboradores = colaboradoresData.filter((colaborador) => {
+  const handleCarregarMais = () => {
+    setItemsToShow((prev) => prev + ITEMS_PER_LOAD);
+  };
+
+  const filteredColaboradores = colaboradores.filter((colaborador) => {
     const nomeMatch = filters.nome
       ? colaborador.nome.toLowerCase().includes(filters.nome.toLowerCase())
       : true;
@@ -87,13 +115,8 @@ export default function Colaboradores() {
     return nomeMatch && cargoMatch && setorMatch && statusMatch;
   });
 
-  // Lista de colaboradores a ser exibida (fatiada)
   const displayedColaboradores = filteredColaboradores.slice(0, itemsToShow);
-  
-  // Verifica se o botão "Carregar Mais" deve ser exibido 
   const showCarregarMais = itemsToShow < filteredColaboradores.length;
-
-  // Verifica se a lista está vazia
   const noResults = filteredColaboradores.length === 0;
 
   return (
@@ -109,39 +132,36 @@ export default function Colaboradores() {
         <div className="conteudo-principal-colaboradores">
           <CabecalhoColaboradores
             btFunc={abrirModal}
-            totalColaboradores={colaboradoresData.length}
+            totalColaboradores={colaboradores.length}
             colaboradoresAtivos={
-              colaboradoresData.filter((c) => c.status === "ativo").length
+              colaboradores.filter((c) => c.status === "ativo").length
             }
             colaboradoresTreinamento={
-              colaboradoresData.filter((c) => c.status === "em treinamento")
-              .length
+              colaboradores.filter((c) => c.status === "em treinamento").length
             }
             colaboradoresInativos={
-              colaboradoresData.filter((c) => c.status === "inativo").length
+              colaboradores.filter((c) => c.status === "inativo").length
             }
           />
 
           <div className="secao-colaboradores">
-            {/* Renderiza a mensagem de 'Nenhum item encontrado' */}
             {noResults ? (
-                <div className="no-results-message">
-                    <h2>Nenhum colaborador encontrado!</h2>
-                    <p>Tente ajustar seus filtros ou cadastre um novo colaborador.</p>
-                </div>
+              <div className="no-results-message">
+                <h2>Nenhum colaborador encontrado!</h2>
+                <p>
+                  Tente ajustar seus filtros ou cadastre um novo colaborador.
+                </p>
+              </div>
             ) : (
-                 // Mapeia apenas os colaboradores a serem exibidos (máximo de 12 por vez)
-                displayedColaboradores.map((colaborador) => (
-                  <CardColaborador key={colaborador.id} {...colaborador} />
-                ))
+              displayedColaboradores.map((colaborador) => (
+                <CardColaborador key={colaborador.id} {...colaborador} />
+              ))
             )}
           </div>
 
-          {/* Renderiza CarregarMais apenas se houver mais itens e houver resultados */}
           {showCarregarMais && !noResults && (
             <CarregarMais item={"colaboradores"} btFunc={handleCarregarMais} />
           )}
-          
         </div>
 
         {isModalOpen && (
@@ -149,44 +169,57 @@ export default function Colaboradores() {
             <div className="fundo-escuro" onClick={fecharModal}></div>
             <div className="modal-conteudo">
               <h2>Novo Colaborador</h2>
-              
+
               <div className="foto-container">
-                {/* NOVO: INPUT FILE OCULTO */}
                 <input
                   type="file"
                   ref={fileInputRef}
                   onChange={handleImageChange}
-                  style={{ display: 'none' }}
+                  style={{ display: "none" }}
                   accept="image/*"
                 />
-                
+
                 <div className="foto-placeholder">
-                  {/* NOVO: Usa a imagem de preview (newColabImage) ou a imagem padrão */}
-                  <img 
-                    src={newColabImage || "../src/assets/img/person.svg"} 
-                    alt="Foto do Colaborador" 
+                  <img
+                    src={newColabImage || "../src/assets/img/person.svg"}
+                    alt="Foto do Colaborador"
                   />
                 </div>
-                {/* NOVO: Elemento clicável que dispara o clique no input file oculto */}
                 <span onClick={handleUploadClick}>Adicionar foto</span>
               </div>
-              
+
               <div className="modal-form">
                 <div className="dados-gerais">
                   <h3>Dados gerais</h3>
                   <label>Nome</label>
-                  <input type="text" placeholder="Digite o nome completo" />
+                  <input
+                    type="text"
+                    name="nome"
+                    value={newColabData.nome}
+                    onChange={handleInputChange}
+                    placeholder="Digite o nome completo"
+                  />
                   <label>Cargo</label>
-                  <select>
+                  <select
+                    name="cargo"
+                    value={newColabData.cargo}
+                    onChange={handleInputChange}
+                  >
                     <option>-</option>
+                    <option>Operário</option>
                     <option>Engenheiro</option>
                     <option>Supervisor</option>
                     <option>Gerente</option>
                   </select>
                   <h3>Trabalho</h3>
                   <label>Setor</label>
-                  <select>
+                  <select
+                    name="setor"
+                    value={newColabData.setor}
+                    onChange={handleInputChange}
+                  >
                     <option>-</option>
+                    <option>Fábrica</option>
                     <option>Vendas</option>
                     <option>RH</option>
                     <option>Engenharia</option>
@@ -194,13 +227,26 @@ export default function Colaboradores() {
                   <label>Local de trabalho</label>
                   <input
                     type="text"
+                    name="local"
+                    value={newColabData.local}
+                    onChange={handleInputChange}
                     placeholder="Digite o endereço de trabalho"
                   />
                   <label>Horário de trabalho</label>
                   <div className="horario-trabalho">
-                    <input type="time" placeholder="Início" />
+                    <input
+                      type="time"
+                      name="inicio"
+                      value={newColabData.inicio}
+                      onChange={handleInputChange}
+                    />
                     <span>—</span>
-                    <input type="time" placeholder="Término" />
+                    <input
+                      type="time"
+                      name="termino"
+                      value={newColabData.termino}
+                      onChange={handleInputChange}
+                    />
                   </div>
                 </div>
                 <div className="contato">
@@ -208,17 +254,22 @@ export default function Colaboradores() {
                   <label>Email</label>
                   <input
                     type="email"
+                    name="email"
+                    value={newColabData.email}
+                    onChange={handleInputChange}
                     placeholder="Digite o email do colaborador"
                   />
                   <label>Telefone</label>
                   <input
                     type="tel"
+                    name="telefone"
+                    value={newColabData.telefone}
+                    onChange={handleInputChange}
                     placeholder="Digite o telefone do colaborador"
                   />
                 </div>
               </div>
               <div className="modal-buttons">
-                {/* Chama a função de criação */}
                 <button className="criar" onClick={handleCriarColaborador}>
                   CRIAR
                 </button>

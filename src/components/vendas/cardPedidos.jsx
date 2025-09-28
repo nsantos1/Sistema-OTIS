@@ -1,9 +1,19 @@
 import { FaRegCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 import "./cardPedidos.css";
+import { Link } from "react-router-dom";
 
-export default function CardPedidos({ id, status, statusType, cliente, ultimaAtualizacao, responsavel, data, local }) {
-  
-  const statusClass = `status-tag-pedido ${statusType || 'default'}`;
+export default function CardPedidos({
+  id,
+  status,
+  statusType,
+  cliente,
+  ultimaAtualizacao,
+  responsavel,
+  data,
+  local,
+}) {
+  const statusClass = `status-tag-pedido ${statusType || "default"}`;
+  const pedidoId = id.replace("#PD-", ""); // Corrige o ID para a URL
 
   return (
     <div className="card-pedido-vendas">
@@ -19,7 +29,7 @@ export default function CardPedidos({ id, status, statusType, cliente, ultimaAtu
         </span>
       </div>
 
-      <hr className="card-divider"/>
+      <hr className="card-divider" />
 
       <div className="card-pedido-footer">
         <div className="responsavel-info">
@@ -40,7 +50,9 @@ export default function CardPedidos({ id, status, statusType, cliente, ultimaAtu
           </div>
         </div>
       </div>
-      <a href="#" className="details-button">VER DETALHES DO PEDIDO</a>
+      <Link to={`/vendas/pedido/${pedidoId}`} className="details-button">
+        VER DETALHES DO PEDIDO
+      </Link>
     </div>
   );
 }

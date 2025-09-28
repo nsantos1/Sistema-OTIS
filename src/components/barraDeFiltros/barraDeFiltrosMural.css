@@ -1,6 +1,4 @@
-
-@import './barraDeFiltros.css';
-
+@import "./barraDeFiltros.css";
 
 .barra-de-filtros-mural {
   width: 320px;
@@ -11,7 +9,6 @@
   flex-shrink: 0;
   font-family: var(--fonte-principal);
 }
-
 
 .radio-item {
   display: flex;
@@ -34,7 +31,7 @@
 }
 
 .radio-item label::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
@@ -48,7 +45,7 @@
 }
 
 .radio-item label::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 50%;

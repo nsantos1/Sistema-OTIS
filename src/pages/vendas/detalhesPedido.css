@@ -1,0 +1,78 @@
+.main-vendas .detalhes-container {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #f7fafc;
+}
+
+.detalhes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.detalhes-header h1 {
+  color: var(--cor-principal);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.btn-voltar {
+  background-color: var(--cor-principal);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-voltar:hover {
+  background-color: var(--cor-secundaria);
+}
+
+.detalhes-card-pedido {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  font-size: 14px;
+  color: var(--cor-terciaria);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+.status-tag-detalhes {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.status-pendente { background-color: #E53E3E; }
+.status-aprovado { background-color: #38A169; }
+.status-analise { background-color: #D69E2E; }
