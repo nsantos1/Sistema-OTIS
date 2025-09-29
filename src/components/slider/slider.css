@@ -28,7 +28,7 @@
 }
 
 .slider-wrapper {
-  width: 984px;
+  width: fit-content;
   overflow: hidden;
 }
 
@@ -62,15 +62,17 @@
 .card-item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
   width: 318px;
   min-width: 318px;
-  height: fit-content;
+  height: 245px;
   color: #0a2344;
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 8px;
+  overflow: hidden;
 }
 
 .badges {
@@ -144,7 +146,6 @@
 .informacoes {
   display: flex;
   flex-direction: row;
-  gap: 20px;
   position: relative;
   width: 100%;
   margin-bottom: 8px;

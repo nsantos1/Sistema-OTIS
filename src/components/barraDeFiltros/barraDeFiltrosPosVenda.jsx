@@ -1,7 +1,28 @@
-import './barraDeFiltros.css';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { IoSearch } from "react-icons/io5";
 
-function BarraDeFiltrosPosVenda({ filters, onFilterChange }) {
+import './barraDeFiltros.css';
+
+function BarraDeFiltrosPosVenda({ filters, onFilterChange }, ref) {
+    const manutencaoCheckboxRef = useRef(null);
+    const suporteCheckboxRef = useRef(null);
+    const avaliacaoCheckboxRef = useRef(null);
+
+    const atualizarTipoDeChamado = (name, checked) => {
+        onFilterChange(prevFilters => {
+            const currentTipoDeChamado = prevFilters.tipoDeChamado || [];
+            const newTipoDeChamado = checked
+                ? [...currentTipoDeChamado, name]
+                : currentTipoDeChamado.filter(tipo => tipo !== name);
+            return { ...prevFilters, tipoDeChamado: newTipoDeChamado };
+        });
+    };
+
+    useImperativeHandle(ref, () => ({
+        marcar: (id) => atualizarTipoDeChamado(id, true),
+        desmarcar: (id) => atualizarTipoDeChamado(id, false),
+    }));
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -63,15 +84,15 @@ function BarraDeFiltrosPosVenda({ filters, onFilterChange }) {
             <div className="filter-group">
                 <label>Tipo de Chamado</label>
                 <div className="checkbox-item">
-                    <input type="checkbox" id="manutencao" name="manutencao" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('manutencao')} />
+                    <input ref={manutencaoCheckboxRef} type="checkbox" id="manutencao" name="manutencao" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('manutencao')} />
                     <label htmlFor="manutencao">Manutenção</label>
                 </div>
                 <div className="checkbox-item">
-                    <input type="checkbox" id="suporte" name="suporte" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('suporte')} />
+                    <input ref={suporteCheckboxRef} type="checkbox" id="suporte" name="suporte" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('suporte')} />
                     <label htmlFor="suporte">Suporte</label>
                 </div>
                 <div className="checkbox-item">
-                    <input type="checkbox" id="avaliacao" name="avaliacao" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('avaliacao')} />
+                    <input ref={avaliacaoCheckboxRef} type="checkbox" id="avaliacao" name="avaliacao" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('avaliacao')} />
                     <label htmlFor="avaliacao">Avaliação</label>
                 </div>
             </div>
@@ -100,4 +121,4 @@ function BarraDeFiltrosPosVenda({ filters, onFilterChange }) {
     );
 }
 
-export default BarraDeFiltrosPosVenda;
+export default forwardRef(BarraDeFiltrosPosVenda);
