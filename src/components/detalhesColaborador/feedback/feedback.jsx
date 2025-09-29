@@ -7,7 +7,7 @@ export default function Feedbacks() {
       <h3>FEEDBACKS</h3>
       <div className="feedback-item">
         <span className="autor">João Ricardo</span>
-        <span className="data">29/08/2025 - 13:21h</span>
+        <span className="data-feedback">29/08/2025 - 13:21h</span>
         <p className="texto">
           Atendimento rápido e eficiente, excelente desempenho
         </p>
