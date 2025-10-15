@@ -46,7 +46,20 @@ function Dashboard() {
         <header className="dashboard-header">
           <h1>Dashboard de KPIs</h1>
           <div className="dashboard-filters">
-            <select name="periodo"><option value="">PERÍODO</option></select>
+            <select name="periodo">
+              <option value="">Janeiro</option>
+              <option value="">Fevereiro</option>
+              <option value="">Março</option>
+              <option value="">Abril</option>
+              <option value="">Maio</option>
+              <option value="">Junho</option>
+              <option value="">Julho</option>
+              <option value="">Agosto</option>
+              <option value="">Setembro</option>
+              <option value="">Outubro</option>
+              <option value="">Novembro</option>
+              <option value="">Dezembro</option>
+              </select>
             <select name="setor"><option value="">SETOR</option></select>
             <select name="unidade"><option value="">UNIDADE</option></select>
           </div>

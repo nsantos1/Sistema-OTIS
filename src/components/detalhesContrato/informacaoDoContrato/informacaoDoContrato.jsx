@@ -8,11 +8,16 @@ export default function InformacaoDoContrato({ contract }) {
       <h3>INFORMAÇÕES DO CONTRATO</h3>
       <div className="info-grid">
         <div className="info-texto">
-          <p><strong>ID</strong><br />#{contract.id}</p>
-          <p><strong>Cliente</strong><br />{contract.company}</p>
-          <p><strong>Resp. comercial</strong><br />{contract.salesRep}</p>
-          <p><strong>Endereço da obra civil</strong><br />{contract.location}</p>
-          <p><strong>Última atualização</strong><br />{contract.lastUpdate}</p>
+          <p><strong>ID</strong></p>
+          <p className="info-texto-item">#{contract.id}</p>
+          <p><strong>Cliente</strong></p>
+          <p className="info-texto-item">{contract.company}</p>
+          <p><strong>Resp. comercial</strong></p>
+          <p className="info-texto-item">{contract.salesRep}</p>
+          <p><strong>Endereço da obra civil</strong></p>
+          <p className="info-texto-item">{contract.location}</p>
+          <p><strong>Última atualização</strong></p>
+          <p className="info-texto-item">{contract.lastUpdate}</p>
         </div>
 
         <div className="info-coluna">

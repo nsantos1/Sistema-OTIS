@@ -20,16 +20,19 @@
 }
 
 .info-texto p {
-  margin-bottom: 15px;
-  font-size: 15px;
+  font-size: 20px;
   color: var(--cor-principal);
 }
 
 .info-texto p strong {
-  color: var(--cor-terciaria);
-  font-weight: 600;
+  color: var(--cor-principal);
+  font-weight: 700;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+}
+
+.info-texto-item {
+  margin-bottom: 15px;
 }
 
 .info-coluna {
@@ -39,7 +42,8 @@
   gap: 15px;
 }
 
-.info-box-logo-otis { /* Nova classe para a logo da OTIS */
+.info-box-logo-otis {
+  /* Nova classe para a logo da OTIS */
   background-color: #0c2340; /* Cor de fundo da sidebar */
   color: white;
   font-size: 60px; /* Tamanho da fonte para "OTIS" */
@@ -103,7 +107,7 @@
 }
 
 .timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
