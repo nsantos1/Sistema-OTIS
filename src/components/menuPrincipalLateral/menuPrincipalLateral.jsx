@@ -53,6 +53,9 @@ export default function Sidebar() {
           <li>
             <NavLink to="/colaboradores">Colaboradores</NavLink>
           </li>
+          <li>
+            <NavLink to="/relatorios-avancados">Relatórios Avançados</NavLink>
+          </li>
         </ul>
       </div>
     </nav>
