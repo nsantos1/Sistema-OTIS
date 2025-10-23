@@ -1,6 +1,6 @@
 /* =======================================
-   Estilos de Layout e Base
-   ======================================= */
+    Estilos de Layout e Base
+    ======================================= */
 
 .main-dashboard-kpi {
     display: flex;
@@ -15,8 +15,8 @@
 }
 
 /* ----------------
-   HEADER e FILTROS
-   ---------------- */
+    HEADER e FILTROS
+    ---------------- */
 .dashboard-header {
     display: flex;
     justify-content: space-between;
@@ -40,17 +40,19 @@
 }
 
 /* -------------------------------------------
-   Estilos para o PeriodFilter (ESTILIZAÇÃO REFEITA)
-   ------------------------------------------- */
+    Estilos para o PeriodFilter (Filtro de MÊS)
+    ------------------------------------------- */
 
-/* Container do componente PeriodFilter */
+/* Container do componente PeriodFilter (pode ser renomeado para .month-filter-container,
+   mas mantive o nome original para compatibilidade com o HTML) */
 .period-filter-container {
     display: flex;
-    gap: 15px;
+    /* Ajustado para refletir o layout do filtro de mês (agora tem 1 select) */
+    gap: 15px; 
     align-items: center;
 }
 
-/* Grupo de label e input: agora label acima do input */
+/* Grupo de label e input/select */
 .filter-group {
     display: flex;
     flex-direction: column; 
@@ -66,8 +68,8 @@
     white-space: nowrap; 
 }
 
-/* Estilo APRIMORADO para os Inputs de Data e Selects */
-.filter-input,
+/* Estilo APRIMORADO para os Selects (usando a classe .filter-select ou selecionando o select) */
+.filter-select, /* Adicionada para o novo componente */
 .dashboard-filters select {
     /* Dimensões e borda base */
     padding: 8px 12px;
@@ -83,32 +85,24 @@
     
     /* Efeito de Transição */
     transition: all 0.2s ease-in-out; 
-    /* Garante que o select tenha largura similar ao input */
     min-width: 150px; 
 }
 
 /* Estilo em foco (Quando o usuário clica) */
-.filter-input:focus,
+.filter-select:focus,
 .dashboard-filters select:focus {
     border-color: var(--cor-principal); /* Borda fica azul escura */
     box-shadow: 0 0 0 2px var(--cor-principal-transparente); /* Sombra suave */
     outline: none; /* Remove o outline padrão do navegador */
 }
 
-/* Aprimoramento para Input[type="date"] */
-.filter-input[type="date"] {
-    min-width: 140px; 
-}
+/* REMOVIDO: Estilos para .filter-input[type="date"] e ::-webkit-calendar-picker-indicator
+   pois o componente PeriodFilter agora usa <select> */
 
-/* Customização do ícone do calendário (Chrome/Edge/Safari) */
-.filter-input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(10%); /* Escurece o ícone para combinar com a cor-principal */
-    cursor: pointer;
-}
 
 /* ----------------
-   KPI e Charts GRID (Restante do Layout)
-   ---------------- */
+    KPI e Charts GRID (Restante do Layout)
+    ---------------- */
 .kpi-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -142,8 +136,8 @@
 }
 
 /* ----------------
-   TABELA DE ATIVIDADES
-   ---------------- */
+    TABELA DE ATIVIDADES
+    ---------------- */
 .recent-activities-container {
     background-color: var(--cor-branca);
     padding: 20px;
@@ -202,24 +196,11 @@
 }
 
 /* =======================================
-   ESTILOS COMPLEMENTARES DO PERIOD FILTER
-   ======================================= */
+    ESTILOS COMPLEMENTARES DO PERIOD FILTER
+    ======================================= */
 
-/* Mensagem de erro (datas invertidas) */
-.filter-error-message {
-    color: #cc0000;
-    font-size: 0.8em;
-    font-weight: 500;
-    margin-top: 5px;
-    grid-column: 1 / -1;
-}
-
-/* Estado visual de erro no input */
-.input-error {
-    border-color: #ff4d4f !important;
-    box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.15);
-    background-color: #fff7f7;
-}
+/* REMOVIDO: .filter-error-message e .input-error, pois não são mais necessários
+   para a validação de datas invertidas no filtro de mês. */
 
 /* Responsividade — filtros lado a lado até 768px */
 @media (max-width: 768px) {
@@ -227,34 +208,39 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        width: 100%;
+        /* Remover width: 100%; para não conflitar com .dashboard-filters */
     }
 
     .dashboard-filters {
         flex-wrap: wrap;
         gap: 10px;
+        width: 100%; /* Garante que os filtros ocupem o espaço disponível */
+    }
+
+    .filter-group {
+        width: 100%;
     }
 
     .filter-group label {
         font-size: 0.8em;
     }
 
-    .filter-input,
+    .filter-select,
     .dashboard-filters select {
         width: 100%;
         min-width: unset;
     }
 }
 
-/* Hover suave para inputs e selects */
-.filter-input:hover,
+/* Hover suave para selects */
+.filter-select:hover,
 .dashboard-filters select:hover {
     border-color: var(--cor-principal);
     transition: border-color 0.2s ease-in-out;
 }
 
 /* Suaviza interação visual no clique */
-.filter-input:active,
+.filter-select:active,
 .dashboard-filters select:active {
     transform: scale(0.99);
     transition: transform 0.1s ease-in-out;
