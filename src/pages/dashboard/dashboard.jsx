@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Sidebar from '../../components/menuPrincipalLateral/menuPrincipalLateral';
-import KpiCard from '../../components/kpiCard/KpiCard';
+import KpiCard from '../../components/kpiCard/kpiCard';
 import PeriodFilter from '../../components/filtrodeperiodo/Periodfilter';
 import './dashboard.css';
 import {
@@ -175,7 +175,7 @@ function Dashboard() {
         <section className="kpi-grid">
           <KpiCard title="Prazo médio de entrega" value="91" unit="Dias" percentage={-3} />
           <KpiCard title="Custo médio de produção" value={formatCurrency(filteredMetrics.averageCost)} unit="/ Prod." />
-          <KpiCard title="Média de qualidade" subtitle="de retrabalho" value={formatPercentage(filteredMetrics.averageRework)} unit="%" percentage={-1} />
+          <KpiCard title="Média de qualidade" subtitle="% de retrabalho" value={formatPercentage(filteredMetrics.averageRework)} unit="" percentage={-1} />
           <KpiCard title="Média de satisfação do cliente" value="82" unit="/100" percentage={4} />
         </section>
 

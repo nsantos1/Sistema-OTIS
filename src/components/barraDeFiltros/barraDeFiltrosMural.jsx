@@ -1,8 +1,6 @@
-import './barraDeFiltrosMural.css';
 import { IoSearch } from "react-icons/io5";
 
 function BarraDeFiltrosMural({ filters, onFilterChange }) {
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     onFilterChange({ ...filters, [name]: value });
@@ -17,83 +15,137 @@ function BarraDeFiltrosMural({ filters, onFilterChange }) {
     onFilterChange({ ...filters, setor: newSetores });
   };
 
+  const renderSearchInput = (label, name, placeholder) => (
+    <div className="mb-4">
+      <label className="form-label fw-semibold text-dark mb-2">{label}</label>
+      <div className="position-relative">
+        <input
+          type="text"
+          name={name}
+          placeholder={placeholder}
+          value={filters[name] || ""}
+          onChange={handleInputChange}
+          className="form-control rounded-pill ps-3 pe-5"
+        />
+        <IoSearch
+          className="text-secondary position-absolute"
+          style={{ top: "50%", right: "15px", transform: "translateY(-50%)" }}
+        />
+      </div>
+    </div>
+  );
+
   return (
-    <aside className="barra-de-filtros-mural">
-      <div className="filter-group">
-        <label>Nome do colaborador</label>
-        <div className="input-with-icon">
-          <input type="text" name="authorName" placeholder="Digite o nome do colaborador..." value={filters.authorName || ''} onChange={handleInputChange} />
-          <IoSearch className="input-icon" />
+    <aside
+      className="bg-white border-end p-4 overflow-auto flex-shrink-0"
+      style={{ width: "320px", fontFamily: "var(--fonte-principal)" }}
+    >
+      {renderSearchInput(
+        "Nome do colaborador",
+        "authorName",
+        "Digite o nome do colaborador..."
+      )}
+      {renderSearchInput(
+        "Mensagem do comunicado",
+        "message",
+        "Digite a mensagem do comunicado..."
+      )}
+
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">
+          Data de inclusão
+        </label>
+        <div className="d-flex align-items-center gap-2">
+          <input
+            type="text"
+            name="startDate"
+            placeholder="Ex: Março"
+            value={filters.startDate || ""}
+            onChange={handleInputChange}
+            className="form-control rounded-pill"
+          />
+          <span
+            style={{ width: "12px", height: "1px", backgroundColor: "#cbd5e0" }}
+          ></span>
+          <input
+            type="text"
+            name="endDate"
+            placeholder="Ex: Julho"
+            value={filters.endDate || ""}
+            onChange={handleInputChange}
+            className="form-control rounded-pill"
+          />
         </div>
       </div>
 
-      <div className="filter-group">
-        <label>Mensagem do comunicado</label>
-        <div className="input-with-icon">
-          <input type="text" name="message" placeholder="Digite a mensagem do comunicado..." value={filters.message || ''} onChange={handleInputChange} />
-          <IoSearch className="input-icon" />
-        </div>
+      {/* Setores */}
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">Setor</label>
+        {["Fábrica", "Vendas", "RH", "Engenharia"].map((setor) => (
+          <div className="form-check mb-2" key={setor}>
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id={setor.toLowerCase()}
+              name={setor}
+              onChange={handleCheckboxChange}
+              checked={(filters.setor || []).includes(setor)}
+            />
+            <label className="form-check-label" htmlFor={setor.toLowerCase()}>
+              {setor}
+            </label>
+          </div>
+        ))}
       </div>
 
-      <div className="filter-group">
-        <label>Data de inclusão</label>
-        <div className="date-inputs">
-          <input type="text" name="startDate" placeholder="Ex: Março" value={filters.startDate || ''} onChange={handleInputChange} />
-          <span className="date-divider"></span>
-          <input type="text" name="endDate" placeholder="Ex: Julho" value={filters.endDate || ''} onChange={handleInputChange}/>
-        </div>
+      {/* Urgente */}
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">Urgente</label>
+        {[
+          { id: "urgente-todos", value: "todos", label: "Todos" },
+          { id: "urgente-sim", value: "sim", label: "Sim" },
+          { id: "urgente-nao", value: "nao", label: "Não" },
+        ].map(({ id, value, label }) => (
+          <div className="form-check mb-2" key={id}>
+            <input
+              type="radio"
+              className="form-check-input"
+              id={id}
+              name="isUrgent"
+              value={value}
+              onChange={handleInputChange}
+              checked={filters.isUrgent === value}
+            />
+            <label className="form-check-label" htmlFor={id}>
+              {label}
+            </label>
+          </div>
+        ))}
       </div>
 
-      <div className="filter-group">
-        <label>Setor</label>
-        <div className="checkbox-item">
-          <input type="checkbox" id="fabrica" name="Fábrica" onChange={handleCheckboxChange} checked={(filters.setor || []).includes('Fábrica')} />
-          <label htmlFor="fabrica">Fábrica</label>
-        </div>
-        <div className="checkbox-item">
-          <input type="checkbox" id="vendas" name="Vendas" onChange={handleCheckboxChange} checked={(filters.setor || []).includes('Vendas')} />
-          <label htmlFor="vendas">Vendas</label>
-        </div>
-        <div className="checkbox-item">
-          <input type="checkbox" id="rh" name="RH" onChange={handleCheckboxChange} checked={(filters.setor || []).includes('RH')} />
-          <label htmlFor="rh">RH</label>
-        </div>
-        <div className="checkbox-item">
-          <input type="checkbox" id="engenharia" name="Engenharia" onChange={handleCheckboxChange} checked={(filters.setor || []).includes('Engenharia')} />
-          <label htmlFor="engenharia">Engenharia</label>
-        </div>
-      </div>
-
-      <div className="filter-group">
-        <label>Urgente</label>
-        <div className="radio-item">
-          <input type="radio" id="urgente-todos" name="isUrgent" value="todos" onChange={handleInputChange} checked={filters.isUrgent === 'todos'} />
-          <label htmlFor="urgente-todos">Todos</label>
-        </div>
-        <div className="radio-item">
-          <input type="radio" id="urgente-sim" name="isUrgent" value="sim" onChange={handleInputChange} checked={filters.isUrgent === 'sim'} />
-          <label htmlFor="urgente-sim">Sim</label>
-        </div>
-        <div className="radio-item">
-          <input type="radio" id="urgente-nao" name="isUrgent" value="nao" onChange={handleInputChange} checked={filters.isUrgent === 'nao'} />
-          <label htmlFor="urgente-nao">Não</label>
-        </div>
-      </div>
-
-      <div className="filter-group">
-        <label>Lido</label>
-        <div className="radio-item">
-            <input type="radio" id="lido-todos" name="isRead" value="todos" onChange={handleInputChange} checked={filters.isRead === 'todos'} />
-            <label htmlFor="lido-todos">Todos</label>
-        </div>
-        <div className="radio-item">
-          <input type="radio" id="lido-sim" name="isRead" value="sim" onChange={handleInputChange} checked={filters.isRead === 'sim'} />
-          <label htmlFor="lido-sim">Sim</label>
-        </div>
-        <div className="radio-item">
-          <input type="radio" id="lido-nao" name="isRead" value="nao" onChange={handleInputChange} checked={filters.isRead === 'nao'} />
-          <label htmlFor="lido-nao">Não</label>
-        </div>
+      {/* Lido */}
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">Lido</label>
+        {[
+          { id: "lido-todos", value: "todos", label: "Todos" },
+          { id: "lido-sim", value: "sim", label: "Sim" },
+          { id: "lido-nao", value: "nao", label: "Não" },
+        ].map(({ id, value, label }) => (
+          <div className="form-check mb-2" key={id}>
+            <input
+              type="radio"
+              className="form-check-input"
+              id={id}
+              name="isRead"
+              value={value}
+              onChange={handleInputChange}
+              checked={filters.isRead === value}
+            />
+            <label className="form-check-label" htmlFor={id}>
+              {label}
+            </label>
+          </div>
+        ))}
       </div>
     </aside>
   );

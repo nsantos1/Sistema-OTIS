@@ -1,68 +1,6 @@
-.card-colaborador {
-  background-color: var(--cor-branca);
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  font-family: var(--fonte-principal), sans-serif;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 20px;
-}
-
 .card-colaborador:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.card-header-colaborador {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin-bottom: 15px;
-}
-
-.colaborador-id {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  color: var(--cor-terciaria);
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 0.7rem;
-  padding: 0.25rem 0.5rem;
-}
-
-.card-perfil {
-  width: 90px;
-  height: 90px;
-  border: 4px solid #e2e8f0;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: var(--cinza-claro);
-  margin-bottom: 10px;
-}
-
-.card-perfil img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-conteudo {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; 
-}
-
-.nome-colaborador {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--cor-principal);
-  margin-bottom: 5px;
 }
 
 .status {
@@ -74,51 +12,17 @@
   border-radius: 12px;
   margin: 0 auto 15px auto;
   text-transform: uppercase;
-  background-color: #A0AEC0; 
+  background-color: #a0aec0;
 }
 
 .status.ativo {
-  background-color: #38A169;
+  background-color: #38a169;
 }
 .status.inativo {
-  background-color: #E53E3E;
+  background-color: #e53e3e;
 }
 .status.em-treinamento {
-  background-color: #D69E2E;
-}
-
-.info-colaborador {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
-  text-align: left;
-}
-
-.info-colaborador li {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: var(--cor-terciaria);
-}
-
-.info-colaborador li strong {
-  color: var(--cor-secundaria);
-  font-weight: 700;
-}
-
-.btn-detalhes {
-  margin-top: auto; 
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  background-color: var(--cor-principal);
-  color: var(--cor-branca);
-  font-weight: 900;
-  font-size: 12px;
-  text-decoration: none;
-  padding: 10px 0;
-  border-radius: 6px;
-  transition: background-color 0.2s;
+  background-color: #d69e2e;
 }
 
 .btn-detalhes:hover {

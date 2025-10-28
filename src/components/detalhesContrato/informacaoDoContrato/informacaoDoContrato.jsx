@@ -1,6 +1,6 @@
 import React from "react";
-import "./informacaoDoContrato.css";
-import Elevador from '../../../assets/img/elevador.svg';
+import "./InformacaoDoContrato.css"
+import Elevador from "../../../assets/img/elevador.svg";
 
 export default function InformacaoDoContrato({ contract }) {
     return (

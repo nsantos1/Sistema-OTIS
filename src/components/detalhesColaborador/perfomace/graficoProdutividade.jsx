@@ -9,9 +9,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./graficoProdutividade.css";
 
-// Registrando os módulos necessários do Chart.js
+// Registrando os módulos do Chart.js
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,11 +22,20 @@ ChartJS.register(
 );
 
 export default function Performance() {
-  // Dados do gráfico
   const data = {
     labels: [
-      "Jan", "Fev", "Mar", "Abr", "Mai", "Jun",
-      "Jul", "Ago", "Set", "Out", "Nov", "Dez"
+      "Jan",
+      "Fev",
+      "Mar",
+      "Abr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Ago",
+      "Set",
+      "Out",
+      "Nov",
+      "Dez",
     ],
     datasets: [
       {
@@ -43,13 +51,10 @@ export default function Performance() {
     ],
   };
 
-  // Configurações do gráfico
   const options = {
     responsive: true,
     plugins: {
-      legend: {
-        display: false, // remove legenda pra ficar igual ao mockup
-      },
+      legend: { display: false },
       tooltip: {
         backgroundColor: "#0c2340",
         titleColor: "#fff",
@@ -57,29 +62,40 @@ export default function Performance() {
       },
     },
     scales: {
-      x: {
-        grid: {
-          display: false,
-        },
-      },
-      y: {
-        grid: {
-          color: "#e0e6ed",
-        },
-        ticks: {
-          stepSize: 5,
-        },
-      },
+      x: { grid: { display: false } },
+      y: { grid: { color: "#e0e6ed" }, ticks: { stepSize: 5 } },
     },
   };
 
   return (
-    <div className="performance">
-      <h3>PERFORMANCE</h3>
-      <div className="indicadores">
-        <p>Presenças <span className="valor azul">220</span></p>
-        <p>Faltas <span className="valor vermelho">5</span></p>
+    <div
+      className="p-3 d-flex flex-column gap-3 bg-white"
+      style={{
+        border: "1px solid #d3d9e3",
+        borderRadius: "6px",
+        boxShadow: "0 2px 5px rgba(0,0,0,0.05)",
+      }}
+    >
+      <h3
+        className="mb-0"
+        style={{ fontSize: "18px", fontWeight: 800, color: "#0c2340" }}
+      >
+        PERFORMANCE
+      </h3>
+
+      <div
+        className="d-flex gap-3"
+        style={{ fontSize: "15px", fontWeight: 600, color: "#1f2a37" }}
+      >
+        <p className="mb-0">
+          Presenças{" "}
+          <span style={{ fontWeight: 700, color: "#1e90ff" }}>220</span>
+        </p>
+        <p className="mb-0">
+          Faltas <span style={{ fontWeight: 700, color: "#e53935" }}>5</span>
+        </p>
       </div>
+
       <Line data={data} options={options} />
     </div>
   );

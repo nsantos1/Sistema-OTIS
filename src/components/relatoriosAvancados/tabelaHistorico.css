@@ -1,95 +1,33 @@
-.history-table-container {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e2e8f0;
-    margin-bottom: 30px;
-}
-
-.history-table-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--cor-principal);
-    margin: 0 0 20px 0;
-}
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-.history-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.history-table th,
-.history-table td {
-    padding: 12px 15px;
-    text-align: left;
-    font-size: 14px;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.history-table th {
-    font-weight: 600;
-    color: var(--cor-terciaria);
-    background-color: #f7fafc;
-}
-
-.history-table td {
-    color: #2d3748;
-}
-
 .history-table tbody tr:hover {
-    background-color: #f7fafc;
+  background-color: #f7fafc;
 }
 
-.history-table td:nth-child(1) { width: 20%; }
-.history-table td:nth-child(2) { width: 60%; }
-.history-table td:nth-child(3) { width: 20%; }
-
-
-.action-buttons {
-    display: flex;
-    gap: 10px;
+.history-table td:nth-child(1) {
+  width: 20%;
 }
-
-.action-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+.history-table td:nth-child(2) {
+  width: 60%;
+}
+.history-table td:nth-child(3) {
+  width: 20%;
 }
 
 .action-button:hover {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .action-button.view {
-    background-color: #ebf8ff;
-    color: #3182ce;
+  background-color: #ebf8ff;
+  color: #3182ce;
 }
 .action-button.view:hover {
-    background-color: #bee3f8;
+  background-color: #bee3f8;
 }
 
 .action-button.delete {
-    background-color: #fff5f5;
-    color: #c53030;
+  background-color: #fff5f5;
+  color: #c53030;
 }
 .action-button.delete:hover {
-    background-color: #fed7d7;
-}
-
-.empty-history {
-    text-align: center;
-    padding: 40px;
-    color: #a0aec0;
+  background-color: #fed7d7;
 }

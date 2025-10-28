@@ -3,7 +3,6 @@ import ConversationsList from "../../components/chat/conversationsList";
 import ChatWindow from "../../components/chat/chatWindow";
 import ChatPlaceholder from "../../components/chat/chatPlaceholder";
 import { chatData } from "../../assets/data/chatData";
-import "./chatPage.css";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 
 function ChatPage() {
@@ -50,9 +49,9 @@ function ChatPage() {
   );
 
   return (
-    <main className="main-chatpage">
+    <main className="d-flex vh-100 overflow-hidden">
       <Sidebar />
-      <div className="chat-page-container">
+      <div className="d-flex flex-grow-1 overflow-hidden">
         <ConversationsList
           conversations={conversations}
           activeConversationId={activeConversationId}
