@@ -124,10 +124,10 @@ function BarraDeFiltros({ filters, onFilterChange }) {
           <input
             className="form-check-input"
             type="checkbox"
-            name="alert"
+            name="alerta"
             id="alerta-prazo"
             onChange={handleCheckboxChange}
-            checked={filters.status.includes("alert")}
+            checked={filters.status.includes("alerta")}
           />
           <label className="form-check-label" htmlFor="alerta-prazo">
             Alerta de prazo

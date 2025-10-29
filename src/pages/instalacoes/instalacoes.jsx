@@ -89,7 +89,7 @@ function Instalacoes() {
     return {
       total: contracts.length,
       ontime: contracts.filter(c => c.statusType === 'ontime').length,
-      alert: contracts.filter(c => c.statusType === 'alert').length,
+      alerta: contracts.filter(c => c.statusType === 'alerta').length,
       late: contracts.filter(c => c.statusType === 'late').length,
       concluidos: filteredData.concluidos?.length || 0,
     };
@@ -126,7 +126,7 @@ function Instalacoes() {
         <InsightCard value={stats.total} label="Total de Instalações" icon={FaHardHat} />
         <InsightCard value={stats.concluidos} label="Concluídas" icon={FaCheckCircle} />
         <InsightCard value={stats.ontime} label="Dentro do Prazo" icon={FaHourglassHalf} />
-        <InsightCard value={stats.alert} label="Alerta de Prazo" icon={FaExclamationTriangle} />
+        <InsightCard value={stats.alerta} label="Alerta de Prazo" icon={FaExclamationTriangle} />
         <InsightCard value={stats.late} label="Fora do Prazo" icon={FaExclamationTriangle} />
       </div>
        <div className="chart-container-instalacoes">

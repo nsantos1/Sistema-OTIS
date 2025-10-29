@@ -6,5 +6,5 @@
   color: #fff;
 }
 .status-tag.ontime { background-color: #38A169; }
-.status-tag.alert { background-color: #D69E2E; }
+.status-tag.alerta { background-color: #D69E2E; }
 .status-tag.late { background-color: #E53E3E; }
