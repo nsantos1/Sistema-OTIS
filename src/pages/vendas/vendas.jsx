@@ -5,8 +5,8 @@ import CardPedidos from "../../components/vendas/cardPedidos";
 import CardContratos from "../../components/vendas/cardContratos";
 import CardClientes from "../../components/vendas/cardClientes";
 import BarraDeFiltrosVendas from "../../components/barraDeFiltros/barraDeFiltrosVendas";
-import { vendasData } from "../../assets/data/vendasData";
-import CabecalhoSecoes from "../../components/cabecalhoSecoes/cabecalhoSecoes";
+import { vendasData } from "../../assets/data/vendasData"; // Import mantido
+import CabecalhoSecoes from "../../components/cabecalhoSecoes/cabecalhoSecoes"; // Componente de cabeçalho mantido
 
 export default function Vendas() {
   const [filters, setFilters] = useState({
@@ -15,14 +15,13 @@ export default function Vendas() {
     responsavel: "",
   });
 
-  const [viewAll, setViewAll] = useState({
-    pedidos: false,
-    contratos: false,
-    clientes: false,
-  });
+  // NOVO ESTADO DE CONTROLE (Padrão Instalacoes.jsx)
+  const [selectedSection, setSelectedSection] = useState(null);
 
-  const toggleViewAll = (section) => {
-    setViewAll((prev) => ({ ...prev, [section]: !prev[section] }));
+  // NOVA FUNÇÃO: Implementa a lógica de tela cheia (Padrão Instalacoes.jsx)
+  const handleViewAll = (sectionKey) => {
+    // Alterna entre a visualização de tela cheia (sectionKey) e o modo padrão (null)
+    setSelectedSection(prev => (prev === sectionKey ? null : sectionKey));
   };
 
   const applyFilters = (data, keys) => {
@@ -60,20 +59,75 @@ export default function Vendas() {
   ]);
   const filteredClientes = applyFilters(vendasData.clientes, ["id", "cliente"]);
 
-  const displayedPedidos = viewAll.pedidos
-    ? filteredPedidos
-    : filteredPedidos.slice(0, 4);
-  const displayedContratos = viewAll.contratos
-    ? filteredContratos
-    : filteredContratos.slice(0, 4);
-  const displayedClientes = viewAll.clientes
-    ? filteredClientes
-    : filteredClientes.slice(0, 4);
+  const sectionMap = {
+    pedidos: {
+      title: "Pedidos",
+      data: filteredPedidos,
+      CardComponent: CardPedidos,
+    },
+    contratos: {
+      title: "Contratos",
+      data: filteredContratos,
+      CardComponent: CardContratos,
+    },
+    clientes: {
+      title: "Clientes",
+      data: filteredClientes,
+      CardComponent: CardClientes,
+    },
+  };
+    
+  // Renderiza uma única seção, adaptada para o modo de visualização
+  const renderSection = (sectionKey) => {
+    const { title, data, CardComponent } = sectionMap[sectionKey];
+    
+    const isFullView = selectedSection === sectionKey;
+    const displayedData = isFullView ? data : data.slice(0, 4);
+
+    if (data.length === 0) return null;
+
+    return (
+      <div 
+        className={`secao-vendas ${isFullView ? "full-view-section" : ""}`}
+        key={sectionKey}
+      >
+        <CabecalhoSecoes
+          titulo={title}
+          // Lógica de visualização padronizada
+          onViewAll={() => handleViewAll(isFullView ? null : sectionKey)}
+          isViewingAll={isFullView}
+        />
+        <div className="cards-wrapper">
+          {displayedData.map((item) => (
+            <CardComponent key={item.id} {...item} />
+          ))}
+        </div>
+      </div>
+    );
+  };
     
   const noResultsFound =
     filteredPedidos.length === 0 &&
     filteredContratos.length === 0 &&
     filteredClientes.length === 0;
+
+  // Lógica de renderização principal (Padrão Instalacoes.jsx)
+  const content = noResultsFound ? (
+    <div className="no-results-geral">
+      <h2>Nenhum item encontrado</h2>
+      <p>Tente ajustar os filtros da sua busca.</p>
+    </div>
+  ) : selectedSection ? (
+    // MODO TELA CHEIA: Renderiza apenas a seção selecionada
+    renderSection(selectedSection)
+  ) : (
+    // MODO PADRÃO: Renderiza todas as seções
+    <>
+      {renderSection("pedidos")}
+      {renderSection("contratos")}
+      {renderSection("clientes")}
+    </>
+  );
 
   return (
     <main className="main-vendas">
@@ -81,59 +135,7 @@ export default function Vendas() {
       <BarraDeFiltrosVendas filters={filters} onFilterChange={setFilters} />
 
       <div className="vendas-conteudo-principal">
-        {noResultsFound ? (
-          <div className="no-results-geral">
-            <h2>Nenhum item encontrado</h2>
-            <p>Tente ajustar os filtros da sua busca.</p>
-          </div>
-        ) : (
-          <>
-            {filteredPedidos.length > 0 && (
-              <div className="secao-vendas">
-                <CabecalhoSecoes
-                  titulo={"Pedidos"}
-                  onViewAll={() => toggleViewAll("pedidos")}
-                  isViewingAll={viewAll.pedidos}
-                />
-                <div className="cards-wrapper">
-                  {displayedPedidos.map((pedido) => (
-                    <CardPedidos key={pedido.id} {...pedido} />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {filteredContratos.length > 0 && (
-              <div className="secao-vendas">
-                <CabecalhoSecoes
-                  titulo={"Contratos"}
-                  onViewAll={() => toggleViewAll("contratos")}
-                  isViewingAll={viewAll.contratos}
-                />
-                <div className="cards-wrapper">
-                  {displayedContratos.map((contrato) => (
-                    <CardContratos key={contrato.id} {...contrato} />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {filteredClientes.length > 0 && (
-              <div className="secao-vendas">
-                <CabecalhoSecoes
-                  titulo={"Clientes"}
-                  onViewAll={() => toggleViewAll("clientes")}
-                  isViewingAll={viewAll.clientes}
-                />
-                <div className="cards-wrapper">
-                  {displayedClientes.map((cliente) => (
-                    <CardClientes key={cliente.id} {...cliente} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </>
-        )}
+        {content}
       </div>
     </main>
   );

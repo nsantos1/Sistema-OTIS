@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useMemo } from "react"; 
 import BarraDeFiltrosPosVenda from "../../components/barraDeFiltros/barraDeFiltrosPosVenda.jsx";
-import Slider from "../../components/slider/slider.jsx";
+import SecaoDeContratos from "../../components/instalacoes/secaoDeContratos/secaoDeContratos.jsx"; // Componente padronizado
 import "./posVenda.css";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral.jsx";
 
+// DADOS MANTIDOS DENTRO DO ARQUIVO, CONFORME SOLICITADO
 const mockData = {
     manutencao: [
         {
@@ -185,13 +186,15 @@ function PosVenda() {
         tipoDeChamado: [],
         estado: [],
     });
-    const [viewAll, setViewAll] = useState({});
-    const [filteredData, setFilteredData] = useState(mockData);
-    const [noResults, setNoResults] = useState(false);
 
-    useEffect(() => {
+    // NOVO ESTADO DE CONTROLE (Padrão Instalacoes.jsx)
+    const [selectedEtapa, setSelectedEtapa] = useState(null); 
+    
+    // Lógica de Filtro migrada para useMemo
+    const filteredData = useMemo(() => {
         let data = { ...mockData };
-
+        
+        // Passo 1: Filtrar por 'tipoDeChamado' (seção)
         if (filters.tipoDeChamado.length > 0) {
             data = filters.tipoDeChamado.reduce((obj, key) => {
                 if (mockData[key]) {
@@ -201,7 +204,8 @@ function PosVenda() {
             }, {});
         }
 
-        let hasAnyResults = false;
+        const finalData = {};
+        // Passo 2: Aplicar filtros de texto e estado em cada seção
         Object.keys(data).forEach((tipoDeChamado) => {
             let tipoDeChamadoData = data[tipoDeChamado];
 
@@ -234,102 +238,85 @@ function PosVenda() {
                 );
             }
 
-            data[tipoDeChamado] = tipoDeChamadoData;
             if (tipoDeChamadoData.length > 0) {
-                hasAnyResults = true;
+                finalData[tipoDeChamado] = tipoDeChamadoData;
             }
         });
 
-        setFilteredData(data);
-        setNoResults(!hasAnyResults);
+        return finalData;
     }, [filters]);
-
-    const barraDeFiltrosPosVendaRef = useRef();
-
-    const toggleViewAll = (tipo) => {
-        // mexe na barra de filtros pra filtrar so pelo tipo definido
-        const isCurrentlyViewingAll = !!viewAll[tipo];
-
-        if (isCurrentlyViewingAll) {
-            // Se já estava vendo tudo, desmarca todas
-            Object.keys(titulos).forEach((key) => {
-                barraDeFiltrosPosVendaRef.current.desmarcar(key);
-            });
-            setViewAll(prev => ({ ...prev, [tipo]: false }));
-        } else {
-            // Se não estava vendo tudo, marca apenas o tipo selecionado
-            Object.keys(titulos).forEach((key) => {
-                if (key === tipo) {
-                    barraDeFiltrosPosVendaRef.current.marcar(key);
-                } else {
-                    barraDeFiltrosPosVendaRef.current.desmarcar(key);
-                }
-            });
-            setViewAll(prev => ({ ...prev, [tipo]: true }));
-        }
+    
+    // NOVA FUNÇÃO DE "VER TODOS" (Padrão Instalacoes.jsx)
+    const handleViewAll = (etapaKey) => {
+        setSelectedEtapa(etapaKey);
     };
-
+    
     const titulos = {
         manutencao: "Manutenção",
         suporte: "Suporte",
         avaliacao: "Avaliação",
     };
+    
+    const noResults = Object.keys(filteredData).length === 0;
+
+    // Lógica de renderização principal (Padrão Instalacoes.jsx)
+    const content = selectedEtapa ? (
+        <SecaoDeContratos // Renderiza a seção expandida
+            key={selectedEtapa}
+            title={titulos[selectedEtapa]}
+            contracts={filteredData[selectedEtapa] || []}
+            isFullView={true}
+            onViewAllClick={() => handleViewAll(null)} // Botão "Ver Todos" volta
+        />
+    ) : noResults ? (
+        <div className="no-results-posvenda">
+            <h2>Nenhum chamado encontrado!</h2>
+            <p>Tente ajustar seus filtros de busca.</p>
+        </div>
+    ) : (
+        <div className="conteudo-posvenda">
+            {/* Renderiza todas as seções (Modo Padrão) */}
+            {Object.keys(filteredData).map(
+                (tipo) =>
+                    filteredData[tipo].length > 0 && (
+                        <SecaoDeContratos // Usa o componente padronizado
+                            key={tipo}
+                            title={titulos[tipo]}
+                            contracts={filteredData[tipo]}
+                            isFullView={false} // Não está em tela cheia
+                            onViewAllClick={() => handleViewAll(tipo)} // Botão "Ver Todos" expande
+                        />
+                    )
+            )}
+        </div>
+    );
 
     return (
         <main className="main-posvenda">
             <Sidebar />
-            <BarraDeFiltrosPosVenda ref={barraDeFiltrosPosVendaRef} filters={filters} onFilterChange={setFilters} />
+            <BarraDeFiltrosPosVenda filters={filters} onFilterChange={setFilters} /> 
             <div className="main-posvenda-conteudo">
+                {/* Legenda mantida */}
                 <div className="legenda">
                     <div className='estado-do-chamado'>
                         <div className='bolinha em-aberto'></div>
-                        <div className='tipo'>
-                            <strong>Em aberto</strong>
-                            <span>Menos de 1 dia</span>
-                        </div>
+                        <div className='tipo'><strong>Em aberto</strong><span>Menos de 1 dia</span></div>
                     </div>
                     <div className='estado-do-chamado'>
                         <div className='bolinha em-aberto-mais'></div>
-                        <div className='tipo'>
-                            <strong>Em aberto</strong>
-                            <span>Mais de 1 dia</span>
-                        </div>
+                        <div className='tipo'><strong>Em aberto</strong><span>Mais de 1 dia</span></div>
                     </div>
                     <div className='estado-do-chamado'>
                         <div className='bolinha em-atendimento'></div>
-                        <div className='tipo'>
-                            <strong>Em atendimento</strong>
-                        </div>
+                        <div className='tipo'><strong>Em atendimento</strong></div>
                     </div>
                     <div className='estado-do-chamado'>
                         <div className='bolinha resolvido'></div>
-                        <div className='tipo'>
-                            <strong>Resolvido</strong>
-                        </div>
+                        <div className='tipo'><strong>Resolvido</strong></div>
                     </div>
                 </div>
                 <div className="container">
-                    <div className="conteudo-posvenda">
-                        {noResults ? (
-                            <div className="no-results-posvenda">
-                                <h2>Nenhum chamado encontrado!</h2>
-                                <p>Tente ajustar seus filtros de busca.</p>
-                            </div>
-                        ) : (
-                            Object.keys(filteredData).map(
-                                (tipo) =>
-                                    filteredData[tipo].length > 0 && (
-                                        <Slider
-                                            key={tipo}
-                                            tituloTipoDeChamado={titulos[tipo]}
-                                            slides={filteredData[tipo]}
-                                            isViewingAll={!!viewAll[tipo]}
-                                            onViewAll={() => toggleViewAll(tipo)}
-                                        />
-                                    )
-                            )
-                        )}
-                    </div>
+                    {content}
                 </div>
             </div>
         </main >
