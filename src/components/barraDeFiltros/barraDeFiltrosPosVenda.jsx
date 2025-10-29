@@ -1,124 +1,193 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { IoSearch } from "react-icons/io5";
 
-import './barraDeFiltros.css';
-
 function BarraDeFiltrosPosVenda({ filters, onFilterChange }, ref) {
-    const manutencaoCheckboxRef = useRef(null);
-    const suporteCheckboxRef = useRef(null);
-    const avaliacaoCheckboxRef = useRef(null);
+  const manutencaoCheckboxRef = useRef(null);
+  const suporteCheckboxRef = useRef(null);
+  const avaliacaoCheckboxRef = useRef(null);
 
-    const atualizarTipoDeChamado = (name, checked) => {
-        onFilterChange(prevFilters => {
-            const currentTipoDeChamado = prevFilters.tipoDeChamado || [];
-            const newTipoDeChamado = checked
-                ? [...currentTipoDeChamado, name]
-                : currentTipoDeChamado.filter(tipo => tipo !== name);
-            return { ...prevFilters, tipoDeChamado: newTipoDeChamado };
-        });
-    };
+  const atualizarTipoDeChamado = (name, checked) => {
+    onFilterChange((prevFilters) => {
+      const currentTipoDeChamado = prevFilters.tipoDeChamado || [];
+      const newTipoDeChamado = checked
+        ? [...currentTipoDeChamado, name]
+        : currentTipoDeChamado.filter((tipo) => tipo !== name);
+      return { ...prevFilters, tipoDeChamado: newTipoDeChamado };
+    });
+  };
 
-    useImperativeHandle(ref, () => ({
-        marcar: (id) => atualizarTipoDeChamado(id, true),
-        desmarcar: (id) => atualizarTipoDeChamado(id, false),
-    }));
+  useImperativeHandle(ref, () => ({
+    marcar: (id) => atualizarTipoDeChamado(id, true),
+    desmarcar: (id) => atualizarTipoDeChamado(id, false),
+  }));
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    onFilterChange({ ...filters, [name]: value });
+  };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        onFilterChange({ ...filters, [name]: value });
-    };
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    const currentEstado = filters.estado || [];
+    const newEstado = checked
+      ? [...currentEstado, name]
+      : currentEstado.filter((estado) => estado !== name);
+    onFilterChange({ ...filters, estado: newEstado });
+  };
 
-    const handleCheckboxChange = (e) => {
-        const { name, checked } = e.target;
-        const currentEstado = filters.estado || [];
-        const newEstado = checked
-            ? [...currentEstado, name]
-            : currentEstado.filter((estado) => estado !== name);
-        onFilterChange({ ...filters, estado: newEstado });
-    };
+  const handleTipoDeChamadoCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    const currentTipoDeChamado = filters.tipoDeChamado || [];
+    const newTipodeChamado = checked
+      ? [...currentTipoDeChamado, name]
+      : currentTipoDeChamado.filter((tipo) => tipo !== name);
+    onFilterChange({ ...filters, tipoDeChamado: newTipodeChamado });
+  };
 
-    const handleTipoDeChamadoCheckboxChange = (e) => {
-        const { name, checked } = e.target;
-        const currentTipoDeChamado = filters.tipoDeChamado || [];
-        const newTipodeChamado = checked
-            ? [...currentTipoDeChamado, name]
-            : currentTipoDeChamado.filter((tipo) => tipo !== name);
-        onFilterChange({ ...filters, tipoDeChamado: newTipodeChamado });
-    };
+  const renderSearchInput = (label, name, placeholder) => (
+    <div className="mb-4">
+      <label className="form-label fw-semibold text-dark mb-2">{label}</label>
+      <div className="position-relative">
+        <input
+          type="text"
+          name={name}
+          placeholder={placeholder}
+          value={filters[name] || ""}
+          onChange={handleInputChange}
+          className="form-control rounded-pill ps-3 pe-5"
+        />
+        <IoSearch
+          className="text-secondary position-absolute"
+          style={{ top: "50%", right: "15px", transform: "translateY(-50%)" }}
+        />
+      </div>
+    </div>
+  );
 
+  return (
+    <aside
+      className="bg-white border-end p-4 overflow-auto flex-shrink-0"
+      style={{ width: "320px", fontFamily: "var(--fonte-principal)" }}
+    >
+      {renderSearchInput("ID do chamado", "id", "Digite o ID do chamado...")}
+      {renderSearchInput(
+        "Nome do cliente",
+        "company",
+        "Digite o nome do cliente..."
+      )}
+      {renderSearchInput(
+        "Localização",
+        "local",
+        "Digite a cidade, estado ou país..."
+      )}
+      {renderSearchInput(
+        "Título do Chamado",
+        "titulo",
+        "Digite o título do chamado..."
+      )}
+      {renderSearchInput(
+        "Responsável comercial",
+        "salesRep",
+        "Digite o nome do responsável..."
+      )}
 
-    const renderSearchInput = (label, name, placeholder) => (
-        <div className="filter-group">
-            <label>{label}</label>
-            <div className="input-with-icon">
-                <input
-                    type="text"
-                    name={name}
-                    placeholder={placeholder}
-                    value={filters[name] || ''}
-                    onChange={handleInputChange}
-                />
-                <IoSearch className="input-icon" />
-            </div>
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">
+          Data de inclusão
+        </label>
+        <div className="d-flex align-items-center gap-2">
+          <input
+            type="text"
+            name="startDate"
+            placeholder="Ex: Março"
+            value={filters.startDate || ""}
+            onChange={handleInputChange}
+            className="form-control rounded-pill"
+          />
+          <span
+            style={{ width: "12px", height: "1px", backgroundColor: "#cbd5e0" }}
+          ></span>
+          <input
+            type="text"
+            name="endDate"
+            placeholder="Ex: Julho"
+            value={filters.endDate || ""}
+            onChange={handleInputChange}
+            className="form-control rounded-pill"
+          />
         </div>
-    );
+      </div>
 
-    return (
-        <aside className="barra-de-filtros">
-            {renderSearchInput("ID do chamado", "id", "Digite o ID do chamado...")}
-            {renderSearchInput("Nome do cliente", "company", "Digite o nome do cliente...")}
-            {renderSearchInput("Localização", "local", "Digite a cidade, estado ou país...")}
-            {renderSearchInput("Título do Chamado", "titulo", "Digite o título do chamado...")}
-            {renderSearchInput("Responsável comercial", "salesRep", "Digite o nome do responsável...")}
+      {/* Tipo de Chamado */}
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">
+          Tipo de Chamado
+        </label>
+        {[
+          {
+            id: "manutencao",
+            name: "manutencao",
+            ref: manutencaoCheckboxRef,
+            label: "Manutenção",
+          },
+          {
+            id: "suporte",
+            name: "suporte",
+            ref: suporteCheckboxRef,
+            label: "Suporte",
+          },
+          {
+            id: "avaliacao",
+            name: "avaliacao",
+            ref: avaliacaoCheckboxRef,
+            label: "Avaliação",
+          },
+        ].map(({ id, name, ref, label }) => (
+          <div className="form-check mb-2" key={id}>
+            <input
+              ref={ref}
+              type="checkbox"
+              className="form-check-input"
+              id={id}
+              name={name}
+              onChange={handleTipoDeChamadoCheckboxChange}
+              checked={(filters.tipoDeChamado || []).includes(name)}
+            />
+            <label className="form-check-label" htmlFor={id}>
+              {label}
+            </label>
+          </div>
+        ))}
+      </div>
 
-            <div className="filter-group">
-                <label>Data de inclusão</label>
-                <div className="date-inputs">
-                    <input type="text" name="startDate" placeholder="Ex: Março" value={filters.startDate || ''} onChange={handleInputChange} />
-                    <span className="date-divider"></span>
-                    <input type="text" name="endDate" placeholder="Ex: Julho" value={filters.endDate || ''} onChange={handleInputChange} />
-                </div>
-            </div>
-
-            <div className="filter-group">
-                <label>Tipo de Chamado</label>
-                <div className="checkbox-item">
-                    <input ref={manutencaoCheckboxRef} type="checkbox" id="manutencao" name="manutencao" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('manutencao')} />
-                    <label htmlFor="manutencao">Manutenção</label>
-                </div>
-                <div className="checkbox-item">
-                    <input ref={suporteCheckboxRef} type="checkbox" id="suporte" name="suporte" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('suporte')} />
-                    <label htmlFor="suporte">Suporte</label>
-                </div>
-                <div className="checkbox-item">
-                    <input ref={avaliacaoCheckboxRef} type="checkbox" id="avaliacao" name="avaliacao" onChange={handleTipoDeChamadoCheckboxChange} checked={(filters.tipoDeChamado || []).includes('avaliacao')} />
-                    <label htmlFor="avaliacao">Avaliação</label>
-                </div>
-            </div>
-
-            <div className="filter-group">
-                <label>Status do chamado</label>
-                <div className="checkbox-item">
-                    <input type="checkbox" name="em-aberto" id="em-aberto" onChange={handleCheckboxChange} checked={(filters.estado || []).includes('em-aberto')} />
-                    <label htmlFor="em-aberto">Em aberto a menos de 1 dia</label>
-                </div>
-                <div className="checkbox-item">
-                    <input type="checkbox" name="em-aberto-mais" id="em-aberto-mais" onChange={handleCheckboxChange} checked={(filters.estado || []).includes('em-aberto-mais')} />
-                    <label htmlFor="em-aberto-mais">Em aberto a mais de 1 dia</label>
-                </div>
-                <div className="checkbox-item">
-                    <input type="checkbox" name="em-atendimento" id="em-atendimento" onChange={handleCheckboxChange} checked={(filters.estado || []).includes('em-atendimento')} />
-                    <label htmlFor="em-atendimento">Em Atendimento</label>
-                </div>
-                <div className="checkbox-item">
-                    <input type="checkbox" name="resolvido" id="resolvido" onChange={handleCheckboxChange} checked={(filters.estado || []).includes('resolvido')} />
-                    <label htmlFor="resolvido">Resolvido</label>
-                </div>
-            </div>
-
-        </aside>
-    );
+      {/* Status do Chamado */}
+      <div className="mb-4">
+        <label className="form-label fw-semibold text-dark mb-2">
+          Status do chamado
+        </label>
+        {[
+          { id: "em-aberto", label: "Em aberto a menos de 1 dia" },
+          { id: "em-aberto-mais", label: "Em aberto a mais de 1 dia" },
+          { id: "em-atendimento", label: "Em Atendimento" },
+          { id: "resolvido", label: "Resolvido" },
+        ].map(({ id, label }) => (
+          <div className="form-check mb-2" key={id}>
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id={id}
+              name={id}
+              onChange={handleCheckboxChange}
+              checked={(filters.estado || []).includes(id)}
+            />
+            <label className="form-check-label" htmlFor={id}>
+              {label}
+            </label>
+          </div>
+        ))}
+      </div>
+    </aside>
+  );
 }
 
 export default forwardRef(BarraDeFiltrosPosVenda);

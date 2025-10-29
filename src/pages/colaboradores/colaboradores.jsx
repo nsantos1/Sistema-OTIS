@@ -71,7 +71,7 @@ export default function Colaboradores() {
 
   const handleCriarColaborador = () => {
     const newId = `#FO-${303070 + colaboradores.length + 1}`;
-    
+
     // Lógica para gerar um avatar real aleatório
     const randomId = Math.floor(Math.random() * 70) + 1; // Gera um número de 1 a 70
     const randomAvatarUrl = `https://randomuser.me/api/portraits/men/${randomId}.jpg`;
@@ -83,8 +83,7 @@ export default function Colaboradores() {
       cargo: newColabData.cargo,
       setor: newColabData.setor,
       supervisor: "A Definir",
-      avatarUrl:
-        newColabImage || randomAvatarUrl, // Usa o avatar real aleatório se nenhum for enviado
+      avatarUrl: newColabImage || randomAvatarUrl, // Usa o avatar real aleatório se nenhum for enviado
     };
     setColaboradores([novoColaborador, ...colaboradores]);
     fecharModal();
@@ -120,16 +119,26 @@ export default function Colaboradores() {
   const noResults = filteredColaboradores.length === 0;
 
   return (
-    <main className="main-container">
-      <div className="container-sidebar">
+    <main
+      className="d-flex vh-100 overflow-hidden"
+      style={{
+        backgroundColor: "var(--cor-background)",
+      }}
+    >
+      <div>
         <Sidebar />
       </div>
-      <div className="container-page">
+      <div className="d-flex w-100">
         <BarraDeFiltrosColaboradores
           filters={filters}
           onFilterChange={setFilters}
         />
-        <div className="conteudo-principal-colaboradores">
+        <div
+          className="flex-grow-1 overflow-y-auto"
+          style={{
+            padding: "0 40px 40px 40px",
+          }}
+        >
           <CabecalhoColaboradores
             btFunc={abrirModal}
             totalColaboradores={colaboradores.length}
@@ -144,11 +153,38 @@ export default function Colaboradores() {
             }
           />
 
-          <div className="secao-colaboradores">
+          <div
+            className="d-grid"
+            style={{
+              gridTemplateColumns: "repeat(auto-fill, minmax(252px, 1fr))",
+              gap: "25px",
+            }}
+          >
             {noResults ? (
-              <div className="no-results-message">
-                <h2>Nenhum colaborador encontrado!</h2>
-                <p>
+              <div
+                className="text-center"
+                style={{
+                  gridColumn: "1 / -1",
+                  padding: "60px 20px",
+                  color: "var(--cor-secundaria)",
+                }}
+              >
+                <h2
+                  className="fw-bold"
+                  style={{
+                    fontSize: "30px",
+                    marginBottom: "10px",
+                    color: "var(--cor-principal)",
+                  }}
+                >
+                  Nenhum colaborador encontrado!
+                </h2>
+                <p
+                  className="fw-medium"
+                  style={{
+                    fontSize: "18px",
+                  }}
+                >
                   Tente ajustar seus filtros ou cadastre um novo colaborador.
                 </p>
               </div>
@@ -166,41 +202,135 @@ export default function Colaboradores() {
 
         {isModalOpen && (
           <>
-            <div className="fundo-escuro" onClick={fecharModal}></div>
-            <div className="modal-conteudo">
-              <h2>Novo Colaborador</h2>
+            <div
+              className="position-fixed w-100 h-100 opacity-0"
+              style={{
+                top: "0",
+                left: "0",
+                background: "rgba(0, 0, 0, 0.5",
+                zIndex: "998",
+                animation: "fadeIn 0.3s forwards",
+              }}
+              onClick={fecharModal}
+            ></div>
+            <div
+              className="position-fixed bg-white opacity-0"
+              style={{
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%) scale(0.8)",
+                padding: "2rem",
+                borderRadius: "12px",
+                width: "600px",
+                maxWidth: "90%",
+                zIndex: "999",
+                boxShadow: "0 8px 25px rgba(0, 0, 0, 0.3",
+                animation: "scaleFadeIn 0.3s forwards",
+              }}
+            >
+              <h2
+                className="fw-bolder text-uppercase text-center"
+                style={{
+                  fontSize: "48px",
+                  color: "var(--cor-principal)",
+                }}
+              >
+                Novo Colaborador
+              </h2>
 
-              <div className="foto-container">
+              <div className="d-flex align-items-center gap-3 mt-3 mb-4">
                 <input
+                  className="rounded-2"
+                  style={{
+                    padding: "6px 10px",
+                    border: "1px solid #ccc",
+                    display: "none",
+                  }}
                   type="file"
                   ref={fileInputRef}
                   onChange={handleImageChange}
-                  style={{ display: "none" }}
                   accept="image/*"
                 />
 
-                <div className="foto-placeholder">
+                <div>
                   <img
+                    className="rounded-circle d-flex align-items-center justify-content-center"
+                    style={{
+                      width: "130px",
+                      height: "130px",
+                    }}
                     src={newColabImage || "../src/assets/img/person.svg"}
                     alt="Foto do Colaborador"
                   />
                 </div>
-                <span onClick={handleUploadClick}>Adicionar foto</span>
+                <span
+                  className="fw-bold fs-4"
+                  style={{
+                    color: "var(--cor-principal)",
+                  }}
+                  onClick={handleUploadClick}
+                >
+                  Adicionar foto
+                </span>
               </div>
 
-              <div className="modal-form">
-                <div className="dados-gerais">
-                  <h3>Dados gerais</h3>
-                  <label>Nome</label>
+              <div
+                className="d-flex mb-4"
+                style={{
+                  gap: "2rem",
+                }}
+              >
+                <div
+                  className="d-flex flex-column"
+                  style={{
+                    flex: "1",
+                    gap: "0.8rem",
+                  }}
+                >
+                  <h3
+                    className="fs-4 fw-bold mb-2"
+                    style={{
+                      color: "var(--cor-principal)",
+                    }}
+                  >
+                    Dados gerais
+                  </h3>
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Nome
+                  </label>
                   <input
+                    className="rounded-2"
+                    style={{
+                      padding: "6px 10px",
+                      border: "1px solid #ccc",
+                    }}
                     type="text"
                     name="nome"
                     value={newColabData.nome}
                     onChange={handleInputChange}
                     placeholder="Digite o nome completo"
                   />
-                  <label>Cargo</label>
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Cargo
+                  </label>
                   <select
+                    className="rounded-2"
+                    style={{
+                      padding: "6px 10px",
+                      border: "1px solid #ccc",
+                    }}
                     name="cargo"
                     value={newColabData.cargo}
                     onChange={handleInputChange}
@@ -212,8 +342,21 @@ export default function Colaboradores() {
                     <option>Gerente</option>
                   </select>
                   <h3>Trabalho</h3>
-                  <label>Setor</label>
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Setor
+                  </label>
                   <select
+                    className="rounded-2"
+                    style={{
+                      padding: "6px 10px",
+                      border: "1px solid #ccc",
+                    }}
                     name="setor"
                     value={newColabData.setor}
                     onChange={handleInputChange}
@@ -224,17 +367,44 @@ export default function Colaboradores() {
                     <option>RH</option>
                     <option>Engenharia</option>
                   </select>
-                  <label>Local de trabalho</label>
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Local de trabalho
+                  </label>
                   <input
+                    className="rounded-2"
+                    style={{
+                      padding: "6px 10px",
+                      border: "1px solid #ccc",
+                    }}
                     type="text"
                     name="local"
                     value={newColabData.local}
                     onChange={handleInputChange}
                     placeholder="Digite o endereço de trabalho"
                   />
-                  <label>Horário de trabalho</label>
-                  <div className="horario-trabalho">
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Horário de trabalho
+                  </label>
+                  <div className="d-flex align-items-center gap-2">
                     <input
+                      className="rounded-2"
+                      style={{
+                        padding: "6px 10px",
+                        border: "1px solid #ccc",
+                        flex: "1",
+                      }}
                       type="time"
                       name="inicio"
                       value={newColabData.inicio}
@@ -242,6 +412,12 @@ export default function Colaboradores() {
                     />
                     <span>—</span>
                     <input
+                      className="rounded-2"
+                      style={{
+                        padding: "6px 10px",
+                        border: "1px solid #ccc",
+                        flex: "1",
+                      }}
                       type="time"
                       name="termino"
                       value={newColabData.termino}
@@ -249,18 +425,57 @@ export default function Colaboradores() {
                     />
                   </div>
                 </div>
-                <div className="contato">
-                  <h3>Contato</h3>
-                  <label>Email</label>
+                <div
+                  className="d-flex flex-column"
+                  style={{
+                    flex: "1",
+                    gap: "0.8rem",
+                  }}
+                >
+                  <h3
+                    className="fs-4 fw-bold mb-2"
+                    style={{
+                      color: "var(--cor-principal)",
+                    }}
+                  >
+                    Contato
+                  </h3>
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Email
+                  </label>
                   <input
+                    className="rounded-2"
+                    style={{
+                      padding: "6px 10px",
+                      border: "1px solid #ccc",
+                    }}
                     type="email"
                     name="email"
                     value={newColabData.email}
                     onChange={handleInputChange}
                     placeholder="Digite o email do colaborador"
                   />
-                  <label>Telefone</label>
+                  <label
+                    className="fw-semibold"
+                    style={{
+                      color: "var(--cor-principal)",
+                      fontSize: "20px",
+                    }}
+                  >
+                    Telefone
+                  </label>
                   <input
+                    className="rounded-2"
+                    style={{
+                      padding: "6px 10px",
+                      border: "1px solid #ccc",
+                    }}
                     type="tel"
                     name="telefone"
                     value={newColabData.telefone}
@@ -269,11 +484,26 @@ export default function Colaboradores() {
                   />
                 </div>
               </div>
-              <div className="modal-buttons">
-                <button className="criar" onClick={handleCriarColaborador}>
+              <div className="d-flex justify-content-end gap-3">
+                <button
+                  className="bg-white border-0 fw-bold py-2 px-3 rounded-2"
+                  style={{
+                    backgroundColor: "#0d2d56",
+                    cursor: "pointer",
+                  }}
+                  onClick={handleCriarColaborador}
+                >
                   CRIAR
                 </button>
-                <button className="cancelar" onClick={fecharModal}>
+                <button
+                  className="border-0 fw-bold py-2 px-3 rounded-2"
+                  style={{
+                    backgroundColor: "#ccc",
+                    color: "#1a1a1a",
+                    cursor: "pointer",
+                  }}
+                  onClick={fecharModal}
+                >
                   CANCELAR
                 </button>
               </div>

@@ -99,6 +99,10 @@
   margin-bottom: 20px;
 }
 
+.etapas h5 {
+  font-weight: 600;
+}
+
 .timeline {
   display: flex;
   justify-content: space-between;
