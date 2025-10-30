@@ -1,10 +1,3 @@
-.main-dashboard {
-  display: flex;
-  font-family: var(--fonte-principal);
-  height: 100vh;
-  overflow: hidden;
-}
-
 .dashboard-container {
   display: flex;
   flex-grow: 1;
@@ -14,52 +7,4 @@
 
 .dashboard-container.full-width {
   width: 100%;
-}
-
-.dashboard-page {
-  width: 100%;
-  overflow-y: auto;
-  max-height: 100vh;
-  padding: 40px 40px 0 40px;
-  background-color: var(--cor-background);
-}
-
-.insights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.no-results-message-instalacoes {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--cor-secundaria);
-}
-.no-results-message-instalacoes h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--cor-principal);
-}
-.no-results-message-instalacoes p {
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.chart-container-instalacoes {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
-}
-
-.chart-container-instalacoes h3 {
-  margin: 0 0 20px 0;
-  font-weight: 700;
-  font-size: 16px;
-  text-align: left;
-  color: var(--cor-principal);
 }

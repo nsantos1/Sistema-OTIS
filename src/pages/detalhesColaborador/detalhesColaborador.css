@@ -1,7 +1,3 @@
-.main-detalhes-colaborador {
-  display: flex;
-}
-
 .detalhes-colaborador {
   display: grid;
   grid-template-columns: 2fr 2fr 1.5fr; /* esquerda, meio, direita */
@@ -12,33 +8,4 @@
     "historico treinamentos treinamentos";
   gap: 20px;
   padding: 20px;
-}
-
-/* Grid areas */
-.colab-header {
-  grid-area: header;
-}
-
-.info-section {
-  grid-area: info;
-}
-
-.performance-section {
-  grid-area: performance;
-}
-
-.feedbacks-section {
-  grid-area: feedbacks;
-}
-
-.acoes-section {
-  grid-area: acoes;
-}
-
-.historico-section {
-  grid-area: historico;
-}
-
-.treinamentos-section {
-  grid-area: treinamentos;
 }

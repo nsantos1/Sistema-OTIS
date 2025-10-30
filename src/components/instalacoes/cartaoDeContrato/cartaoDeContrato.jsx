@@ -81,7 +81,7 @@ function CartaoDeContrato(props) {
                     >
                         {location}
                     </p>
-                    <p
+                    {/* <p
                         className="fw-semibold"
                         style={{
                             fontSize: "13px",
@@ -90,7 +90,7 @@ function CartaoDeContrato(props) {
                         }}
                     >
                         {elevatorModel.join(", ")}
-                    </p>
+                    </p> */}
                 </div>
 
                 <div

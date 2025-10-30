@@ -5,9 +5,26 @@ import { mockData } from "../../assets/data/mockData.js";
 import "./instalacoes.css";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral.jsx";
 import InsightCard from "../../components/instalacoes/insightCard/insightCard.jsx";
-import { FaHardHat, FaCheckCircle, FaExclamationTriangle, FaHourglassHalf, FaShippingFast, FaTools, FaClipboardList } from 'react-icons/fa';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
-
+import {
+  FaHardHat,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaHourglassHalf,
+  FaShippingFast,
+  FaTools,
+  FaClipboardList,
+} from "react-icons/fa";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  Cell,
+} from "recharts";
 
 function Instalacoes() {
   const [filters, setFilters] = useState({
@@ -30,48 +47,43 @@ function Instalacoes() {
     setSelectedEtapa(etapaKey);
   };
 
-  const allContracts = useMemo(() => Object.values(mockData).flat(), []);
-
   const filteredData = useMemo(() => {
-    return Object.entries(mockData).reduce(
-      (acc, [etapa, contracts]) => {
-        if (filters.etapas.length === 0 || filters.etapas.includes(etapa)) {
-          const filteredContracts = contracts.filter((contract) => {
-            return (
-              (filters.id ? contract.id.includes(filters.id) : true) &&
-              (filters.company
-                ? contract.company
-                    .toLowerCase()
-                    .includes(filters.company.toLowerCase())
-                : true) &&
-              (filters.location
-                ? contract.location
-                    .toLowerCase()
-                    .includes(filters.location.toLowerCase())
-                : true) &&
-              (filters.elevatorModel
-                ? contract.elevatorModel
-                    .toLowerCase()
-                    .includes(filters.elevatorModel.toLowerCase())
-                : true) &&
-              (filters.salesRep
-                ? contract.salesRep
-                    .toLowerCase()
-                    .includes(filters.salesRep.toLowerCase())
-                : true) &&
-              (filters.status && filters.status.length > 0
-                ? filters.status.includes(contract.statusType)
-                : true)
-            );
-          });
-          if (filteredContracts.length > 0) {
-            acc[etapa] = filteredContracts;
-          }
+    return Object.entries(mockData).reduce((acc, [etapa, contracts]) => {
+      if (filters.etapas.length === 0 || filters.etapas.includes(etapa)) {
+        const filteredContracts = contracts.filter((contract) => {
+          return (
+            (filters.id ? contract.id.includes(filters.id) : true) &&
+            (filters.company
+              ? contract.company
+                  .toLowerCase()
+                  .includes(filters.company.toLowerCase())
+              : true) &&
+            (filters.location
+              ? contract.location
+                  .toLowerCase()
+                  .includes(filters.location.toLowerCase())
+              : true) &&
+            (filters.elevatorModel
+              ? contract.elevatorModel
+                  .toLowerCase()
+                  .includes(filters.elevatorModel.toLowerCase())
+              : true) &&
+            (filters.salesRep
+              ? contract.salesRep
+                  .toLowerCase()
+                  .includes(filters.salesRep.toLowerCase())
+              : true) &&
+            (filters.status && filters.status.length > 0
+              ? filters.status.includes(contract.statusType)
+              : true)
+          );
+        });
+        if (filteredContracts.length > 0) {
+          acc[etapa] = filteredContracts;
         }
-        return acc;
-      },
-      {}
-    );
+      }
+      return acc;
+    }, {});
   }, [filters]);
 
   const titles = {
@@ -83,27 +95,34 @@ function Instalacoes() {
     testesFinais: "Em testes finais",
     concluidos: "Concluídos",
   };
-  
+
   const stats = useMemo(() => {
     const contracts = Object.values(filteredData).flat();
     return {
       total: contracts.length,
-      ontime: contracts.filter(c => c.statusType === 'ontime').length,
-      alerta: contracts.filter(c => c.statusType === 'alerta').length,
-      late: contracts.filter(c => c.statusType === 'late').length,
+      ontime: contracts.filter((c) => c.statusType === "ontime").length,
+      alerta: contracts.filter((c) => c.statusType === "alerta").length,
+      late: contracts.filter((c) => c.statusType === "late").length,
       concluidos: filteredData.concluidos?.length || 0,
     };
   }, [filteredData]);
 
   const chartData = useMemo(() => {
-    return Object.keys(titles).map(key => ({
+    return Object.keys(titles).map((key) => ({
       name: titles[key],
-      value: (filteredData[key] || []).length
+      value: (filteredData[key] || []).length,
     }));
   }, [filteredData, titles]);
 
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A259FF', '#FF69B4', '#8A2BE2'];
-
+  const COLORS = [
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "#A259FF",
+    "#FF69B4",
+    "#8A2BE2",
+  ];
 
   const noResults = Object.keys(filteredData).length === 0;
 
@@ -116,34 +135,110 @@ function Instalacoes() {
       onViewAllClick={() => handleViewAll(null)}
     />
   ) : noResults ? (
-    <div className="no-results-message-instalacoes">
-      <h2>Nenhum contrato encontrado!</h2>
-      <p>Tente ajustar seus filtros.</p>
+    <div
+      className="text-center"
+      style={{
+        padding: "60px 20px",
+        color: "var(--cor-secundaria)",
+      }}
+    >
+      <h2
+        className="fw-bold"
+        style={{
+          fontSize: "30px",
+          marginBottom: "10px",
+          color: "var(--cor-principal)",
+        }}
+      >
+        Nenhum contrato encontrado!
+      </h2>
+      <p
+        style={{
+          fontSize: "18px",
+          fontWeight: "500",
+        }}
+      >
+        Tente ajustar seus filtros.
+      </p>
     </div>
   ) : (
     <>
-      <div className="insights-grid">
-        <InsightCard value={stats.total} label="Total de Instalações" icon={FaHardHat} />
-        <InsightCard value={stats.concluidos} label="Concluídas" icon={FaCheckCircle} />
-        <InsightCard value={stats.ontime} label="Dentro do Prazo" icon={FaHourglassHalf} />
-        <InsightCard value={stats.alerta} label="Alerta de Prazo" icon={FaExclamationTriangle} />
-        <InsightCard value={stats.late} label="Fora do Prazo" icon={FaExclamationTriangle} />
+      <div
+        className="d-grid"
+        style={{
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: "20px",
+          marginBottom: "30px",
+        }}
+      >
+        <InsightCard
+          value={stats.total}
+          label="Total de Instalações"
+          icon={FaHardHat}
+        />
+        <InsightCard
+          value={stats.concluidos}
+          label="Concluídas"
+          icon={FaCheckCircle}
+        />
+        <InsightCard
+          value={stats.ontime}
+          label="Dentro do Prazo"
+          icon={FaHourglassHalf}
+        />
+        <InsightCard
+          value={stats.alerta}
+          label="Alerta de Prazo"
+          icon={FaExclamationTriangle}
+        />
+        <InsightCard
+          value={stats.late}
+          label="Fora do Prazo"
+          icon={FaExclamationTriangle}
+        />
       </div>
-       <div className="chart-container-instalacoes">
-        <h3>Distribuição de Instalações por Etapa</h3>
+      <div
+        className="bg-white rounded-3"
+        style={{
+          padding: "20px",
+          border: "1px solid #e2e8f0",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+          marginBottom: "30px",
+        }}
+      >
+        <h3
+          className="fw-bold fs-6 text-start"
+          style={{
+            marginBottom: "20px",
+            color: "var(--cor-principal)",
+          }}
+        >
+          Distribuição de Instalações por Etapa
+        </h3>
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 30, left: 30, bottom: 5 }}>
+          <BarChart
+            data={chartData}
+            layout="vertical"
+            margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
+          >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis type="number" />
-            <YAxis type="category" dataKey="name" width={240} tick={{ fontSize: 12 }} interval={0} />
+            <YAxis
+              type="category"
+              dataKey="name"
+              width={240}
+              tick={{ fontSize: 12 }}
+              interval={0}
+            />
             <Tooltip />
             <Legend />
             <Bar dataKey="value" name="Contratos nesta etapa">
-                {
-                  chartData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))
-                }
+              {chartData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
@@ -161,17 +256,30 @@ function Instalacoes() {
   );
 
   return (
-    <div className="main-dashboard">
+    <div
+      className="d-flex vh-100 overflow-hidden"
+      style={{
+        fontFamily: "var(--fonte-principal)",
+      }}
+    >
       <Sidebar />
       <div
         className={`dashboard-container ${selectedEtapa ? "full-width" : ""}`}
       >
         <BarraDeFiltros filters={filters} onFilterChange={handleFilterChange} />
-        <main className="dashboard-page">{content}</main>
+        <main
+          className="w-100 overflow-y-auto"
+          style={{
+            maxHeight: "100vh",
+            padding: "40px 40px 0 40px",
+            backgroundColor: "var(--cor-background)",
+          }}
+        >
+          {content}
+        </main>
       </div>
     </div>
   );
 }
 
 export default Instalacoes;
-

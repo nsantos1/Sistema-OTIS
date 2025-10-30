@@ -70,6 +70,9 @@ const initialFeedbackData = [
 ];
 
 function MuralDeFeedback() {
+  const [hoverNovoAviso, setHoverNovoAviso] = useState(false);
+  const [hoverSubmitBtn, setHoverSubmitBtn] = useState(false);
+
   const [feedbackData, setFeedbackData] = useState(initialFeedbackData);
   const [filters, setFilters] = useState({
     authorName: "",
@@ -140,29 +143,83 @@ function MuralDeFeedback() {
         ? !readStatus[item.id]
         : true;
 
-    return authorMatch && messageMatch && setorMatch && urgentMatch && readMatch;
+    return (
+      authorMatch && messageMatch && setorMatch && urgentMatch && readMatch
+    );
   });
 
   return (
-    <main className="main-mural">
+    <main
+      className="d-flex vh-100 overflow-hidden"
+      style={{
+        backgroundColor: "var(--cor-background)",
+      }}
+    >
       <Sidebar />
-      <div className="mural-container">
+      <div className="d-flex flex-grow-1 overflow-y-auto mh-100">
         <BarraDeFiltrosMural filters={filters} onFilterChange={setFilters} />
-        <div className="mural-content">
-          <header className="mural-header">
+        <div
+          className="flex-grow-1 d-flex flex-column overflow-hidden"
+          style={{
+            paddingLeft: "40px",
+            paddingTop: "40px",
+          }}
+        >
+          <header
+            className="d-flex justify-content-between align-items-start flex-shrink-0"
+            style={{
+              marginBottom: "30px",
+              color: "var(--cor-principal)",
+            }}
+          >
             <div>
-              <h1>Mural de Comunicações</h1>
-              <p>Espaço para comunicados, avisos e feedbacks</p>
+              <h1
+                className="fs-3 fw-semibold mb-1"
+                style={{
+                  color: "var(--cor-principal)",
+                }}
+              >
+                Mural de Comunicações
+              </h1>
+              <p
+                className="fs-6 fw-normal m-0"
+                style={{
+                  color: "var(--cor-terciaria)",
+                }}
+              >
+                Espaço para comunicados, avisos e feedbacks
+              </p>
             </div>
             <button
-              className="novo-aviso-btn"
+              className="text-white border-0 rounded-3 fw-bolder d-flex align-items-center gap-2"
+              style={{
+                backgroundColor: hoverNovoAviso
+                  ? "var(--cor-secundaria)"
+                  : "var(--cor-principal)",
+                padding: "12px 24px",
+                fontSize: "14px",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                transition: "background-color 0.3s, transform 0.2s",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                marginRight: "65px",
+              }}
+              onMouseEnter={() => setHoverNovoAviso(true)}
+              onMouseLeave={() => setHoverNovoAviso(false)}
               onClick={() => setIsModalOpen(true)}
             >
               <FaPlus />
               NOVO AVISO
             </button>
           </header>
-          <div className="feedback-grid">
+          <div
+            className="d-grid overflow-y-auto flex-grow-1 align-items-start align-content-start"
+            style={{
+              gridTemplateColumns: "repeat(auto-fill, minmax(350px, 350px))",
+              gap: "25px",
+              paddingRight: "15px",
+            }}
+          >
             {filteredFeedbacks.length > 0 ? (
               filteredFeedbacks.map((feedback) => (
                 <FeedbackCard
@@ -173,9 +230,26 @@ function MuralDeFeedback() {
                 />
               ))
             ) : (
-              <div className="no-results-mural">
-                <h2>Nenhum comunicado encontrado.</h2>
-                <p>Tente ajustar os filtros ou crie um novo aviso.</p>
+              <div
+                className="text-center"
+                style={{
+                  gridColumn: "1 / -1",
+                  padding: "60px 20px",
+                  color: "var(--cor-secundaria)",
+                }}
+              >
+                <h2
+                  className="fs-4 fw-bold"
+                  style={{
+                    marginBottom: "10px",
+                    color: "var(--cor-principal)",
+                  }}
+                >
+                  Nenhum comunicado encontrado.
+                </h2>
+                <p className="fs-6 fw-normal">
+                  Tente ajustar os filtros ou crie um novo aviso.
+                </p>
               </div>
             )}
           </div>
@@ -183,12 +257,53 @@ function MuralDeFeedback() {
       </div>
 
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-container">
-            <div className="modal-header">
-              <h2>Novo Comunicado</h2>
+        <div
+          className="position-fixed d-flex align-items-center justify-content-center"
+          style={{
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            zIndex: "1000",
+            animation: "fadeIn 0.3s",
+          }}
+        >
+          <div
+            className="bg-white"
+            style={{
+              padding: "25px",
+              borderRadius: "12px",
+              width: "500px",
+              maxWidth: "90%",
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+              animation: "slideUp 0.4s",
+            }}
+          >
+            <div
+              className="d-flex justify-content-between align-items-center"
+              style={{
+                borderBottom: "1px solid #e2e8f0",
+                paddingBottom: "15px",
+                marginBottom: "20px",
+              }}
+            >
+              <h2
+                className="fw-bold m-0"
+                style={{
+                  color: "var(--cor-principal)",
+                  fontSize: "20px",
+                }}
+              >
+                Novo Comunicado
+              </h2>
               <button
-                className="close-modal"
+                className="border-0 fs-4"
+                style={{
+                  background: "none",
+                  cursor: "pointer",
+                  color: "var(--cor-terciaria)",
+                }}
                 onClick={() => setIsModalOpen(false)}
               >
                 ×
@@ -196,14 +311,38 @@ function MuralDeFeedback() {
             </div>
             <div className="modal-body">
               <textarea
+                className="w-100 rounded-3"
+                style={{
+                  boxSizing: "border-box",
+                  minHeight: "120px",
+                  border: "1px solid #cbd5e0",
+                  padding: "10px",
+                  fontSize: "14px",
+                  resize: "vertical",
+                  marginBottom: "15px",
+                }}
                 placeholder="Digite sua mensagem aqui..."
                 value={newComunicado.message}
                 onChange={(e) =>
-                  setNewComunicado({ ...newComunicado, message: e.target.value })
+                  setNewComunicado({
+                    ...newComunicado,
+                    message: e.target.value,
+                  })
                 }
               ></textarea>
-              <div className="modal-options">
-                <label>
+              <div
+                className="d-flex justify-content-between align-items-center"
+                style={{
+                  fontSize: "14px",
+                }}
+              >
+                <label
+                  className="d-flex align-items-center"
+                  style={{
+                    gap: "5px",
+                    color: "var(--cor-terciaria)",
+                  }}
+                >
                   <input
                     type="checkbox"
                     checked={newComunicado.isUrgent}
@@ -217,9 +356,17 @@ function MuralDeFeedback() {
                   Marcar como urgente
                 </label>
                 <select
+                  style={{
+                    padding: "5px 10px",
+                    borderRadius: "6px",
+                    border: "1px solid #cbd5e0",
+                  }}
                   value={newComunicado.setor}
                   onChange={(e) =>
-                    setNewComunicado({ ...newComunicado, setor: e.target.value })
+                    setNewComunicado({
+                      ...newComunicado,
+                      setor: e.target.value,
+                    })
                   }
                 >
                   <option>Visível para: Todos</option>
@@ -230,14 +377,43 @@ function MuralDeFeedback() {
                 </select>
               </div>
             </div>
-            <div className="modal-footer">
+            <div
+              className="d-flex justify-content-end"
+              style={{
+                gap: "10px",
+                marginTop: "25px",
+              }}
+            >
               <button
-                className="cancel-btn"
+                className="border-0 fw-bold"
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                  backgroundColor: "#f0f0f0",
+                  color: "var(--cor-terciaria)",
+                }}
                 onClick={() => setIsModalOpen(false)}
               >
                 CANCELAR
               </button>
-              <button className="submit-btn" onClick={handlePublish}>
+              <button
+                className="border-0 fw-bold"
+                style={{
+                  padding: "10px 20px",
+                  borderRadius: "6px",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                  color: "#fff",
+                  backgroundColor: hoverSubmitBtn
+                    ? "var(--cor-secundaria)"
+                    : "var(--cor-principal)",
+                }}
+                onMouseEnter={() => setHoverSubmitBtn(true)}
+                onMouseLeave={() => setHoverSubmitBtn(false)}
+                onClick={handlePublish}
+              >
                 PUBLICAR
               </button>
             </div>

@@ -10,34 +10,62 @@ import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral.
 
 export default function DetalhesColaboradores() {
   return (
-    <main className="main-detalhes-colaborador">
+    <main className="d-flex">
       <Sidebar />
       <div className="detalhes-colaborador">
-        <div className="colab-header">
+        <div
+          style={{
+            gridArea: "header",
+          }}
+        >
           <ColaboradorHeader />
         </div>
 
-        <div className="info-section">
+        <div
+          style={{
+            gridArea: "info",
+          }}
+        >
           <Informacoes />
         </div>
 
-        <div className="performance-section">
+        <div
+          style={{
+            gridArea: "performance",
+          }}
+        >
           <Performance />
         </div>
 
-        <div className="feedbacks-section">
+        <div
+          style={{
+            gridArea: "feedbacks",
+          }}
+        >
           <Feedbacks />
         </div>
 
-        <div className="acoes-section">
+        <div
+          style={{
+            gridArea: "acoes",
+          }}
+        >
           <AcoesRapidas />
         </div>
 
-        <div className="historico-section">
+        <div
+          style={{
+            gridArea: "historico",
+          }}
+        >
           <Historico />
         </div>
 
-        <div className="treinamentos-section">
+        <div
+          style={{
+            gridArea: "treinamentos",
+          }}
+        >
           <Treinamentos />
         </div>
       </div>
