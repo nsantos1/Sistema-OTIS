@@ -12,7 +12,7 @@ function CartaoDeContrato(props) {
         lastUpdate,
         status,
         statusType,
-        elevatorModel,
+        elevatorModel = [] /*O .join só funciona em arryas (listas), por isso foi adicionado um lista a constante elevatorModel*/,
         salesRep,
         imageUrl,
     } = props;
