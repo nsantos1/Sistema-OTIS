@@ -13,7 +13,6 @@ import ChatPage from "./pages/chat/chatPage";
 import Colaboradores from "./pages/colaboradores/colaboradores";
 import DetalhesColaboradores from "./pages/detalhesColaborador/detalhesColaborador";
 import MuralDeFeedback from "./pages/muraldefeedback/muralDeFeedback";
-import RelatoriosAvancados from "./pages/relatoriosAvancados/relatoriosAvancados.jsx";
 
 const Rotas = () => {
   return (
@@ -39,7 +38,6 @@ const Rotas = () => {
           path="/colaboradores/detalhes"
           element={<DetalhesColaboradores />}
         />
-        <Route path="/relatorios-avancados" element={<RelatoriosAvancados />} />
       </Routes>
     </BrowserRouter>
   );

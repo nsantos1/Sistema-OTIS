@@ -184,16 +184,6 @@ export default function Sidebar() {
               transition: "color 0.2s, transform 0.2s",
             }}
           >
-            <NavLink
-              to="/relatorios-avancados"
-              className="text-reset text-decoration-none d-block text-center rounded-3"
-              style={{
-                padding: "10px 20px",
-                transition: "background-color 0.2s, color 0.2s",
-              }}
-            >
-              Relatórios Avançados
-            </NavLink>
           </li>
         </ul>
       </div>
