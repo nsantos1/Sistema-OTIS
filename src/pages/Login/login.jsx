@@ -48,15 +48,20 @@ function Login() {
   };
 
   return (
+    <main style={{
+      backgroundColor: "var(--cor-background)",
+      height: "100vh",
+      padding: "20vh",
+    }}>
     <div
-      className="w-100 bg-white"
+      className="bg-white"
       style={{
         maxWidth: "400px",
         borderRadius: "12px",
         boxShadow:
           "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
         boxSizing: "border-box",
-        margin: "20vh auto",
+        margin: "auto",
         padding: "2.5rem",
       }}
     >
@@ -297,6 +302,7 @@ function Login() {
         </div>
       </form>
     </div>
+    </main>
   );
 }
 

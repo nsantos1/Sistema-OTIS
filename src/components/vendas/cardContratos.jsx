@@ -25,7 +25,7 @@ export default function CardContratos({
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
                 padding: "20px",
                 overflow: "hidden",
-                minWidth: "250px",
+                minWidth: "380px",
             }}
         >
             <div className="flex-grow-1 d-flex flex-column">

@@ -1,0 +1,17 @@
+.estado-badge.em-aberto {
+  background-color: #e9b700;
+}
+.estado-badge.em-aberto-mais {
+  background-color: #c70000;
+}
+.estado-badge.em-atendimento {
+  background-color: #0003b5;
+}
+.estado-badge.resolvido {
+  background-color: #00a100;
+}
+
+.ver-detalhes:hover {
+  transition: 0.2s ease;
+  box-shadow: 0 0 5px 1px #00000040;
+}

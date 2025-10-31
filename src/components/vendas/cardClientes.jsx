@@ -14,7 +14,7 @@ export default function CardClientes({ id, nome, desde, local, stats }) {
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
                 padding: "20px",
                 overflow: "hidden",
-                minWidth: "280px",
+                minWidth: "380px",
             }}
         >
             <div className="text-center mb-3">

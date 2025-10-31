@@ -100,6 +100,8 @@ function FeedbackCard({
             fontSize: "14px",
             lineHeight: "1.6",
             color: "#2d3748",
+            whiteSpace: "pre-wrap",
+            overflowWrap: "break-word",
           }}
         >
           {message}

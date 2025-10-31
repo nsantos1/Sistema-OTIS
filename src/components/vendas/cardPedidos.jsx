@@ -23,8 +23,8 @@ export default function CardPedidos({
             style={{
                 borderRadius: "12px",
                 border: "1px solid #e2e8f0",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05",
-                minWidth: "330px",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+                minWidth: "380px",
             }}
         >
             <div
@@ -45,7 +45,7 @@ export default function CardPedidos({
                 <span className={statusClass}>{status}</span>
             </div>
 
-            <div className="text-center mb-3">
+            <div className="text-center mb-1">
                 <h2
                     className="fw-bold mb-1"
                     style={{
@@ -92,13 +92,7 @@ export default function CardPedidos({
                         {responsavel.inicial}
                     </div>
                     <div>
-                        <span
-                            className="fw-bold d-block"
-                            style={{
-                                fontSize: "14px",
-                                color: "var(--cor-principal)",
-                            }}
-                        >
+                        <span className="fw-bold d-block" style={{ fontSize: "14px", color: "var(--cor-principal)", }}>
                             {responsavel.nome}
                         </span>
                         <span
