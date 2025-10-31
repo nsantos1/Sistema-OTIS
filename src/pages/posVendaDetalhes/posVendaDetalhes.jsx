@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 
-import "./posVendaDetalhes.css";
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral";
 
 const mockData = [
@@ -906,329 +905,77 @@ export default function PosVendaDetalhes() {
   return (
     <main className="d-flex vh-100">
       <Sidebar />
-      <div
-        className="d-flex flex-column"
-        style={{
-          margin: "31px",
-        }}
-      >
-        <div
-          style={{
-            width: "451px",
-            marginBottom: "25px",
-          }}
-        >
+      <div className="d-flex flex-column vw-100" style={{ backgroundColor: "var(--cor-background)", padding: "31px" }}>
+        <div style={{ width: "451px", marginBottom: "25px", }}>
           <div>
-            <h1
-              className="fw-bolder"
-              style={{
-                fontSize: "28px",
-                marginBottom: "20px",
-                color: "#0a2344",
-              }}
-            >
+            <h1 className="fw-bolder" style={{ marginBottom: "20px", fontSize: "28px", color: "#0a2344" }}>
               Chamado #{chamado.id}
             </h1>
           </div>
 
-          <div>
-            <h2
-              className="fs-4 fw-semibold"
-              style={{
-                color: "#0a2344",
-              }}
-            >
-              {chamado.titulo}
-            </h2>
+          <div className="titulo">
+            <h2 className="fs-4 fw-semibold" style={{ color: "var(--cor-principal)" }}>{chamado.titulo}</h2>
 
             <div className="d-flex justify-content-between">
-              <p
-                className="fs-6 fw-normal"
-                style={{
-                  color: "var(--cor-principal)",
-                }}
-              >
-                Aberto em {chamado.data}
-              </p>
-              <p
-                className="fs-6 fw-normal"
-                style={{
-                  color: "var(--cor-principal)",
-                }}
-              >
-                Por {chamado.salesRep}
-              </p>
+              <p className="fs-6 fw-normal" style={{ color: "#0a2344" }}>Aberto em {chamado.data}</p>
+              <p className="fs-6 fw-normal" style={{ color: "#0a2344" }}>Por {chamado.salesRep}</p>
             </div>
           </div>
         </div>
 
-        {/* INFORMAÇÕES POS */}
-        <div
-          className="d-flex justify-content-between"
-          style={{
-            gap: "65px",
-          }}
-        >
-          <div
-            className="bg-white rounded-3"
-            style={{
-              width: "535px",
-              padding: "15px 23px",
-            }}
-          >
-            <h3
-              className="mt-0 fw-semibold"
-              style={{
-                color: "#0a2344",
-                marginBottom: "15px",
-                fontSize: "22px",
-              }}
-            >
-              Informações principais
-            </h3>
+        <div className="d-flex justify-content-between" style={{ gap: "65px" }}>
+          <div className="bg-white rounded-3" style={{ width: "535px", height: "700px", padding: "15px 23px" }}>
+            <h3 className="mt-0 fw-bold" style={{ marginBottom: "15px", fontSize: "22px", color: "var(--cor-principal)"}}>Informações principais</h3>
 
-            <div
-              className="bg-white rounded-3 d-flex"
-              style={{
-                padding: "15px 23px",
-                gap: "54px",
-              }}
-            >
-              <div
-                className="bg-white rounded-3"
-                style={{
-                  padding: "15px 23px",
-                }}
-              >
-                <div
-                  className="categoria d-flex flex-column"
-                  style={{
-                    gap: "5px",
-                  }}
-                >
-                  <h4
-                    className="mb-0 fw-semibold"
-                    style={{
-                      marginTop: "10px",
-                      color: "#0a2344",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Categoria
-                  </h4>
-                  <p
-                    className="mt-0 fw-normal"
-                    style={{
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {chamado.categoria}
-                  </p>
+            <div className="d-flex" style={{ gap: "54px" }}>
+              <div>
+                <div className="d-flex flex-column" style={{ gap: "5px" }}>
+                  <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "22", color: "var(--cor-principal)"}}>Categoria</h4>
+                  <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{chamado.categoria}</p>
                 </div>
 
-                <div
-                  className="modelo-do-elevador d-flex flex-column"
-                  style={{
-                    gap: "5px",
-                  }}
-                >
-                  <h4
-                    className="mb-0 fw-semibold"
-                    style={{
-                      marginTop: "10px",
-                      color: "#0a2344",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Modelo do elevador
-                  </h4>
-                  <p
-                    className="mt-0 fw-normal"
-                    style={{
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {chamado.modeloDoElevador}
-                  </p>
+                <div className="d-flex flex-column" style={{ gap: "5px" }}>
+                  <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "22", color: "var(--cor-principal)"}}>Modelo do elevador</h4>
+                  <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{chamado.modeloDoElevador}</p>
                 </div>
 
-                <div
-                  className="prioridade d-flex flex-column"
-                  style={{
-                    gap: "5px",
-                  }}
-                >
-                  <h4
-                    className="mb-0 fw-semibold"
-                    style={{
-                      marginTop: "10px",
-                      color: "#0a2344",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Prioridade
-                  </h4>
-                  <p
-                    className="mt-0 fw-normal"
-                    style={{
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {chamado.prioridade}
-                  </p>
+                <div className="d-flex flex-column" style={{ gap: "5px" }}>
+                  <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "22", color: "var(--cor-principal)"}}>Prioridade</h4>
+                  <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{chamado.prioridade}</p>
                 </div>
               </div>
 
-              <div className="infos-direita">
-                <div
-                  className="resp-comercial d-flex flex-column"
-                  style={{
-                    gap: "5px",
-                  }}
-                >
-                  <h4
-                    className="mb-0 fw-semibold"
-                    style={{
-                      marginTop: "10px",
-                      color: "#0a2344",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Resp. Comercial
-                  </h4>
-                  <p
-                    className="mt-0 fw-normal"
-                    style={{
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {chamado.salesRep}
-                  </p>
+              <div>
+                <div className="d-flex flex-column" style={{ gap: "5px" }}>
+                  <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "22", color: "var(--cor-principal)"}}>Resp. Comercial</h4>
+                  <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{chamado.salesRep}</p>
                 </div>
 
-                <div
-                  className="cliente d-flex flex-column"
-                  style={{
-                    gap: "5px",
-                  }}
-                >
-                  <h4
-                    className="mb-0 fw-semibold"
-                    style={{
-                      marginTop: "10px",
-                      color: "#0a2344",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Cliente
-                  </h4>
-                  <p
-                    className="mt-0 fw-normal"
-                    style={{
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {chamado.company}
-                  </p>
+                <div className="d-flex flex-column" style={{ gap: "5px" }}>
+                  <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "22", color: "var(--cor-principal)"}}>Cliente</h4>
+                  <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{chamado.company}</p>
                 </div>
 
-                <div
-                  className="localizacao d-flex flex-column"
-                  style={{
-                    gap: "5px",
-                  }}
-                >
-                  <h4
-                    className="mb-0 fw-semibold"
-                    style={{
-                      marginTop: "10px",
-                      color: "#0a2344",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Localização
-                  </h4>
-                  <p
-                    className="mt-0 fw-normal"
-                    style={{
-                      marginBottom: "10px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {chamado.local}
-                  </p>
+                <div className="d-flex flex-column" style={{ gap: "5px" }}>
+                  <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "22", color: "var(--cor-principal)"}}>Localização</h4>
+                  <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{chamado.local}</p>
                 </div>
               </div>
             </div>
 
-            <div
-              className="descricao bg-white rounded-3"
-              style={{
-                width: "535px",
-                padding: "15px 23px",
-                marginTop: "15px",
-              }}
-            >
-              <h3
-                className="mt-0 fw-semibold"
-                style={{
-                  color: "#0a2344",
-                  marginBottom: "15px",
-                  fontSize: "22px",
-                }}
-              >
-                Descrição
-              </h3>
-              <p
-                className="mt-0 fw-normal"
-                style={{
-                  marginBottom: "10px",
-                  fontSize: "14px",
-                }}
-              >
-                {chamadoDescricao.descricao}
-              </p>
+            <div style={{ marginTop: "15px" }}>
+              <h3 className="mt-0 fw-bold" style={{ marginBottom: "15px", fontSize: "22px", color: "var(--cor-principal)"}}>Descrição</h3>
+              <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px", lineHeight: "1.5" }}>{chamadoDescricao.descricao}</p>
             </div>
 
-            <div className="linha-do-tempo">
-              <h3
-                className="mt-0 fw-semibold"
-                style={{
-                  color: "#0a2344",
-                  marginBottom: "15px",
-                  fontSize: "22px",
-                }}
-              >
-                Linha do Tempo
-              </h3>
-              <div className="linha-do-tempo-dados">
-                <div className="updates">
+            <div>
+              <h3 className="fw-bold" style={{ marginTop: "20px", marginBottom: "15px", fontSize: "22px", color: "var(--cor-principal)" }}>Linha do Tempo</h3>
+              <div>
+                <div>
                   {chamadoUpdates.updates.map((update, index) => (
-                    <div key={index} className="update">
-                      <h4
-                        className="mb-0 fw-semibold"
-                        style={{
-                          marginTop: "10px",
-                          color: "#0a2344",
-                          fontSize: "20px",
-                        }}
-                      >
-                        {update.status}
-                      </h4>
-                      <p
-                        className="mt-0 fw-normal"
-                        style={{
-                          marginBottom: "10px",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {update.data}
-                      </p>
+                    <div key={index}>
+                      <h4 className="mb-0 fw-semibold" style={{ marginTop: "10px", fontSize: "20px", color: "var(--cor-principal)"}}>{update.status}</h4>
+                      <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{update.data}</p>
                     </div>
                   ))}
                 </div>
@@ -1236,105 +983,45 @@ export default function PosVendaDetalhes() {
             </div>
           </div>
 
-          <div className="informacoes-adicionais">
-            <div className="anexo">
-              <h3
-                className="mt-0 fw-semibold"
-                style={{
-                  color: "#0a2344",
-                  marginBottom: "15px",
-                  fontSize: "22px",
-                }}
-              >
-                Anexos
-              </h3>
+          <div className="informacoes-adicionais d-flex flex-column bg-white rounded-3" style={{ width: "801px", boxSizing: "border-box", padding: "15px 23px" }}>
+            <div className="d-flex flex-column">
+              <h3 className="mt-0 fw-bold" style={{ marginBottom: "15px", fontSize: "22px", color: "var(--cor-principal)"}}>Anexos</h3>
 
-              <div className="painel-anexos">
+              <div className="d-flex gap-4 rounded-3" style={{ boxSizing: "border-box", backgroundColor: "#F0F0F0", border: "1px solid #0a234440", padding: "11px 11px 4px 11px"}}>
                 {chamadoFotos.fotos.map((foto, index) => (
-                  <div className="foto">
+                  <div style={{ width: "fit-content" }}>
                     <img key={index} src={foto} />
-                    <p
-                      className="mt-0 fw-normal"
-                      style={{
-                        marginBottom: "10px",
-                        fontSize: "14px",
-                      }}
-                    >
-                      {foto.split("/").pop()}
-                    </p>
+                    <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{foto.split("/").pop()}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="comentarios">
-              <h3
-                className="mt-0 fw-semibold"
-                style={{
-                  color: "#0a2344",
-                  marginBottom: "15px",
-                  fontSize: "22px",
-                }}
-              >
-                Comentários
-              </h3>
+            <div className="d-flex flex-column" style={{ marginTop: "20px" }}>
+              <h3 className="mt-0 fw-bold" style={{ marginBottom: "15px", fontSize: "22px", color: "var(--cor-principal)"}}>Comentários</h3>
 
-              <div className="painel-comentarios">
+              <div className="rounded-3" style={{ boxSizing: "border-box", backgroundColor: "#F0F0F0", border: "1px solid #0a234440", padding: "11px 11px 4px 11px"}}>
                 {chamadoComentarios.comentarios.map((comentario, index) => (
-                  <div className="comentario">
-                    <div className="inicial">{comentario.autor.charAt(0)}</div>
-
+                  <div className="d-flex">
+                    <div className="d-flex align-items-center text-center fw-bold text-white rounded-circle p-2 me-2" style={{ backgroundColor: "var(--cor-principal)", height: "24px"}}>{comentario.autor.charAt(0)}</div>
                     <div>
-                      <div className="dados-pos">
-                        <div className="dados-cliente">
-                          <div className="nome-pos">
-                            <h4
-                              className="mb-0 fw-semibold"
-                              style={{
-                                marginTop: "10px",
-                                color: "#0a2344",
-                                fontSize: "20px",
-                              }}
-                            >
-                              {comentario.autor}
-                            </h4>
+                      <div className="d-flex" style={{ whiteSpace: "nowrap", gap: "20px" }}>
+                        <div className="d-flex flex-column" style={{ width: "fit-content" }}>
+                          <div>
+                            <h4 className="m-0 fw-bold" style={{ fontSize: "15px", color: "var(--cor-principal)" }}>{comentario.autor}</h4>
                           </div>
 
-                          <div className="cargo">
-                            <p
-                              className="mt-0 fw-normal"
-                              style={{
-                                marginBottom: "10px",
-                                fontSize: "14px",
-                              }}
-                            >
-                              {comentario.cargo}
-                            </p>
+                          <div>
+                            <p className="m-0 fw-semibold" style={{ fontSize: "13px" }}>{comentario.cargo}</p>
                           </div>
                         </div>
 
-                        <div className="data-pos">
-                          <p
-                            className="mt-0 fw-normal"
-                            style={{
-                              marginBottom: "10px",
-                              fontSize: "14px",
-                            }}
-                          >
-                            {comentario.data}
-                          </p>
+                        <div>
+                          <p className="m-0 fw-normal" style={{ fontSize: "14px"}}>{comentario.data}</p>
                         </div>
                       </div>
-                      <div className="div-comentario">
-                        <p
-                          className="mt-0 fw-normal"
-                          style={{
-                            marginBottom: "10px",
-                            fontSize: "14px",
-                          }}
-                        >
-                          {comentario.comentario}
-                        </p>
+                      <div style={{ margin: "3px 0 12px 0" }}>
+                        <p className="m-0 fw-normal" style={{ fontSize: "14px"}}>{comentario.comentario}</p>
                       </div>
                     </div>
                   </div>

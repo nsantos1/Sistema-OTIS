@@ -21,7 +21,7 @@ export default function Vendas() {
   // NOVA FUNÇÃO: Implementa a lógica de tela cheia (Padrão Instalacoes.jsx)
   const handleViewAll = (sectionKey) => {
     // Alterna entre a visualização de tela cheia (sectionKey) e o modo padrão (null)
-    setSelectedSection(prev => (prev === sectionKey ? null : sectionKey));
+    setSelectedSection((prev) => (prev === sectionKey ? null : sectionKey));
   };
 
   const applyFilters = (data, keys) => {
@@ -76,18 +76,18 @@ export default function Vendas() {
       CardComponent: CardClientes,
     },
   };
-    
+
   // Renderiza uma única seção, adaptada para o modo de visualização
   const renderSection = (sectionKey) => {
     const { title, data, CardComponent } = sectionMap[sectionKey];
-    
+
     const isFullView = selectedSection === sectionKey;
     const displayedData = isFullView ? data : data.slice(0, 4);
 
     if (data.length === 0) return null;
 
     return (
-      <div 
+      <div
         className={`secao-vendas ${isFullView ? "full-view-section" : ""}`}
         key={sectionKey}
       >
@@ -97,7 +97,13 @@ export default function Vendas() {
           onViewAll={() => handleViewAll(isFullView ? null : sectionKey)}
           isViewingAll={isFullView}
         />
-        <div className="cards-wrapper">
+        <div
+          className="d-grid"
+          style={{
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: "20px",
+          }}
+        >
           {displayedData.map((item) => (
             <CardComponent key={item.id} {...item} />
           ))}
@@ -105,7 +111,7 @@ export default function Vendas() {
       </div>
     );
   };
-    
+
   const noResultsFound =
     filteredPedidos.length === 0 &&
     filteredContratos.length === 0 &&
@@ -113,9 +119,22 @@ export default function Vendas() {
 
   // Lógica de renderização principal (Padrão Instalacoes.jsx)
   const content = noResultsFound ? (
-    <div className="no-results-geral">
-      <h2>Nenhum item encontrado</h2>
-      <p>Tente ajustar os filtros da sua busca.</p>
+    <div
+      className="d-flex flex-column justify-content-center align-items-center h-100 text-center"
+      style={{
+        color: "var(--cor-terciaria)",
+      }}
+    >
+      <h2
+        className="fs-4 fw-bold"
+        style={{
+          color: "var(--cor-principal)",
+          marginBottom: "10px",
+        }}
+      >
+        Nenhum item encontrado
+      </h2>
+      <p className="fs-6">Tente ajustar os filtros da sua busca.</p>
     </div>
   ) : selectedSection ? (
     // MODO TELA CHEIA: Renderiza apenas a seção selecionada
@@ -130,11 +149,21 @@ export default function Vendas() {
   );
 
   return (
-    <main className="main-vendas">
+    <main
+      className="d-flex vh-100 overflow-hidden"
+      style={{
+        backgroundColor: "var(--cor-background)",
+      }}
+    >
       <Sidebar />
       <BarraDeFiltrosVendas filters={filters} onFilterChange={setFilters} />
 
-      <div className="vendas-conteudo-principal">
+      <div
+        className="flex-grow-1 overflow-y-auto"
+        style={{
+          padding: "40px",
+        }}
+      >
         {content}
       </div>
     </main>
