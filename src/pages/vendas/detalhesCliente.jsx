@@ -11,7 +11,7 @@ export default function DetalhesCliente() {
 
   if (!cliente) {
     return (
-      <main className="main-vendas">
+      <main className="d-flex">
         <Sidebar />
         <div
           className="flex-grow-1 overflow-y-auto"
@@ -53,12 +53,13 @@ export default function DetalhesCliente() {
   };
 
   return (
-    <main className="main-vendas">
+    <main className="d-flex">
       <Sidebar />
       <div
         className="flex-grow-1 overflow-y-auto"
         style={{
           padding: "40px",
+          backgroundColor: "var(--cor-background)"
         }}
       >
         <div

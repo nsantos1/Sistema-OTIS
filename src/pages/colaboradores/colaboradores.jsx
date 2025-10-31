@@ -203,18 +203,18 @@ export default function Colaboradores() {
         {isModalOpen && (
           <>
             <div
-              className="position-fixed w-100 h-100 opacity-0"
+              className="position-fixed w-100 h-100 opacity-1"
               style={{
                 top: "0",
                 left: "0",
-                background: "rgba(0, 0, 0, 0.5",
+                background: "rgba(0, 0, 0, 0.5)",
                 zIndex: "998",
                 animation: "fadeIn 0.3s forwards",
               }}
               onClick={fecharModal}
             ></div>
             <div
-              className="position-fixed bg-white opacity-0"
+              className="position-fixed bg-white opacity-1"
               style={{
                 top: "50%",
                 left: "50%",
@@ -229,9 +229,8 @@ export default function Colaboradores() {
               }}
             >
               <h2
-                className="fw-bolder text-uppercase text-center"
+                className="fw-bolder text-uppercase text-center fs-2"
                 style={{
-                  fontSize: "48px",
                   color: "var(--cor-principal)",
                 }}
               >
@@ -486,7 +485,7 @@ export default function Colaboradores() {
               </div>
               <div className="d-flex justify-content-end gap-3">
                 <button
-                  className="bg-white border-0 fw-bold py-2 px-3 rounded-2"
+                  className="text-white border-0 fw-bold py-2 px-3 rounded-2"
                   style={{
                     backgroundColor: "#0d2d56",
                     cursor: "pointer",

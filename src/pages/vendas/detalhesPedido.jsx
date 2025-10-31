@@ -17,7 +17,7 @@ export default function DetalhesPedido() {
           className="flex-grow-1 overflow-y-auto"
           style={{
             padding: "40px",
-            backgroundColor: "#f7fafc",
+            backgroundColor: "var(--cor-background)"
           }}
         >
           <h1>Pedido não encontrado</h1>
