@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import BarraDeFiltrosPosVenda from "../../components/barraDeFiltros/barraDeFiltrosPosVenda.jsx";
 import SecaoDeContratos from "../../components/instalacoes/secaoDeContratos/secaoDeContratos.jsx"; // Componente padronizado
 import Sidebar from "../../components/menuPrincipalLateral/menuPrincipalLateral.jsx";
+import CartaoDeContratoPosVenda from "../../components/posVenda/cartaoDeContratoPosVenda.jsx";
 
 // DADOS MANTIDOS DENTRO DO ARQUIVO, CONFORME SOLICITADO
 const mockData = {
@@ -268,6 +269,7 @@ function PosVenda() {
       contracts={filteredData[selectedEtapa] || []}
       isFullView={true}
       onViewAllClick={() => handleViewAll(null)} // Botão "Ver Todos" volta
+      AfterComponent={CartaoDeContratoPosVenda}
     />
   ) : noResults ? (
     <div
@@ -308,6 +310,7 @@ function PosVenda() {
               contracts={filteredData[tipo]}
               isFullView={false} // Não está em tela cheia
               onViewAllClick={() => handleViewAll(tipo)} // Botão "Ver Todos" expande
+              AfterComponent={CartaoDeContratoPosVenda}
             />
           )
       )}

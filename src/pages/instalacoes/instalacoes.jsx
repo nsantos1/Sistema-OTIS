@@ -25,6 +25,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+import CartaoDeContrato from "../../components/instalacoes/cartaoDeContrato/cartaoDeContrato.jsx";
 
 function Instalacoes() {
   const [filters, setFilters] = useState({
@@ -133,6 +134,7 @@ function Instalacoes() {
       contracts={filteredData[selectedEtapa] || []}
       isFullView={true}
       onViewAllClick={() => handleViewAll(null)}
+      AfterComponent={CartaoDeContrato}
     />
   ) : noResults ? (
     <div
@@ -250,6 +252,7 @@ function Instalacoes() {
           contracts={filteredData[etapa]}
           isFullView={false}
           onViewAllClick={() => handleViewAll(etapa)}
+          AfterComponent={CartaoDeContrato}
         />
       ))}
     </>

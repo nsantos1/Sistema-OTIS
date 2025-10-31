@@ -1,14 +1,21 @@
 import React, { useRef, useState } from "react";
-import CartaoDeContrato from "../cartaoDeContrato/cartaoDeContrato.jsx";
 import "./secaoDeContratos.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { IoArrowBackOutline } from "react-icons/io5";
+
+// Componentes
+import CartaoDeContrato from "../cartaoDeContrato/cartaoDeContrato.jsx";
+import CartaoDeContratoPosVenda from "../../posVenda/cartaoDeContratoPosVenda.jsx";
+import CardClientes from "../../vendas/cardClientes.jsx";
+import CardContratos from "../../vendas/cardContratos.jsx";
+import CardPedidos from "../../vendas/cardPedidos.jsx";
 
 function SecaoDeContratos({
   title,
   contracts = [],
   onViewAllClick,
   isFullView = false,
+  AfterComponent
 }) {
   const containerRef = useRef(null);
 
@@ -126,7 +133,7 @@ function SecaoDeContratos({
         ref={containerRef}
       >
         {contracts.map((contract) => (
-          <CartaoDeContrato key={contract.id} {...contract} />
+          AfterComponent && <AfterComponent key={contract.id} {...contract} />
         ))}
       </div>
     </section>
