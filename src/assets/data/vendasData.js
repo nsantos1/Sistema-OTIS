@@ -60,7 +60,7 @@ export const vendasData = {
       statusType: "ontime",
       cliente: "Construtora Maston",
       local: "São Paulo/SP - BR",
-      modelo: "Gen2® Comfort Panorâmico",
+      modelo: ["Gen2® Comfort Panorâmico"],
       ultimaAtualizacao: "27/08/2025",
       responsavel: { nome: "João Ricardo", inicial: "J" },
       imagemUrl: "/src/assets/img/image 3.png",
@@ -71,7 +71,7 @@ export const vendasData = {
       statusType: "alert",
       cliente: "Inovações SA",
       local: "Rio de Janeiro/RJ - BR",
-      modelo: "OTIS-Y",
+      modelo: ["OTIS-Y"],
       ultimaAtualizacao: "28/08/2025",
       responsavel: { nome: "Maria Silva", inicial: "M" },
       imagemUrl:
@@ -83,7 +83,7 @@ export const vendasData = {
       statusType: "late",
       cliente: "Future Towers",
       local: "Curitiba, PR - BR",
-      modelo: "OTIS-Z",
+      modelo: ["OTIS-Z"],
       ultimaAtualizacao: "29/08/2025",
       responsavel: { nome: "Carlos Mendes", inicial: "C" },
       imagemUrl:
@@ -95,7 +95,7 @@ export const vendasData = {
       statusType: "ontime",
       cliente: "Tech Corp",
       local: "São Paulo, SP - BR",
-      modelo: "OTIS-X",
+      modelo: ["OTIS-X"],
       ultimaAtualizacao: "30/08/2025",
       responsavel: { nome: "Fernanda Lima", inicial: "F" },
       imagemUrl:
@@ -107,7 +107,7 @@ export const vendasData = {
       statusType: "ontime",
       cliente: "Global Solutions",
       local: "Brasília, DF - BR",
-      modelo: "OTIS-Y",
+      modelo: ["OTIS-Y"],
       ultimaAtualizacao: "01/09/2025",
       responsavel: { nome: "Pedro Almeida", inicial: "P" },
       imagemUrl:

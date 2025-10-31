@@ -6,7 +6,6 @@ import CardContratos from "../../components/vendas/cardContratos";
 import CardClientes from "../../components/vendas/cardClientes";
 import BarraDeFiltrosVendas from "../../components/barraDeFiltros/barraDeFiltrosVendas";
 import { vendasData } from "../../assets/data/vendasData"; // Import mantido
-import CabecalhoSecoes from "../../components/cabecalhoSecoes/cabecalhoSecoes"; // Componente de cabeçalho mantido
 import SecaoDeContratos from "../../components/instalacoes/secaoDeContratos/secaoDeContratos";
 
 export default function Vendas() {
@@ -83,7 +82,7 @@ export default function Vendas() {
         const { title, data, CardComponent } = sectionMap[sectionKey];
 
         const isFullView = selectedSection === sectionKey;
-        const displayedData = isFullView ? data : data.slice(0, 4);
+        const displayedData = data;
 
         if (data.length === 0) return null;
 

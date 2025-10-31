@@ -989,8 +989,8 @@ export default function PosVendaDetalhes() {
 
               <div className="d-flex gap-4 rounded-3" style={{ boxSizing: "border-box", backgroundColor: "#F0F0F0", border: "1px solid #0a234440", padding: "11px 11px 4px 11px"}}>
                 {chamadoFotos.fotos.map((foto, index) => (
-                  <div style={{ width: "fit-content" }}>
-                    <img key={index} src={foto} />
+                  <div key={index} style={{ width: "fit-content" }}>
+                    <img src={foto} />
                     <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px"}}>{foto.split("/").pop()}</p>
                   </div>
                 ))}
@@ -1002,7 +1002,7 @@ export default function PosVendaDetalhes() {
 
               <div className="rounded-3" style={{ boxSizing: "border-box", backgroundColor: "#F0F0F0", border: "1px solid #0a234440", padding: "11px 11px 4px 11px"}}>
                 {chamadoComentarios.comentarios.map((comentario, index) => (
-                  <div className="d-flex">
+                  <div key={index} className="d-flex">
                     <div className="d-flex align-items-center text-center fw-bold text-white rounded-circle p-2 me-2" style={{ backgroundColor: "var(--cor-principal)", height: "24px"}}>{comentario.autor.charAt(0)}</div>
                     <div>
                       <div className="d-flex" style={{ whiteSpace: "nowrap", gap: "20px" }}>

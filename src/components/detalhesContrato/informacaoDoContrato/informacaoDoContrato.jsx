@@ -41,9 +41,9 @@ export default function InformacaoDoContrato({ contract }) {
             <div className="etapas">
                 <h4>Etapas</h4>
                 {contract.elevatorModel.map((elevator, index) => (
-                    <div>
+                    <div key={index}>
                         <h5>{elevator}</h5>
-                        <div className="timeline" key={index}>
+                        <div className="timeline">
                             <div className="step completed">Aprovação do contrato</div>
                             <div className="step completed">Data prévia da obra civil</div>
                             <div className="step completed">Fabricação</div>

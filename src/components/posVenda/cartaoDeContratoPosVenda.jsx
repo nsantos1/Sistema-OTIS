@@ -13,6 +13,75 @@ export default function CartaoDeContratoPosVenda(props) {
         relato,
     } = props;
 
+    const categoriaContrato = [
+        {
+            id: "CT-0921",
+            categoria: "Manutenção",
+        },
+        {
+            id: "CT-0922",
+            categoria: "Manutenção",
+        },
+        {
+            id: "CT-0923",
+            categoria: "Manutenção",
+        },
+        {
+            id: "CT-0924",
+            categoria: "Manutenção",
+        },
+        {
+            id: "CT-0925",
+            categoria: "Manutenção",
+        },
+        {
+            id: "CT-0926",
+            categoria: "Suporte",
+        },
+        {
+            id: "CT-0927",
+            categoria: "Suporte",
+        },
+        {
+            id: "CT-0928",
+            categoria: "Suporte",
+        },
+        {
+            id: "CT-0929",
+            categoria: "Suporte",
+        },
+        {
+            id: "CT-0930",
+            categoria: "Suporte",
+        },
+        {
+            id: "CT-0931",
+            categoria: "Avaliação",
+        },
+        {
+            id: "CT-0932",
+            categoria: "Avaliação",
+        },
+        {
+            id: "CT-0933",
+            categoria: "Avaliação",
+        },
+        {
+            id: "CT-0934",
+            categoria: "Avaliação",
+        },
+        {
+            id: "CT-0935",
+            categoria: "Avaliação",
+        },
+        {
+            id: "CT-0936",
+            categoria: "Avaliação",
+        },
+    ]
+
+    const contrato = categoriaContrato.find((item) => item.id === id);
+
     const tituloEstado = {
         "em-aberto": "Em aberto",
         "em-aberto-mais": "Em aberto",
@@ -26,7 +95,7 @@ export default function CartaoDeContratoPosVenda(props) {
                 <div className="codigo">#{id}</div>
                 <div className="badges-tipo">
                     {/* arrumar a badge pra puxar a categoria tipo "Manutenção" */}
-                    <div className="tipo-badge">{titulo}</div>
+                    <div className="tipo-badge">{contrato.categoria}</div>
                     <div className={`estado-badge ${estado}`}>
                         {tituloEstado[estado]}
                     </div>

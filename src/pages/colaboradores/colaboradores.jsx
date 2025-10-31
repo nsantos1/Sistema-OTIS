@@ -10,195 +10,195 @@ import { colaboradoresData as initialColaboradoresData } from "../../assets/data
 const ITEMS_PER_LOAD = 12;
 
 export default function Colaboradores() {
-  const [colaboradores, setColaboradores] = useState(initialColaboradoresData);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_LOAD);
-  const [newColabImage, setNewColabImage] = useState(null);
-  const fileInputRef = useRef(null);
-  const [newColabData, setNewColabData] = useState({
-    nome: "",
-    cargo: "-",
-    setor: "-",
-    local: "",
-    inicio: "",
-    termino: "",
-    email: "",
-    telefone: "",
-  });
-
-  const [filters, setFilters] = useState({
-    nome: "",
-    cargo: [],
-    setor: [],
-    status: "todos",
-  });
-
-  const abrirModal = () => {
-    setIsModalOpen(true);
-    setNewColabImage(null);
-  };
-
-  const fecharModal = () => {
-    setIsModalOpen(false);
-    setNewColabImage(null);
-    setNewColabData({
-      nome: "",
-      cargo: "-",
-      setor: "-",
-      local: "",
-      inicio: "",
-      termino: "",
-      email: "",
-      telefone: "",
+    const [colaboradores, setColaboradores] = useState(initialColaboradoresData);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [itemsToShow, setItemsToShow] = useState(ITEMS_PER_LOAD);
+    const [newColabImage, setNewColabImage] = useState(null);
+    const fileInputRef = useRef(null);
+    const [newColabData, setNewColabData] = useState({
+        nome: "",
+        cargo: "-",
+        setor: "-",
+        local: "",
+        inicio: "",
+        termino: "",
+        email: "",
+        telefone: "",
     });
-  };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewColabData((prev) => ({ ...prev, [name]: value }));
-  };
+    const [filters, setFilters] = useState({
+        nome: "",
+        cargo: [],
+        setor: [],
+        status: "todos",
+    });
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setNewColabImage(URL.createObjectURL(file));
-    }
-  };
-
-  const handleUploadClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleCriarColaborador = () => {
-    const newId = `#FO-${303070 + colaboradores.length + 1}`;
-
-    // Lógica para gerar um avatar real aleatório
-    const randomId = Math.floor(Math.random() * 70) + 1; // Gera um número de 1 a 70
-    const randomAvatarUrl = `https://randomuser.me/api/portraits/men/${randomId}.jpg`;
-
-    const novoColaborador = {
-      id: newId,
-      nome: newColabData.nome,
-      status: "ativo",
-      cargo: newColabData.cargo,
-      setor: newColabData.setor,
-      supervisor: "A Definir",
-      avatarUrl: newColabImage || randomAvatarUrl, // Usa o avatar real aleatório se nenhum for enviado
+    const abrirModal = () => {
+        setIsModalOpen(true);
+        setNewColabImage(null);
     };
-    setColaboradores([novoColaborador, ...colaboradores]);
-    fecharModal();
-    setItemsToShow(ITEMS_PER_LOAD);
-  };
 
-  const handleCarregarMais = () => {
-    setItemsToShow((prev) => prev + ITEMS_PER_LOAD);
-  };
+    const fecharModal = () => {
+        setIsModalOpen(false);
+        setNewColabImage(null);
+        setNewColabData({
+            nome: "",
+            cargo: "-",
+            setor: "-",
+            local: "",
+            inicio: "",
+            termino: "",
+            email: "",
+            telefone: "",
+        });
+    };
 
-  const filteredColaboradores = colaboradores.filter((colaborador) => {
-    const nomeMatch = filters.nome
-      ? colaborador.nome.toLowerCase().includes(filters.nome.toLowerCase())
-      : true;
-    const cargoMatch =
-      filters.cargo.length > 0
-        ? filters.cargo.includes(colaborador.cargo)
-        : true;
-    const setorMatch =
-      filters.setor.length > 0
-        ? filters.setor.includes(colaborador.setor)
-        : true;
-    const statusMatch =
-      filters.status && filters.status !== "todos"
-        ? colaborador.status.toLowerCase().replace(" ", "-") === filters.status
-        : true;
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setNewColabData((prev) => ({ ...prev, [name]: value }));
+    };
 
-    return nomeMatch && cargoMatch && setorMatch && statusMatch;
-  });
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setNewColabImage(URL.createObjectURL(file));
+        }
+    };
 
-  const displayedColaboradores = filteredColaboradores.slice(0, itemsToShow);
-  const showCarregarMais = itemsToShow < filteredColaboradores.length;
-  const noResults = filteredColaboradores.length === 0;
+    const handleUploadClick = () => {
+        fileInputRef.current.click();
+    };
 
-  return (
-    <main
-      className="d-flex vh-100 overflow-hidden"
-      style={{
-        backgroundColor: "var(--cor-background)",
-      }}
-    >
-      <div>
-        <Sidebar />
-      </div>
-      <div className="d-flex w-100">
-        <BarraDeFiltrosColaboradores
-          filters={filters}
-          onFilterChange={setFilters}
-        />
-        <div
-          className="flex-grow-1 overflow-y-auto"
-          style={{
-            padding: "0 40px 40px 40px",
-          }}
-        >
-          <CabecalhoColaboradores
-            btFunc={abrirModal}
-            totalColaboradores={colaboradores.length}
-            colaboradoresAtivos={
-              colaboradores.filter((c) => c.status === "ativo").length
-            }
-            colaboradoresTreinamento={
-              colaboradores.filter((c) => c.status === "em treinamento").length
-            }
-            colaboradoresInativos={
-              colaboradores.filter((c) => c.status === "inativo").length
-            }
-          />
+    const handleCriarColaborador = () => {
+        const newId = `#FO-${303070 + colaboradores.length + 1}`;
 
-          <div
-            className="d-grid"
+        // Lógica para gerar um avatar real aleatório
+        const randomId = Math.floor(Math.random() * 70) + 1; // Gera um número de 1 a 70
+        const randomAvatarUrl = `https://randomuser.me/api/portraits/men/${randomId}.jpg`;
+
+        const novoColaborador = {
+            id: newId,
+            nome: newColabData.nome,
+            status: "ativo",
+            cargo: newColabData.cargo,
+            setor: newColabData.setor,
+            supervisor: "A Definir",
+            avatarUrl: newColabImage || randomAvatarUrl, // Usa o avatar real aleatório se nenhum for enviado
+        };
+        setColaboradores([novoColaborador, ...colaboradores]);
+        fecharModal();
+        setItemsToShow(ITEMS_PER_LOAD);
+    };
+
+    const handleCarregarMais = () => {
+        setItemsToShow((prev) => prev + ITEMS_PER_LOAD);
+    };
+
+    const filteredColaboradores = colaboradores.filter((colaborador) => {
+        const nomeMatch = filters.nome
+            ? colaborador.nome.toLowerCase().includes(filters.nome.toLowerCase())
+            : true;
+        const cargoMatch =
+            filters.cargo.length > 0
+                ? filters.cargo.includes(colaborador.cargo)
+                : true;
+        const setorMatch =
+            filters.setor.length > 0
+                ? filters.setor.includes(colaborador.setor)
+                : true;
+        const statusMatch =
+            filters.status && filters.status !== "todos"
+                ? colaborador.status.toLowerCase().replace(" ", "-") === filters.status
+                : true;
+
+        return nomeMatch && cargoMatch && setorMatch && statusMatch;
+    });
+
+    const displayedColaboradores = filteredColaboradores.slice(0, itemsToShow);
+    const showCarregarMais = itemsToShow < filteredColaboradores.length;
+    const noResults = filteredColaboradores.length === 0;
+
+    return (
+        <main
+            className="d-flex vh-100 overflow-hidden"
             style={{
-              gridTemplateColumns: "repeat(auto-fill, minmax(252px, 1fr))",
-              gap: "25px",
+                backgroundColor: "var(--cor-background)",
             }}
-          >
-            {noResults ? (
-              <div
-                className="text-center"
-                style={{
-                  gridColumn: "1 / -1",
-                  padding: "60px 20px",
-                  color: "var(--cor-secundaria)",
-                }}
-              >
-                <h2
-                  className="fw-bold"
-                  style={{
-                    fontSize: "30px",
-                    marginBottom: "10px",
-                    color: "var(--cor-principal)",
-                  }}
+        >
+            <div>
+                <Sidebar />
+            </div>
+            <div className="d-flex w-100">
+                <BarraDeFiltrosColaboradores
+                    filters={filters}
+                    onFilterChange={setFilters}
+                />
+                <div
+                    className="flex-grow-1 overflow-y-auto"
+                    style={{
+                        padding: "0 40px 40px 40px",
+                    }}
                 >
-                  Nenhum colaborador encontrado!
-                </h2>
-                <p
-                  className="fw-medium"
-                  style={{
-                    fontSize: "18px",
-                  }}
-                >
-                  Tente ajustar seus filtros ou cadastre um novo colaborador.
-                </p>
-              </div>
-            ) : (
-              displayedColaboradores.map((colaborador) => (
-                <CardColaborador key={colaborador.id} {...colaborador} />
-              ))
-            )}
-          </div>
+                    <CabecalhoColaboradores
+                        btFunc={abrirModal}
+                        totalColaboradores={colaboradores.length}
+                        colaboradoresAtivos={
+                            colaboradores.filter((c) => c.status === "ativo").length
+                        }
+                        colaboradoresTreinamento={
+                            colaboradores.filter((c) => c.status === "em treinamento").length
+                        }
+                        colaboradoresInativos={
+                            colaboradores.filter((c) => c.status === "inativo").length
+                        }
+                    />
 
-          {showCarregarMais && !noResults && (
-            <CarregarMais item={"colaboradores"} btFunc={handleCarregarMais} />
-          )}
-        </div>
+                    <div
+                        className="d-grid"
+                        style={{
+                            gridTemplateColumns: "repeat(auto-fill, minmax(252px, 1fr))",
+                            gap: "25px",
+                        }}
+                    >
+                        {noResults ? (
+                            <div
+                                className="text-center"
+                                style={{
+                                    gridColumn: "1 / -1",
+                                    padding: "60px 20px",
+                                    color: "var(--cor-secundaria)",
+                                }}
+                            >
+                                <h2
+                                    className="fw-bold"
+                                    style={{
+                                        fontSize: "30px",
+                                        marginBottom: "10px",
+                                        color: "var(--cor-principal)",
+                                    }}
+                                >
+                                    Nenhum colaborador encontrado!
+                                </h2>
+                                <p
+                                    className="fw-medium"
+                                    style={{
+                                        fontSize: "18px",
+                                    }}
+                                >
+                                    Tente ajustar seus filtros ou cadastre um novo colaborador.
+                                </p>
+                            </div>
+                        ) : (
+                            displayedColaboradores.map((colaborador) => (
+                                <CardColaborador key={colaborador.id} {...colaborador} />
+                            ))
+                        )}
+                    </div>
+
+                    {showCarregarMais && !noResults && (
+                        <CarregarMais item={"colaboradores"} btFunc={handleCarregarMais} />
+                    )}
+                </div>
 
         {isModalOpen && (
           <>
@@ -237,41 +237,41 @@ export default function Colaboradores() {
                 Novo Colaborador
               </h2>
 
-              <div className="d-flex align-items-center gap-3 mt-3 mb-4">
-                <input
-                  className="rounded-2"
-                  style={{
-                    padding: "6px 10px",
-                    border: "1px solid #ccc",
-                    display: "none",
-                  }}
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleImageChange}
-                  accept="image/*"
-                />
+                            <div className="d-flex align-items-center gap-3 mt-3 mb-4">
+                                <input
+                                    className="rounded-2"
+                                    style={{
+                                        padding: "6px 10px",
+                                        border: "1px solid #ccc",
+                                        display: "none",
+                                    }}
+                                    type="file"
+                                    ref={fileInputRef}
+                                    onChange={handleImageChange}
+                                    accept="image/*"
+                                />
 
-                <div>
-                  <img
-                    className="rounded-circle d-flex align-items-center justify-content-center"
-                    style={{
-                      width: "130px",
-                      height: "130px",
-                    }}
-                    src={newColabImage || "../src/assets/img/person.svg"}
-                    alt="Foto do Colaborador"
-                  />
-                </div>
-                <span
-                  className="fw-bold fs-4"
-                  style={{
-                    color: "var(--cor-principal)",
-                  }}
-                  onClick={handleUploadClick}
-                >
-                  Adicionar foto
-                </span>
-              </div>
+                                <div>
+                                    <img
+                                        className="rounded-circle d-flex align-items-center justify-content-center"
+                                        style={{
+                                            width: "130px",
+                                            height: "130px",
+                                        }}
+                                        src={newColabImage || "../src/assets/img/person.svg"}
+                                        alt="Foto do Colaborador"
+                                    />
+                                </div>
+                                <span
+                                    className="fw-bold fs-4"
+                                    style={{
+                                        color: "var(--cor-principal)",
+                                    }}
+                                    onClick={handleUploadClick}
+                                >
+                                    Adicionar foto
+                                </span>
+                            </div>
 
               <div
                 className="d-flex mb-4"
