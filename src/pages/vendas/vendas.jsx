@@ -87,31 +87,14 @@ export default function Vendas() {
         if (data.length === 0) return null;
 
         return (
-            <div
-                className={`secao-vendas ${isFullView ? "full-view-section" : ""}`}
+            <SecaoDeContratos
                 key={sectionKey}
-            >
-                {isFullView ? (
-                    <SecaoDeContratos
-                        key={sectionKey}
-                        title={title}
-                        contracts={displayedData}
-                        isFullView={false}
-                        onViewAllClick={() => handleViewAll(null)}
-                        AfterComponent={CardComponent}
-                    />
-                ) : (
-                    <SecaoDeContratos
-                        key={sectionKey}
-                        title={title}
-                        contracts={displayedData}
-                        isFullView={false}
-                        onViewAllClick={() => handleViewAll(sectionKey)}
-                        AfterComponent={CardComponent}
-                    />
-                )}
-
-            </div>
+                title={title}
+                contracts={displayedData}
+                isFullView={isFullView} // passa true se estiver expandido
+                onViewAllClick={() => handleViewAll(isFullView ? null : sectionKey)} // alterna
+                AfterComponent={CardComponent}
+            />
         );
     };
 
@@ -120,55 +103,55 @@ export default function Vendas() {
         filteredContratos.length === 0 &&
         filteredClientes.length === 0;
 
-  // Lógica de renderização principal (Padrão Instalacoes.jsx)
-  const content = noResultsFound ? (
-    <div
-      className="d-flex flex-column justify-content-center align-items-center h-100 text-center"
-      style={{
-        color: "var(--cor-terciaria)",
-      }}
-    >
-      <h2
-        className="fs-4 fw-bold"
-        style={{
-          color: "var(--cor-principal)",
-          marginBottom: "10px",
-        }}
-      >
-        Nenhum item encontrado
-      </h2>
-      <p className="fs-6">Tente ajustar os filtros da sua busca.</p>
-    </div>
-  ) : selectedSection ? (
-    // MODO TELA CHEIA: Renderiza apenas a seção selecionada
-    renderSection(selectedSection)
-  ) : (
-    // MODO PADRÃO: Renderiza todas as seções
-    <>
-      {renderSection("pedidos")}
-      {renderSection("contratos")}
-      {renderSection("clientes")}
-    </>
-  );
+    // Lógica de renderização principal (Padrão Instalacoes.jsx)
+    const content = noResultsFound ? (
+        <div
+            className="d-flex flex-column justify-content-center align-items-center h-100 text-center"
+            style={{
+                color: "var(--cor-terciaria)",
+            }}
+        >
+            <h2
+                className="fs-4 fw-bold"
+                style={{
+                    color: "var(--cor-principal)",
+                    marginBottom: "10px",
+                }}
+            >
+                Nenhum item encontrado
+            </h2>
+            <p className="fs-6">Tente ajustar os filtros da sua busca.</p>
+        </div>
+    ) : selectedSection ? (
+        // MODO TELA CHEIA: Renderiza apenas a seção selecionada
+        renderSection(selectedSection)
+    ) : (
+        // MODO PADRÃO: Renderiza todas as seções
+        <>
+            {renderSection("pedidos")}
+            {renderSection("contratos")}
+            {renderSection("clientes")}
+        </>
+    );
 
-  return (
-    <main
-      className="d-flex vh-100 overflow-hidden"
-      style={{
-        backgroundColor: "var(--cor-background)",
-      }}
-    >
-      <Sidebar />
-      <BarraDeFiltrosVendas filters={filters} onFilterChange={setFilters} />
+    return (
+        <main
+            className="d-flex vh-100 overflow-hidden"
+            style={{
+                backgroundColor: "var(--cor-background)",
+            }}
+        >
+            <Sidebar />
+            <BarraDeFiltrosVendas filters={filters} onFilterChange={setFilters} />
 
-      <div
-        className="flex-grow-1 overflow-y-auto"
-        style={{
-          padding: "40px",
-        }}
-      >
-        {content}
-      </div>
-    </main>
-  );
+            <div
+                className="flex-grow-1 overflow-y-auto"
+                style={{
+                    padding: "40px",
+                }}
+            >
+                {content}
+            </div>
+        </main>
+    );
 }
