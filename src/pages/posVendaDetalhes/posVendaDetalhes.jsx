@@ -993,7 +993,7 @@ export default function PosVendaDetalhes() {
                                 {chamadoFotos.fotos.map((foto, index) => (
                                     <div key={index} style={{ width: "fit-content" }}>
                                         <img src={foto} />
-                                        <a href="{foto}" download="foto_painel_travado.jpg" className="text-decoration-none">
+                                        <a href={foto} download="foto_painel_travado.jpg" className="text-decoration-none">
                                             <p className="mt-0 fw-normal" style={{ marginBottom: "10px", fontSize: "14px" }}><FaDownload /> {foto.split("/").pop()}</p>
                                         </a>
                                     </div>
