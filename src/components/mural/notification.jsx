@@ -1,5 +1,5 @@
 import React from "react";
-import "./Notification.css";
+import "./notification.css";
 import { FaCheckCircle } from "react-icons/fa";
 
 function Notification({ message }) {
