@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ConversationItem from "./ConversationItem";
+import ConversationItem from "./conversationItem";
 import { IoSearch } from "react-icons/io5";
 import "./ConversationsList.css";
 
