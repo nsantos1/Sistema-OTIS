@@ -926,7 +926,7 @@ export default function PosVendaDetalhes() {
                 </div>
 
                 <div className="d-flex justify-content-between" style={{ gap: "65px" }}>
-                    <div className="bg-white rounded-3" style={{ width: "535px", height: "700px", padding: "15px 23px" }}>
+                    <div className="bg-white rounded-3" style={{ width: "535px", minHeight: "700px", maxHeight: "765px", padding: "15px 23px" }}>
                         <h3 className="mt-0 fw-bold" style={{ marginBottom: "15px", fontSize: "22px", color: "var(--cor-principal)" }}>Informações principais</h3>
 
                         <div className="d-flex" style={{ gap: "54px" }}>
