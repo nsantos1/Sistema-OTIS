@@ -272,14 +272,14 @@ function Dashboard() {
 
   return (
     <main
-      className="d-flex min-vh-100"
+      className="d-flex vh-100 overflow-hidden"
       style={{
         backgroundColor: "var(--cor-background)",
       }}
     >
       <Sidebar />
       <div
-        className="flex-grow-1"
+        className="flex-grow-1 overflow-y-auto"
         style={{
           padding: "30px 30px 30px 50px",
         }}
